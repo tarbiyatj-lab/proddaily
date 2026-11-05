@@ -54,19 +54,19 @@ export default function WeeklyQuiz({
   };
 
   return (
-    <div className="max-w-3xl mx-auto space-y-6 pb-16">
+    <div className="max-w-3xl mx-auto space-y-4 sm:space-y-6 pb-16 px-1 sm:px-0">
       {/* Header */}
-      <div className="border-b border-slate-200 pb-4 space-y-2">
-        <h1 className="font-display text-3xl font-extrabold text-slate-900 tracking-tight">
+      <div className="border-b border-slate-200 pb-3 sm:pb-4 space-y-1.5 sm:space-y-2">
+        <h1 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
           Weekly Retention Diagnostic
         </h1>
-        <p className="text-sm text-slate-600">
+        <p className="text-xs sm:text-sm text-slate-600">
           Calibrate your mental models and cross-product intuition across this week's apps.
         </p>
       </div>
 
       {!isFinished ? (
-        <div className="editorial-card rounded-2xl p-6 sm:p-8 space-y-6">
+        <div className="editorial-card rounded-2xl p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6">
           <div className="flex items-center justify-between text-xs font-mono-tag font-bold text-slate-500">
             <span>QUESTION {currentQuestionIndex + 1} OF {activeQuiz.questions.length}</span>
             <span>SCORE: {score}</span>
