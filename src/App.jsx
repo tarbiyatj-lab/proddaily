@@ -7,6 +7,7 @@ import CustomTeardownModal from './components/CustomTeardownModal';
 import ReminderModal from './components/ReminderModal';
 import PRDViewer from './components/PRDViewer';
 import { SEED_PRODUCTS, WEEKLY_QUIZZES } from './data/products';
+import { generateDeepTeardown } from './data/productIntelligence';
 import { sendTestNotification } from './utils/notifications';
 
 export default function App() {
@@ -16,7 +17,22 @@ export default function App() {
     if (!saved) return SEED_PRODUCTS;
     try {
       const parsed = JSON.parse(saved);
-      const customOnes = parsed.filter(p => p.id && p.id.startsWith('custom_'));
+      const customOnes = parsed
+        .filter(p => p.id && p.id.startsWith('custom_'))
+        .map(p => {
+          // If stored custom product is missing rich personas or coreSurfaces, auto-hydrate with deep intelligence
+          if (!p.personas || p.personas.length === 0 || !p.whatIsTheProduct?.coreSurfaces) {
+            const enriched = generateDeepTeardown(p.name, p.category);
+            return {
+              ...p,
+              ...enriched,
+              id: p.id,
+              name: p.name,
+              category: enriched.category || p.category
+            };
+          }
+          return p;
+        });
       return [...SEED_PRODUCTS, ...customOnes];
     } catch (e) {
       return SEED_PRODUCTS;
@@ -116,7 +132,10 @@ export default function App() {
   };
 
   const handleAddCustomProduct = (newProd) => {
-    setProducts((prev) => [newProd, ...prev]);
+    setProducts((prev) => {
+      const filtered = prev.filter((p) => p.id !== newProd.id);
+      return [newProd, ...filtered];
+    });
     setCurrentProductIndex(0);
     setCurrentTab('daily');
   };

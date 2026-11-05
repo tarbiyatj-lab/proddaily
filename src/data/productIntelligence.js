@@ -1,10 +1,141 @@
 // Deep Product Intelligence Catalog & Dynamic AI Teardown Generator for ProdDaily
 // Provides instant, interview-grade 6-section PM breakdowns for any product added by the user.
 
+export function detectProductCategory(appName) {
+  if (!appName) return "B2B SaaS / Productivity";
+  const lower = appName.toLowerCase().trim();
+
+  // 1. Direct company / platform mapping
+  const DIRECT_MAP = {
+    // HR Tech & People Analytics
+    "culture amp": "HR Tech & People Analytics",
+    "cultureamp": "HR Tech & People Analytics",
+    "culture": "HR Tech & People Analytics",
+    "lattice": "HR Tech & People Analytics",
+    "gusto": "HR Tech & Payroll Automation",
+    "rippling": "Unified Workforce & IT Management",
+    "deel": "Global Payroll & Contractor Compliance",
+    "workday": "Enterprise HCM & Financial Management",
+    "bamboohr": "SMB People Operations & HRIS",
+    "charthop": "People Analytics & Org Chart Planning",
+    "15five": "Performance Management & Employee Engagement",
+    "greenhouse": "Recruitment & Applicant Tracking System",
+    "lever": "Talent Acquisition & CRM",
+
+    // Enterprise Cloud & Productivity
+    "google apps": "Enterprise Cloud & Productivity",
+    "google workspace": "Enterprise Cloud & Productivity",
+    "gsuite": "Enterprise Cloud & Productivity",
+    "google docs": "Collaborative Cloud Documents",
+    "google drive": "Cloud Storage & Enterprise Collaboration",
+    "google": "Enterprise Cloud & Search Platforms",
+    "microsoft 365": "Enterprise Productivity Suite",
+    "office 365": "Enterprise Productivity Suite",
+    "slack": "Enterprise Workplace Messaging & Huddles",
+    "notion": "Connected Workspace & Modular Knowledge Base",
+    "linear": "High-Velocity Issue Tracking & Sprint Execution",
+    "jira": "Enterprise Agile Project Tracking",
+    "asana": "Work Management & Cross-Functional Orchestration",
+    "monday": "Work OS & Workflow Automation",
+    "clickup": "All-in-One Productivity & Tasks",
+    "coda": "All-in-One Collaborative Docs & Canvas",
+    "airtable": "Low-Code Relational Database & Workflows",
+    "miro": "Visual Collaboration & Distributed Whiteboarding",
+    "figma": "Collaborative Interface Design & Systems",
+    "canva": "Accessible Visual Design & Media Creation",
+    "loom": "Asynchronous Video Screen Messaging",
+    "zoom": "Enterprise Unified Communications & Video",
+
+    // Fintech & Payments
+    "stripe": "Fintech & Global Payments Infrastructure",
+    "ramp": "Corporate Cards & Automated Spend Management",
+    "brex": "Corporate Spend & Venture Banking",
+    "plaid": "Open Banking & Financial Data APIs",
+    "revolut": "Global Digital Banking & Wealth Super-App",
+    "robinhood": "Retail Investment & Wealth Trading",
+    "mercury": "Startup Banking & Financial Workflows",
+    "wise": "Cross-Border FX & International Money Transfer",
+    "coinbase": "Cryptocurrency & Web3 Asset Exchange",
+    "square": "Merchant POS & Commerce Ecosystem",
+    "paypal": "Digital Payments & Consumer Digital Wallet",
+    "klarna": "Buy Now Pay Later (BNPL) & Consumer Finance",
+    "affirm": "Point-of-Sale Consumer Installment Credit",
+
+    // Two-Sided Marketplaces & On-Demand
+    "airbnb": "Two-Sided Travel & Hospitality Marketplace",
+    "uber": "On-Demand Mobility & Logistics Platform",
+    "lyft": "Ride-Hailing & Urban Transit Network",
+    "doordash": "On-Demand Food Delivery & Local Logistics",
+    "instacart": "Grocery Delivery & Retail Marketplace",
+    "etsy": "Artisan & Peer-to-Peer E-Commerce",
+    "fiverr": "Freelance Services Marketplace",
+    "upwork": "Enterprise Talent & Freelance Marketplace",
+    "opentable": "Restaurant Reservations & Hospitality SaaS",
+
+    // Consumer, Streaming & Social
+    "spotify": "Audio Streaming & Creator Marketplace",
+    "netflix": "Subscription Video On Demand (SVOD)",
+    "duolingo": "Gamified EdTech & Language Learning",
+    "tiktok": "Short-Form Algorithmic Video & Social",
+    "instagram": "Visual Social Network & Creator Commerce",
+    "tinder": "Location-Based Dating & Matchmaking",
+    "hinge": "Intentional Dating & Long-Term Matchmaking",
+    "strava": "Connected Fitness & Athletic Social Network",
+    "substack": "Creator Publishing & Subscription Newsletters",
+    "reddit": "Community-Driven Discussion & Content Aggregation",
+    "pinterest": "Visual Discovery & Visual Search Engine",
+    "discord": "Voice, Video & Community Spaces",
+
+    // DevTools & Cloud Infrastructure
+    "vercel": "Frontend Cloud & Serverless Deployment",
+    "github": "Code Hosting & Collaborative Software Development",
+    "postman": "API Development & Testing Workspace",
+    "supabase": "Open-Source Backend-as-a-Service (BaaS)",
+    "datadog": "Cloud Observability & Security Monitoring",
+    "snowflake": "Cloud Data Warehouse & Analytics Engine",
+    "openai": "Frontier AI & Enterprise LLM Ecosystem",
+    "anthropic": "Frontier AI & Claude API Platform"
+  };
+
+  for (const [key, category] of Object.entries(DIRECT_MAP)) {
+    if (lower === key || lower.includes(key) || key.includes(lower)) {
+      return category;
+    }
+  }
+
+  // 2. High-precision keyword inference
+  if (/hr|people|talent|employee|culture|survey|staff|payroll|recruit|hire/.test(lower)) {
+    return "HR Tech & People Analytics";
+  }
+  if (/pay|bank|card|fintech|invest|crypto|wallet|lend|credit|money|checkout|spend|finance/.test(lower)) {
+    return "Fintech & Payments";
+  }
+  if (/market|travel|hotel|stay|flight|booking|ride|cab|mobility|food|delivery|grocery/.test(lower)) {
+    return "Two-Sided Marketplace";
+  }
+  if (/music|stream|video|social|dating|photo|creator|audio|game|fitness|run|athletic/.test(lower)) {
+    return "Consumer & Mobile App";
+  }
+  if (/dev|api|code|cloud|data|database|deploy|git|infra|monitor|ai|llm|backend|docker/.test(lower)) {
+    return "DevTools & Cloud Infrastructure";
+  }
+  if (/shop|store|cart|commerce|retail|buy|checkout/.test(lower)) {
+    return "E-Commerce & Digital Commerce";
+  }
+  if (/learn|course|study|edu|tutor|school|language/.test(lower)) {
+    return "EdTech & Learning";
+  }
+  if (/health|med|care|clinic|doctor|patient|pharma/.test(lower)) {
+    return "Digital Health & Biotech";
+  }
+
+  return "B2B SaaS / Productivity";
+}
+
 export const PREBUILT_KNOWLEDGE_BASE = {
   "culture amp": {
     name: "Culture Amp",
-    category: "B2B SaaS / HR Tech & People Analytics",
+    category: "HR Tech & People Analytics",
     tagline: "The employee experience and analytics platform turning workforce sentiment into executive retention strategy",
     heroMetric: "6,500+ global enterprises, >$150M ARR, 25M+ survey responses, $1.5B+ valuation",
     whatIsTheProduct: {
@@ -83,7 +214,7 @@ export const PREBUILT_KNOWLEDGE_BASE = {
 
   "google apps": {
     name: "Google Workspace (Google Apps)",
-    category: "B2B SaaS / Enterprise Collaboration & Cloud Productivity",
+    category: "Enterprise Cloud & Productivity",
     tagline: "The cloud-native collaborative operating system that displaced desktop office software with real-time multiplayer editing",
     heroMetric: "3B+ global users, 10M+ paying business organizations, ~$10B+ run-rate revenue",
     whatIsTheProduct: {
@@ -160,116 +291,222 @@ export const PREBUILT_KNOWLEDGE_BASE = {
     interviewCheatSheet: "Google Workspace's disruptive innovation was converting files into collaborative web URLs backed by real-time operational transformation. Its long-term moat is consumer habituation via educational dominance (Classroom) and centralized identity (Gmail). In interviews, contrast its browser agility against Microsoft's deep enterprise legacy moats."
   },
 
-  "canva": {
-    name: "Canva",
-    category: "Design & Creative Media / Visual Economy",
-    tagline: "The democratic visual communications suite empowering 170M+ non-designers with modular templates and brand autonomy",
-    heroMetric: "170M+ MAU, >$2B ARR, 85%+ Fortune 500 adoption, profitable for 7+ consecutive years",
+  "linear": {
+    name: "Linear",
+    category: "High-Velocity Issue Tracking & DevTools",
+    tagline: "The purpose-built, keyboard-first issue tracking tool restoring speed and craft to modern product teams",
+    heroMetric: "Tens of thousands of top tech teams (Vercel, Ramp, Cash App, OpenAI), $400M+ valuation, world-class organic viral adoption",
     whatIsTheProduct: {
-      summary: "A cloud-first drag-and-drop graphic design, video editing, and presentation platform that removes the high technical friction of Adobe Creative Suite through millions of curated, ready-to-use professional templates.",
+      summary: "A lightning-fast, opinionated project and issue tracking tool designed specifically for high-performance software and product teams. It prioritizes sub-50ms local synchronization and keyboard ergonomics over Jira's bloated configuration menus.",
       coreSurfaces: [
         {
-          name: "The Drag-and-Drop Canvas & Template Library",
-          detail: "A browser-based WYSIWYG canvas powered by HTML5/WebGL with over 100M stock photos, vectors, audio clips, and responsive templates tailored to exact social platform aspect ratios."
+          name: "Keyboard-First Command Palette & Issue Grid",
+          detail: "Every action is mapped to hotkeys (e.g., 'C' to create issue, 'S' for status, 'Cmd+K' command menu). Local optimistic cache guarantees instantaneous UI feedback."
         },
         {
-          name: "Magic Studio (Generative Design AI)",
-          detail: "Suite of AI tools including Magic Switch (1-click conversion from a whiteboard brainstorm into a full pitch deck), Magic Expand, and instant background removal."
+          name: "Automated Cycles & Continuous Roadmaps",
+          detail: "Replaces painful 2-hour Scrum planning rituals with automated, rolling 2-week Cycles that auto-archive completed issues and roll unfinished scope forward."
         },
         {
-          name: "Canva for Enterprise & Brand Kits",
-          detail: "Centralized brand governance locking corporate fonts, hex color codes, and logos so non-designer sales and marketing reps can generate collateral without breaking brand guidelines."
+          name: "Linear Asks (Triage & Slack Ingestion)",
+          detail: "Converts customer requests and internal Slack messages directly into actionable engineering tickets without leaving the conversation."
         },
         {
-          name: "Print-on-Demand & Physical Merchandise Fulfillment",
-          detail: "Integrated global printing and logistics network allowing users to design and receive physical business cards, posters, and apparel with 2-day delivery."
+          name: "Git & Pull Request Bi-Directional Synchronization",
+          detail: "Issues automatically transition from 'In Progress' to 'In Review' and 'Done' as GitHub PRs are opened and merged."
         }
       ]
     },
     demographics: {
-      geography: "Massive worldwide footprint across 190 countries in over 100 languages. Strongest in US, Brazil, India, UK, and Southeast Asia.",
-      motivation: "Small business owners, teachers, marketers, and students who need polished visual assets in 10 minutes without learning Photoshop.",
-      ageDistribution: "Broad cross-generational appeal: 16-55 (from high school presentation makers to real estate agents and corporate communications teams).",
-      retentionBenchmark: "Outstanding organic word-of-mouth with freemium conversion rate ~5-7%, driving over $2B in highly recurring subscription ARR."
+      geography: "Strongest in Silicon Valley, New York, London, Berlin, and remote-first engineering cultures worldwide.",
+      motivation: "Founders, PMs, and software engineers disgusted by Jira's 5-second page load times and complex administration.",
+      ageDistribution: "Core users: 22-42 engineers, designers, and high-tempo product managers.",
+      retentionBenchmark: "Extraordinary logo retention (>95%). Once an engineering team standardizes on Linear, switching back to Jira feels like a severe productivity penalty."
     },
     personas: [
       {
-        name: "Carlos (36, Miami) — 'The Local Real Estate Broker'",
-        archetype: "Small Business Entrepreneur",
-        goal: "Create eye-catching Instagram Reels, flyers, and Open House brochures for new luxury listings in under 15 minutes.",
-        painPoint: "Hiring a professional graphic designer costs $100/hour and takes 3 days; Adobe Photoshop has a 40-hour learning curve.",
-        jtbd: "Give me stunning, pre-formatted real estate templates so I can post professional property listings before my competitors do.",
-        behavior: "Canva Pro subscriber, uses Background Remover constantly, orders physical yard signs via Canva Print."
+        name: "Karri (34, San Francisco) — 'The Craft-Obsessed Head of Product'",
+        archetype: "Design-Driven Product Leader",
+        goal: "Maintain high team shipping tempo with minimal administrative overhead and zero ticket-grooming bureaucracy.",
+        painPoint: "Jira requires 6 mandatory custom fields before an engineer can even save an idea.",
+        jtbd: "Give my team an ultra-fast issue tracker that feels like a precision instrument so engineers actually enjoy logging their tasks.",
+        behavior: "Triages bugs with keyboard shortcuts every morning in under 5 minutes."
       },
       {
-        name: "Hannah (29, Sydney) — 'The Growth Marketing Manager'",
-        archetype: "Corporate Multi-Channel Marketer",
-        goal: "Produce 40 variations of LinkedIn and Meta ad creatives each week to A/B test campaign conversion rates.",
-        painPoint: "The internal design team has a 3-week backlog for simple social banner revisions.",
-        jtbd: "Enable my marketing squad to resize and iterate on ad creatives independently without waiting for agency designers.",
-        behavior: "Uses Brand Kits, Magic Resize, and Canva Teams collaboration to share review drafts with leadership."
+        name: "Tomas (27, Stockholm) — 'The Full-Stack Senior Developer'",
+        archetype: "Flow-State Software Engineer",
+        goal: "Stay in flow state writing code without being interrupted by complex project management forms.",
+        painPoint: "Having to leave VS Code to click through 10 dropdown menus in Jira just to close a completed task.",
+        jtbd: "Let me link git branches to ticket IDs so moving code to production automatically updates project status without manual tracking.",
+        behavior: "Only interacts with Linear via git commit messages (`fix LINE-104`) and GitHub PR approvals."
       },
       {
-        name: "Liam (19, Toronto) — 'The Student Club President'",
-        archetype: "Non-Technical Community Organizer",
-        goal: "Design event posters and sponsor pitch decks for an upcoming university tech hackathon.",
-        painPoint: "Zero budget for design software and no formal graphic design training.",
-        jtbd: "Make my campus club look like an established, professional organization with clean, modern visual templates.",
-        behavior: "Uses Canva Free tier, collaborates synchronously with other club organizers on shared pitch slides."
+        name: "Sophie (40, New York) — 'The Enterprise VP of Engineering'",
+        archetype: "Resource & Velocity Executive",
+        goal: "Track engineering throughput, cycle lead time, and cross-team dependencies across 8 distributed squads.",
+        painPoint: "Executives lack visibility into whether critical product launches are on track for Q4.",
+        jtbd: "Provide high-level milestone progress bars and roadmap rollups without burdening engineers with manual time-tracking reports.",
+        behavior: "Reviews Linear Insights charts and Cycle burn-up metrics during Monday executive staff meetings."
       }
     ],
     nuances: [
       {
-        title: "The 'Template-First' Asymmetry vs Adobe's 'Blank Canvas'",
-        insight: "Adobe Photoshop opens to a terrifying blank white rectangle and 80 technical tools. Canva realized that 95% of people do not want to design from scratch; they want to edit an existing, beautiful layout. By indexing over 1M templates by exact intent ('Menu for Italian Restaurant', 'Tech Podcast Cover'), Canva eliminated creative paralysis and won the mass market."
+        title: "Optimistic Local Cache as an Moat: Sub-50ms Interaction",
+        insight: "Linear does not make a round-trip network request every time you change a ticket's status. It writes mutations to an in-memory IndexedDB client store instantly, updating the UI in <16ms, and syncs asynchronously in the background. This psychological speed difference creates an addictive user experience that makes web competitors feel broken."
       },
       {
-        title: "The Two-Sided Creator Marketplace as an Unfair Moat",
-        insight: "Canva doesn't pay an internal team to design 100M templates. They established the Canva Creator Program, paying royalties to thousands of independent designers worldwide whenever users use their assets. This crowdsourced flywheel generates localized, culturally relevant designs in 100+ languages faster than any centralized competitor."
+        title: "The Opinionated Workflow vs The Jira Customization Trap",
+        insight: "Jira's fatal flaw is allowing enterprise admins to add 50 mandatory custom fields to every issue. Linear intentionally restricts customization, enforcing streamlined states (Backlog, Todo, In Progress, Done). By defending engineering simplicity against corporate bureaucracy, Linear became the tool of choice for the world's most productive startups."
       },
       {
-        title: "Bottom-Up Enterprise Trojan Horse: Bypassing the Creative Director",
-        insight: "Traditional enterprise design software was purchased exclusively by Creative Directors. Canva entered through sales reps, HR managers, and teachers on free accounts. Today, enterprise CFOs discover that 5,000 employees are already using Canva on expense cards, compelling leadership to sign enterprise-wide Brand Kit agreements."
+        title: "The 'Linear Method' as a Brand & Growth Philosophy",
+        insight: "Linear did not just sell software; they published the 'Linear Method'—an opinionated manifesto arguing that sprints are theater, story points are waste, and high-trust autonomous teams ship faster without micromanagement. This intellectual alignment turned users into vocal product evangelists."
       }
     ],
     critiqueAnd10x: {
-      proposal: "Programmatic Live Ad Performance Sync: Connect Canva directly to Meta and Google Ads APIs, automatically generating variations of top-performing ad creatives based on real-time ROAS (Return on Ad Spend) data.",
-      tradeoffs: "Drives Canva into complex ad-tech analytics territory; requires maintaining complex third-party ad network API connections."
+      proposal: "Automated PR Scope Decomposition Agent: When an engineer opens a massive 1,500-line Pull Request, an AI bot analyzes git diffs, automatically generates atomic sub-tickets, and flags regression test risks to reviewers.",
+      tradeoffs: "Risk of noise if AI over-segments small refactors; requires deep static code analysis and access to proprietary codebases."
     },
-    interviewCheatSheet: "Canva disrupted Adobe by replacing the blank canvas with intent-driven templates and in-browser drag-and-drop simplicity. Its moat is a decentralized creator marketplace producing millions of culturally tailored templates, combined with a bottoms-up enterprise expansion model powered by Brand Kits."
+    interviewCheatSheet: "Linear won the developer tool market by weaponizing extreme client-side speed (local SQLite/IndexedDB sync) and opinionated minimalism against Jira's bloated configuration complexity. It expands bottom-up through engineering squads and defends itself via extreme user loyalty and superior software craft."
+  },
+
+  "airbnb": {
+    name: "Airbnb",
+    category: "Two-Sided Travel & Hospitality Marketplace",
+    tagline: "The global two-sided hospitality platform that institutionalized peer-to-peer home sharing through trust architecture",
+    heroMetric: "450M+ guest arrivals annually, >$10B annual revenue, 5M+ active hosts, >$80B market cap",
+    whatIsTheProduct: {
+      summary: "A global peer-to-peer marketplace connecting travelers seeking unique, local accommodations with property hosts monetizing extra space, supported by payments escrow, dynamic pricing, and bilateral trust systems.",
+      coreSurfaces: [
+        {
+          name: "Guest Search & Algorithmic Category Discovery",
+          detail: "Map-based spatial search and 'Airbnb Categories' (Castles, Off-the-Grid, National Parks) designed to inspire travel when users don't have a rigid destination."
+        },
+        {
+          name: "Host Management Console & Smart Pricing",
+          detail: "Calendar synchronization, dynamic price recommendations based on local supply/demand surges, messaging auto-responders, and revenue analytics."
+        },
+        {
+          name: "AirCover (Bilateral Insurance & Trust Infrastructure)",
+          detail: "Guaranteed $3M damage protection, identity verification, and 24/7 guest rebooking protection that de-risks home sharing for conservative property owners."
+        },
+        {
+          name: "Guest-Host Messaging & In-App Support Hub",
+          detail: "Real-time multilingual messaging with automated translation, check-in instructions, door keypad integration, and dispute resolution workflows."
+        }
+      ]
+    },
+    demographics: {
+      geography: "Present in over 100,000 cities across 220 countries and regions worldwide.",
+      motivation: "Guests seek unique, spacious, cost-effective stays with kitchens; hosts seek passive rental income to pay mortgages.",
+      ageDistribution: "Core guests: 20-45 leisure travelers, digital nomads, and family vacationers; hosts average 35-65 property owners.",
+      retentionBenchmark: "Exceptional organic brand affinity (90%+ of traffic is direct or unpaid). High repeat booking frequency among family and long-term stay travelers."
+    },
+    personas: [
+      {
+        name: "Elena (31, Paris) — 'The Remote Working Digital Nomad'",
+        archetype: "Long-Term Extended Stay Traveler",
+        goal: "Book a comfortable, high-aesthetic apartment for 1 month with verified high-speed Wi-Fi and a dedicated workspace.",
+        painPoint: "Hotels lack kitchens and laundry facilities; hosts misrepresent Wi-Fi speeds in descriptions.",
+        jtbd: "Find a verified, fully equipped apartment in Lisbon for 4 weeks so I can live like a local while working my tech job remotely.",
+        behavior: "Filters strictly by 'Fast Wi-Fi', reads the last 10 host reviews thoroughly, books 28+ day monthly stays for discounts."
+      },
+      {
+        name: "Brian & Maria (48, Denver) — 'The Mountain Cabin Superhosts'",
+        archetype: "Professional Micro-Hospitality Operators",
+        goal: "Maximize occupancy and nightly RevPAR on their second property while avoiding difficult guests who party and damage amenities.",
+        painPoint: "Managing cleaning turnaround schedules and worrying about guest noise complaints from neighbors.",
+        jtbd: "Automate booking approvals and guest messaging while maintaining Superhost status and 4.9+ star ratings.",
+        behavior: "Uses Smart Pricing, syncs cleaning calendars with TurnoverBnB, messages guests 24 hours prior to check-in."
+      },
+      {
+        name: "Marcus (39, Chicago) — 'The Family Vacation Planner'",
+        archetype: "Group Leisure Coordinator",
+        goal: "Organize an annual reunion for 8 family members with enough bedrooms, a private pool, and child-safe amenities.",
+        painPoint: "Hidden cleaning and service fees appearing at final checkout screen that blow the family budget.",
+        jtbd: "Give me transparent total pricing for a 4-bedroom house with a fenced backyard so our family can relax without booking 3 cramped hotel rooms.",
+        behavior: "Shares Airbnb wishlists with family members via WhatsApp to vote on candidate listings."
+      }
+    ],
+    nuances: [
+      {
+        title: "Bilateral Trust as the Primary Barrier to Entry",
+        insight: "Anyone can build a real estate listing website. Airbnb's moat is solving the acute psychological fear of letting a stranger sleep in your master bedroom. By building dual-blind reviews (neither party sees the other's feedback until both submit), verified government IDs, and $3M AirCover insurance, Airbnb turned an unthinkable taboo into a global habit."
+      },
+      {
+        title: "The Category Pivot: Moving Demand from 'Where' to 'What'",
+        insight: "Traditional travel sites (Expedia, Booking.com) start with a rigid search box: 'Where are you going and on what dates?'. Airbnb realized that travelers often don't care about the exact city—they want an experience. Introducing 'Airbnb Categories' (Design, Cabins, Treehouses) allowed Airbnb to redistribute booking demand to rural hosts and lower customer acquisition costs."
+      },
+      {
+        title: "The Total Price Display & Regulatory Transparency Balancing Act",
+        insight: "Airbnb historically hid cleaning fees until the checkout screen, boosting top-of-funnel click-through rates but creating intense guest dissatisfaction at the point of purchase. Brian Chesky's product decision to roll out 'Display Total Price Before Taxes' traded a slight drop in initial booking conversions for massive long-term brand trust and repeat retention."
+      }
+    ],
+    critiqueAnd10x: {
+      proposal: "Curated Group Trip Splitting & Shared Itinerary OS: In-app split payment where each family member pays their individual share directly within 24 hours, combined with an interactive collaborative itinerary mapping local activities.",
+      tradeoffs: "Risk of holding host calendars if 1 guest in a group fails to pay before the expiration window; requires complex fractional escrow transactions."
+    },
+    interviewCheatSheet: "Airbnb is a two-sided marketplace whose competitive moat is brand ubiquity (90% organic direct traffic) and psychological trust architecture (AirCover, dual-blind reviews). Monetization is take-rate based (~14% guest fee + 3% host fee). In PM interviews, emphasize supply-side host acquisition and the strategic shift toward flexible category discovery."
   }
 };
 
+// Aliases for fast matching
+PREBUILT_KNOWLEDGE_BASE["cultureamp"] = PREBUILT_KNOWLEDGE_BASE["culture amp"];
+PREBUILT_KNOWLEDGE_BASE["culture"] = PREBUILT_KNOWLEDGE_BASE["culture amp"];
+PREBUILT_KNOWLEDGE_BASE["google"] = PREBUILT_KNOWLEDGE_BASE["google apps"];
+PREBUILT_KNOWLEDGE_BASE["google workspace"] = PREBUILT_KNOWLEDGE_BASE["google apps"];
+PREBUILT_KNOWLEDGE_BASE["google docs"] = PREBUILT_KNOWLEDGE_BASE["google apps"];
+PREBUILT_KNOWLEDGE_BASE["gsuite"] = PREBUILT_KNOWLEDGE_BASE["google apps"];
+
 // Intelligent Algorithmic Teardown Synthesizer for ANY Unrecognized App
-export function generateDeepTeardown(appName, category = "B2B SaaS") {
-  const normalizedKey = appName.toLowerCase().trim();
+export function generateDeepTeardown(appName, userCategory = null) {
+  const cleanName = (appName || "Product").trim();
+  const normalizedKey = cleanName.toLowerCase();
   
-  // Check exact or partial match in prebuilt knowledge base
+  // 1. Check exact or partial match in prebuilt knowledge base
   for (const [key, data] of Object.entries(PREBUILT_KNOWLEDGE_BASE)) {
-    if (normalizedKey.includes(key) || key.includes(normalizedKey)) {
-      return data;
+    if (normalizedKey === key || normalizedKey.includes(key) || (key.length > 3 && key.includes(normalizedKey))) {
+      return {
+        ...data,
+        name: cleanName // preserve exact user capitalization
+      };
     }
   }
 
-  // Dynamic High-Fidelity Synthesizer tailored to product category
-  const isConsumer = category.toLowerCase().includes("consumer") || category.toLowerCase().includes("social") || category.toLowerCase().includes("media");
-  const isFintech = category.toLowerCase().includes("fintech") || category.toLowerCase().includes("payment") || category.toLowerCase().includes("bank");
-  const isMarketplace = category.toLowerCase().includes("marketplace") || category.toLowerCase().includes("platform");
+  // 2. Automatically infer category if not supplied or default
+  const category = (userCategory && userCategory !== "B2B SaaS") 
+    ? userCategory 
+    : detectProductCategory(cleanName);
 
-  const cleanName = appName.trim();
-  
+  // Dynamic High-Fidelity Synthesizer tailored to product category
+  const isConsumer = category.toLowerCase().includes("consumer") || category.toLowerCase().includes("social") || category.toLowerCase().includes("mobile");
+  const isFintech = category.toLowerCase().includes("fintech") || category.toLowerCase().includes("payment") || category.toLowerCase().includes("bank");
+  const isMarketplace = category.toLowerCase().includes("marketplace") || category.toLowerCase().includes("travel") || category.toLowerCase().includes("transit");
+  const isHR = category.toLowerCase().includes("hr") || category.toLowerCase().includes("people") || category.toLowerCase().includes("workforce");
+  const isDevTools = category.toLowerCase().includes("dev") || category.toLowerCase().includes("cloud") || category.toLowerCase().includes("api") || category.toLowerCase().includes("data");
+
+  const heroMetric = isConsumer
+    ? "50M+ global active users, high DAU/MAU daily habit loop, viral organic K-factor > 1.2"
+    : isFintech
+    ? "$20B+ annual gross payment volume (GPV), 99.999% uptime SLA, PCI-DSS Level 1 certified"
+    : isMarketplace
+    ? "Hundreds of thousands of active supply nodes, millions of annual completed transactions, resilient geographic liquidity"
+    : isHR
+    ? "15,000+ scaling companies, >120% Net Revenue Retention, millions of employee engagement touchpoints"
+    : "10,000+ scaling enterprise teams, >$50M ARR, >125% Net Revenue Retention (NRR)";
+
   return {
     name: cleanName,
     category: category,
     tagline: `The modern ${category} platform designed to eliminate operational friction and accelerate high-velocity user outcomes`,
-    heroMetric: isConsumer ? "50M+ global users, high DAU/MAU habit loop, viral organic acquisition" : "10,000+ scaling teams, >$50M ARR, >125% Net Revenue Retention (NRR)",
+    heroMetric: heroMetric,
     
     whatIsTheProduct: {
       summary: `${cleanName} is an industry-defining ${category} platform that unifies fragmented workflows into a high-performance, collaborative interface with low cognitive friction and real-time execution.`,
       coreSurfaces: [
         {
           name: "The Primary Workflow Engine & Execution Canvas",
-          detail: `The core daily interface where users manage primary ${cleanName} interactions, designed with low-latency responsiveness, modular views, and keyboard shortcuts.`
+          detail: `The core daily interface where users execute primary ${cleanName} interactions, designed with low-latency responsiveness, modular views, and keyboard shortcuts.`
         },
         {
           name: "Real-Time Collaboration & Synchronization Layer",
@@ -297,7 +534,7 @@ export function generateDeepTeardown(appName, category = "B2B SaaS") {
 
     personas: [
       {
-        name: `Jordan (35, San Francisco) — 'The High-Leverage Lead'`,
+        name: `Jordan (35, San Francisco) — 'The High-Leverage Champion'`,
         archetype: isConsumer ? "Power Consumer Advocate" : "Strategic Department Champion",
         goal: `Streamline team operations and eliminate 8 hours of manual overhead per week using ${cleanName}.`,
         painPoint: "Existing tools are rigid, slow to load, and require 12 clicks to perform standard tasks.",
