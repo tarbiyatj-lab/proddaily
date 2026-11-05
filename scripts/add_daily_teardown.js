@@ -196,9 +196,14 @@ export function runDailyUpdate() {
   fs.writeFileSync(productsFile, updatedContent, 'utf-8');
   console.log(`✅ ${teardownToAdd.name} added to src/data/products.js!`);
 
-  // 2. Build for production
-  console.log("🔨 Running production build (npm run build)...");
-  execSync('npm run build', { cwd: projectRoot, stdio: 'inherit' });
+  // 2. Commit and push to GitHub (which triggers Vercel automatic deployment)
+  console.log("📦 Committing and pushing to GitHub (https://github.com/tarbiyatj-lab/proddaily)...");
+  try {
+    execSync('git add src/data/products.js && git commit -m "feat(curriculum): add ' + teardownToAdd.name + ' PM teardown" && git push', { cwd: projectRoot, stdio: 'inherit' });
+    console.log("✅ Pushed to GitHub! Vercel auto-deploy initiated.");
+  } catch (err) {
+    console.log("ℹ️ Git push skipped or failed; deploying directly via Vercel CLI...");
+  }
 
   // 3. Deploy to Vercel production
   console.log("🚀 Deploying to Vercel production (https://proddaily.vercel.app)...");
