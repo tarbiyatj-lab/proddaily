@@ -40,6 +40,16 @@ export default function App() {
   });
 
   const [currentProductIndex, setCurrentProductIndex] = useState(() => {
+    const todayStr = new Date().toISOString().slice(0, 10);
+    const lastDate = localStorage.getItem('proddaily_last_visit_date');
+
+    // If it's a new calendar day, automatically surface the fresh new daily drop (index 0)
+    if (lastDate !== todayStr) {
+      localStorage.setItem('proddaily_last_visit_date', todayStr);
+      localStorage.setItem('proddaily_current_idx', '0');
+      return 0;
+    }
+
     const saved = localStorage.getItem('proddaily_current_idx');
     return saved !== null ? parseInt(saved, 10) : 0;
   });

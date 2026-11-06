@@ -11,156 +11,146 @@ const productsFile = path.join(projectRoot, 'src', 'data', 'products.js');
 // Queue of high-impact senior PM interview teardowns ready to drop
 export const UPCOMING_TEARDOWNS = [
   {
-    id: "notion",
-    week: 2,
-    day: 2,
-    name: "Notion",
-    category: "B2B SaaS / Productivity",
-    badgeColor: "bg-stone-100 text-stone-800 border-stone-300",
-    tagline: "The modular workspace that turned documents into relational databases and spawned an organic template economy",
-    heroMetric: "100M+ users, >$350M ARR, $10B valuation, 90%+ organic template distribution",
-    
-    // 1. WHAT ACTUALLY IS THE PRODUCT?
+    id: "figma",
+    week: 1,
+    day: 4,
+    name: "Figma",
+    category: "Collaborative Design & Systems",
+    badgeColor: "bg-purple-100 text-purple-800 border-purple-300",
+    iconColor: "text-purple-600",
+    tagline: "The browser-first WebGL multiplayer design tool that turned design into a team sport",
+    heroMetric: "4M+ active designers, $20B Adobe buyout valuation offer, >150% enterprise NRR",
     whatIsTheProduct: {
-      summary: "A modular, all-in-one productivity workspace where pages are composed of typed, movable 'blocks' (text, media, embeds, relational database views) that can be linked, transformed, and shared collaboratively across personal and enterprise teams.",
+      summary: "A browser-based vector graphics and UI prototyping tool built on C++ compiled to WebAssembly (Wasm) and WebGL, allowing cross-functional teams to design, prototype, and inspect production design systems collaboratively in real time.",
       coreSurfaces: [
         {
-          name: "The Atomic Block Canvas & Slash Commands (`/`)",
-          detail: "Every element on a page (paragraph, bullet, toggle list, callout, image) is an independent database object with a unique UUID. Typing '/' triggers instant insertion of over 50 block primitives without touching formatting toolbars."
+          name: "Multiplayer WebAssembly Vector Engine",
+          detail: "Renders complex multi-screen canvas layouts at 60 FPS directly inside Chrome/Safari using custom WebGL shaders and sub-50ms multiplayer cursor synchronization."
         },
         {
-          name: "Polymorphic Relational Database Views",
-          detail: "The same underlying dataset can be toggled instantaneously between Table, Kanban Board, Timeline/Gantt, Calendar, Gallery, and List views. Supports multi-way relations and 'Rollup' calculations across tables."
+          name: "Auto Layout & Component Variant Architecture",
+          detail: "Mirrors CSS Flexbox logic so design components behave dynamically like real production code rather than static artboards."
         },
         {
-          name: "Notion AI & Semantic Q&A Agent",
-          detail: "Embedded generative AI and retrieval-augmented generation (RAG) that indexes team wikis, allowing employees to ask natural-language questions (e.g. 'What is our Q4 parental leave policy?') and receive cited answers in seconds."
+          name: "Dev Mode & Design Tokens Inspection",
+          detail: "Dedicated developer-first interface that translates design specs into production-ready Tailwind, CSS, SwiftUI, and Jetpack Compose code snippets."
         },
         {
-          name: "Global Template Gallery & Creator Economy",
-          detail: "A self-serve marketplace enabling any user to publish or monetize functional workspace layouts (Life OS, Startup PRD Stack, CRM), turning power users into viral distributed marketing hubs."
+          name: "FigJam (Asynchronous Team Brainstorming Canvas)",
+          detail: "Lightweight, collaborative whiteboarding surface with sticky notes, voting widgets, and timers for sprint kickoffs and cross-functional design sprints."
         }
       ]
     },
-
-    // 2. REAL DEMOGRAPHICS & USER SCALE
     demographics: {
-      geography: "Over 80% of active users are outside the United States. Massive grassroots adoption across Japan, South Korea, France, Germany, and the UK.",
-      motivation: "Knowledge workers, founders, and students desperate to consolidate 5 disjointed tools (Google Docs, Trello, Evernote, Airtable, and Confluence) into a single cohesive operating system.",
-      ageDistribution: "Core adoption is 18-35 (heavy university student and startup operator demographic driven by Reddit, Twitter, and TikTok aesthetic desk setups).",
-      retentionBenchmark: "Net Revenue Retention (NRR) exceeds 120% among paying business workspaces, driven by bottom-up expansion from individual note-takers to full company wikis."
+      geography: "Ubiquitous global adoption across North America, Western Europe, and Asia-Pacific. Standardized tool across 95% of top tech startups.",
+      motivation: "Product designers, PMs, and software engineers needing a single source of truth without exporting PNGs and emailing zip files.",
+      ageDistribution: "Core demographic: 22-45 digital product designers, frontend engineers, and product leaders.",
+      retentionBenchmark: "World-class enterprise net retention (>150% NRR) driven by non-designers (PMs, engineers, marketers) creating view/comment seats."
     },
-
-    // 3. NAMED, MEMORABLE USER PERSONAS
     personas: [
       {
-        name: "Kenji (27, Tokyo) — 'The Second-Brain Architect'",
-        archetype: "Obsessive Personal Knowledge Organizer",
-        goal: "Build an interconnected digital second brain connecting reading notes, habit trackers, and personal projects.",
-        painPoint: "Apple Notes is too flat; traditional databases require SQL and look ugly.",
-        jtbd: "Give me an aesthetic, infinitely malleable canvas so I can organize my entire life and thoughts in one place.",
-        behavior: "Spends 6 hours on weekends fine-tuning database relation properties, buys $30 community templates on Gumroad."
+        name: "Elena (30, San Francisco) — 'The Lead Product Designer'",
+        archetype: "Design Systems Champion",
+        goal: "Build scalable UI component libraries with Auto Layout variants that engineering can implement with zero pixel confusion.",
+        painPoint: "Sketch required local file saving and Abstract version control syncs that constantly suffered merge conflicts.",
+        jtbd: "Give me a single collaborative URL where PMs and engineers can comment directly on live prototypes without saving files.",
+        behavior: "Lives in Figma 7 hours a day, publishes weekly UI kits, manages component documentation in FigJam."
       },
       {
-        name: "Sarah (34, London) — 'The Async Scale-Up COO'",
-        archetype: "Cross-Functional Documentation Leader",
-        goal: "Standardize company-wide onboarding, meeting notes, and engineering RFCs without paying $20/seat for bloated legacy Atlassian Confluence.",
-        painPoint: "Company documents rot in Google Drive folders where no one can find anything after 2 weeks.",
-        jtbd: "Create a central, searchable company wiki where new hires can self-serve knowledge on day one without asking on Slack.",
-        behavior: "Champions enterprise Team Plan upgrade, restricts edit permissions on core HR wikis, sets up weekly team sprint boards."
-      },
-      {
-        name: "Marco (21, Milan) — 'The University Student Power-User'",
-        archetype: "Free-Tier Academic Crusader",
-        goal: "Organize university lecture notes, coursework deadlines, and exam revision guides with embedded flashcards and aesthetic icons.",
-        painPoint: "Carrying 4 separate notebooks and losing track of exam syllabus deliverables across fragmented PDFs.",
-        jtbd: "Help me ace my university exams with organized, color-coded study schedules accessible on laptop and phone.",
-        behavior: "Uses free student plan, shares public page links with study groups, posts Notion desk setup aesthetic reels on TikTok."
+        name: "Vikram (36, Seattle) — 'The Frontend Engineering Lead'",
+        archetype: "Production Implementation Gatekeeper",
+        goal: "Inspect spacing, padding tokens, and typography styles without asking designers for redline asset exports.",
+        painPoint: "Opening heavy design files on slow laptops just to see the hex code for a button hover state.",
+        jtbd: "Give me exact CSS flexbox padding, token variables, and SVG exports in 1 click so I can build frontend components quickly.",
+        behavior: "Switches exclusively to Dev Mode, copies code snippets directly into VS Code."
       }
     ],
-
-    // 4. CRITICAL PM NUANCES
     nuances: [
       {
-        title: "The Near-Death Pivot: Rebuilding from Scratch in Kyoto (2015)",
-        insight: "In 2015, Notion's initial prototype constantly crashed and ran out of cash. Instead of tweaking it, Ivan Zhao and Simon Last fired their staff, sublet their San Francisco office, and moved to Kyoto, Japan. They rewrote the entire architecture from scratch on a unified 'Block' paradigm. This radical willingness to scrap a flawed codebase and isolate themselves for deep craft created the rock-solid data model that powers 100M users today."
+        title: "The WebGL & WebAssembly Architecture Asymmetry",
+        insight: "In 2012, everyone believed serious graphics software had to be a native desktop C++ executable (Photoshop, Sketch). Dylan Field and Evan Wallace gambled on WebGL and compiled C++ to WebAssembly in the browser. When Sketch users were still saving .sketch files to Dropbox, Figma users were sharing a single URL. This technological breakthrough redefined creative software distribution."
       },
       {
-        title: "The Zero-CAC Template Flywheel: Monetizing User Obsession",
-        insight: "Traditional B2B SaaS companies hire expensive SDRs to outbound enterprise accounts. Notion realized their users enjoyed showing off their complex productivity setups. By making templates 1-click shareable, thousands of creators built lucrative businesses selling Notion templates ($10K-$100K/mo). These creators effectively became Notion's unpaid, incentivized global marketing army."
-      },
-      {
-        title: "The Performance Bottleneck & The SQLite SQLite Migration",
-        insight: "Notion's greatest strength (everything is an interconnected block object) became its greatest engineering liability. Loading a page with 1,000 blocks required hundreds of React DOM renders and client-side memory overhead, leading to widespread complaints of sluggish mobile performance. Notion had to re-architect its client data layer using an embedded local SQLite engine to achieve instant local cache reads."
+        title: "Expanding Beyond Designers: The 3:1 Non-Designer Seat Ratio",
+        insight: "Figma's secret growth engine is that for every 1 paid designer license, there are 3 non-designers (PMs, QA testers, copywriters, developers, executives) viewing and commenting on the canvas. Monetizing these stakeholders created an unstoppable expansion loop that traditional designer-only tools could never match."
       }
     ],
-
-    // 5. CRITIQUE & "HOW TO 10X IT"
     critiqueAnd10x: {
-      proposal: "Automated 'Doc Freshness & Stale Wiki Janitor': AI continuously monitors workspace document view frequency, edits, and Slack discussions, automatically flagging deprecated policies and prompting document owners to verify or archive obsolete pages.",
-      tradeoffs: "Risk of false-positive archive warnings annoying team leads; requires deep background scanning compute across millions of enterprise blocks."
+      proposal: "Automated Bi-Directional Production Code Sync: An AI agent that inspects real-world React/SwiftUI code repos and warns designers in Figma when their design deviates from existing production design tokens.",
+      tradeoffs: "High friction requiring git repository access and deep build pipeline integrations."
     },
-
-    // 6. INTERVIEW CHEAT SHEET
-    interviewCheatSheet: "Notion democratized relational databases by wrapping them in an aesthetic, modular block canvas. Its growth engine is an unprecedented community template ecosystem that drives zero-CAC bottom-up adoption. Its strategic challenge is balancing infinite consumer flexibility with the permissions, speed, and governance demanded by Fortune 500 enterprises."
+    interviewCheatSheet: "Figma conquered the design industry by betting early on in-browser WebGL/Wasm performance and real-time multiplayer collaboration. Its moat is the organizational design system and the 3:1 ratio of non-designer seats that embed Figma into company-wide product development workflows."
   },
   {
-    id: "tiktok",
+    id: "uber",
     week: 1,
     day: 5,
-    name: "TikTok",
-    category: "Consumer Attention & Algorithmic Media",
-    badgeColor: "bg-neutral-900 text-white border-neutral-700",
-    tagline: "The interest-graph short-form video engine that dethroned the social graph",
-    heroMetric: "1.5B+ MAU, 95+ mins daily average watch time, >$16B ad revenue",
+    name: "Uber",
+    category: "Two-Sided Mobility & Logistics Marketplace",
+    badgeColor: "bg-slate-900 text-white border-slate-700",
+    iconColor: "text-slate-900",
+    tagline: "The real-time geospatial marketplace coordinating physical mobility and delivery supply with dynamic algorithmic pricing",
+    heroMetric: "150M+ monthly active platform consumers, >$130B Gross Bookings, 30M+ daily trips",
     whatIsTheProduct: {
-      summary: "A mobile-first video platform that presents an endless, full-screen vertical feed of algorithmic video recommendations, stripping away the requirement for a social network graph in favor of pure, machine-learned viewer interest signals.",
+      summary: "A global on-demand mobility and logistics network that matches rider transportation demand with flexible driver vehicle capacity using predictive ETAs, geospatial hexagonal grids (H3), and dynamic pricing algorithms.",
       coreSurfaces: [
         {
-          name: "The 'For You Page' (FYP) Zero-Friction Feed",
-          detail: "Opens directly to full-screen video with sound on. Zero navigation or follow requirement. Loops indefinitely based on micro-interactions (watch time, rewatches, skip velocity)."
+          name: "Geospatial Matching & ETA Prediction Engine",
+          detail: "Hexagonal spatial indexing (Uber H3) partitioning cities into localized supply-demand cells to dispatch the optimal driver within sub-second thresholds."
         },
         {
-          name: "In-App Creation Studio & Audio Memes",
-          detail: "Built-in video editor with synchronized music tracks, AR filters, green screen, and 'Duet/Stitch' features allowing users to riff on existing cultural memes."
+          name: "Dynamic Surge Pricing & Marketplace Balance Loop",
+          detail: "Real-time pricing multiplier that throttles excessive demand during rain or concerts while incentivizing idle drivers to reposition toward high-demand zones."
         },
         {
-          name: "TikTok Shop (Embedded Social Commerce)",
-          detail: "Direct in-video product tags, live shopping streams, and integrated checkout that turns entertainment into impulse purchases without leaving the feed."
+          name: "Driver Partner Super-App & Earnings Telemetry",
+          detail: "Turn-by-turn routing, heatmaps, upfront fare transparency, and instant payout rails (Uber Pro Card) to minimize driver churn."
+        },
+        {
+          name: "Uber One Cross-Platform Subscription",
+          detail: "Multi-product loyalty bundle unlocking $0 delivery fees on Uber Eats and 5% discounts on rides, driving cross-surface frequency."
         }
       ]
     },
     demographics: {
-      geography: "Global footprint across 150+ countries. Massive presence in US, Southeast Asia, Middle East, and Latin America.",
-      motivation: "Instant, low-effort dopamine entertainment and trend discovery.",
-      ageDistribution: "Over 60% Gen Z and young Millennials (ages 13-34), increasingly capturing older demographics via cooking, DIY, and news content.",
-      retentionBenchmark: "Daily time spent exceeds 95 minutes per active user, outperforming YouTube and Instagram in session engagement density."
+      geography: "Present in over 10,000 cities across 70 countries worldwide. Ubiquitous across urban metro corridors.",
+      motivation: "Riders want reliable point-to-point transportation with guaranteed pickup times; drivers seek flexible, immediate cash earnings.",
+      ageDistribution: "Riders: 18-55 across all urban income brackets; drivers average 25-60.",
+      retentionBenchmark: "Uber One members spend 3.4x more annually and have 50% lower churn than non-member riders."
     },
     personas: [
       {
-        name: "Zoe (19, Austin) — 'The Passive Scroller'",
-        archetype: "High-Dopamine Consumer",
-        goal: "Decompress after college classes with funny, relatable micro-videos.",
-        painPoint: "Instagram shows too many friends' polished baby pictures and ads; YouTube videos take 15 minutes.",
-        jtbd: "Give me instant, tailored humor in 30-second bursts without requiring me to choose what to watch.",
-        behavior: "Never posts videos, watches 2+ hours in bed, shares 15 TikTok links a day with friends over iMessage."
+        name: "Daniel (32, Manhattan) — 'The Time-Starved Business Commuter'",
+        archetype: "High-Willingness-to-Pay Professional",
+        goal: "Arrive at client meetings and airport terminals reliably without waiting in rain for street taxis.",
+        painPoint: "Public subway delays and uncertain street taxi availability when rushing to JFK airport.",
+        jtbd: "Get a car outside my apartment within 4 minutes with guaranteed arrival time so I never miss a flight.",
+        behavior: "Uber Reserve power user, expenses rides to corporate card, indifferent to surge pricing."
+      },
+      {
+        name: "Rashid (44, Chicago) — 'The Full-Time Flexibility Driver'",
+        archetype: "Micro-Entrepreneur Driver Partner",
+        goal: "Earn $1,500/week after gas and vehicle depreciation while having flexibility to pick his kids up from school.",
+        painPoint: "High vehicle maintenance costs and sitting unpaid in traffic without knowing trip destinations.",
+        jtbd: "Maximize earnings per active hour by directing me to surge zones and showing trip earnings before accepting rides.",
+        behavior: "Drives 35 hours a week, analyzes weekly promotions, withdraws earnings daily."
       }
     ],
     nuances: [
       {
-        title: "The Death of the Social Graph: Interest > Follower Count",
-        insight: "Facebook and Instagram required you to follow friends or accounts, creating a cold-start problem where new creators couldn't get views. TikTok decoupled distribution from followers: an account with 0 followers can get 5M views on day one if the video's retention curve is strong. This gave birth to meritocratic algorithmic distribution."
+        title: "The Local Liquidity Network Effect: City-by-City Cold Start",
+        insight: "Unlike Airbnb or Facebook, Uber's network effects are strictly hyperlocal. Having 100,000 drivers in London provides zero utility to a rider in Boston. Uber has to reconstruct two-sided marketplace liquidity city by city. The primary retention metric is ETAs: if pickup time drops from 10 minutes to 3 minutes, rider conversion jumps dramatically."
       },
       {
-        title: "Audio as a Canonical Index Key",
-        insight: "On YouTube and Twitter, text is the search index. On TikTok, the audio track is the primary meme metadata. Clicking a song opens every video that ever used that sound, turning music into viral reusable templates."
+        title: "Surge Pricing as Supply Allocator, Not Revenue Gouger",
+        insight: "Public riders hate surge pricing, viewing it as corporate greed. But senior marketplace PMs know surge pricing is primarily an allocation mechanism: it rations scarce seats to riders who value the trip most urgently while incentivizing sleeping drivers to get into their cars and restore marketplace equilibrium."
       }
     ],
     critiqueAnd10x: {
-      proposal: "Algorithmic 'Dopamine Detox & Sleep Guardian': Dynamic pacing algorithms that gradually transition late-night feeds from hyper-stimulating content into calming educational or long-form ambient audio after midnight.",
-      tradeoffs: "Directly conflicts with short-term ad impression maximization metrics and executive engagement KPIs."
+      proposal: "Intermodal City Transit Orchestrator: Dynamic routing that combines an Uber scooter to the express train station, followed by an Uber car at the destination, booking all legs seamlessly in 1 ticket for 40% less cost.",
+      tradeoffs: "Requires complex public municipal transit API integrations and high customer support liability for third-party train delays."
     },
-    interviewCheatSheet: "TikTok replaced the Social Graph (who you follow) with the Interest Graph (what captures your attention in 2 seconds). Its defensibility is pure machine-learning feedback loops on full-screen consumption telemetry. In PM interviews, cite its audio-as-index innovation and frictionless cold-start creator incentives."
+    interviewCheatSheet: "Uber is a two-sided geospatial marketplace that monetizes via take rates (~20-28% net revenue). Its competitive moat is local driver liquidity density (which yields lower ETAs and higher driver utilization) and cross-selling synergies between Rides and Eats via the Uber One subscription flywheel."
   }
 ];
 
@@ -173,7 +163,10 @@ export function runDailyUpdate() {
   // Find which upcoming teardown is not yet in SEED_PRODUCTS
   let teardownToAdd = null;
   for (const td of UPCOMING_TEARDOWNS) {
-    if (!content.includes(`id: "${td.id}"`)) {
+    const hasId = content.includes(`id: "${td.id}"`) || 
+                  content.includes(`"id": "${td.id}"`) || 
+                  content.includes(`'${td.id}'`);
+    if (!hasId) {
       teardownToAdd = td;
       break;
     }
