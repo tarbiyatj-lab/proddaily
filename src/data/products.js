@@ -1,8 +1,290 @@
-export const SEED_PRODUCTS = [
+// ProdDaily Master PM Interview Curriculum Catalog
+// Curated 1-Product-a-Day Senior & Staff PM Teardowns
+// Designed for 10y Engineering + Top-Tier MBA Product Leadership
+
+export const CURRICULUM_START_DATE = '2026-11-04';
+
+export function getCurriculumDay() {
+  const start = new Date('2026-11-04T00:00:00');
+  const now = new Date();
+  const diffTime = now.getTime() - start.getTime();
+  const diffDays = Math.max(0, Math.floor(diffTime / (1000 * 60 * 60 * 24)));
+  return diffDays + 1;
+}
+
+export const ALL_CURRICULUM_PRODUCTS = [
+  // ========================================================
+  // DAY 6 (TODAY - NOV 9): FIGMA
+  // ========================================================
+  {
+    id: "figma",
+    week: 2,
+    day: 6,
+    releaseDate: "2026-11-09",
+    name: "Figma",
+    category: "Collaborative Design & Systems",
+    badgeColor: "bg-purple-100 text-purple-800 border-purple-300",
+    iconColor: "text-purple-600",
+    tagline: "The browser-first WebGL multiplayer design tool that turned design into a team sport",
+    heroMetric: "4M+ active designers, $20B Adobe buyout valuation offer, >150% enterprise NRR",
+    whatIsTheProduct: {
+      summary: "A browser-based vector graphics and UI prototyping tool built on C++ compiled to WebAssembly (Wasm) and WebGL, allowing cross-functional teams to design, prototype, and inspect production design systems collaboratively in real time.",
+      coreSurfaces: [
+        {
+          name: "Multiplayer WebAssembly Vector Engine",
+          detail: "Renders complex multi-screen canvas layouts at 60 FPS directly inside Chrome/Safari using custom WebGL shaders and sub-50ms multiplayer cursor synchronization."
+        },
+        {
+          name: "Auto Layout & Component Variant Architecture",
+          detail: "Mirrors CSS Flexbox logic so design components behave dynamically like real production code rather than static artboards."
+        },
+        {
+          name: "Dev Mode & Design Tokens Inspection",
+          detail: "Dedicated developer-first interface that translates design specs into production-ready Tailwind, CSS, SwiftUI, and Jetpack Compose code snippets."
+        },
+        {
+          name: "FigJam (Asynchronous Team Brainstorming Canvas)",
+          detail: "Lightweight, collaborative whiteboarding surface with sticky notes, voting widgets, and timers for sprint kickoffs and cross-functional design sprints."
+        }
+      ]
+    },
+    demographics: {
+      geography: "Ubiquitous global adoption across North America, Western Europe, and Asia-Pacific. Standardized tool across 95% of top tech startups.",
+      motivation: "Product designers, PMs, and software engineers needing a single source of truth without exporting PNGs and emailing zip files.",
+      ageDistribution: "Core demographic: 22-45 digital product designers, frontend engineers, and product leaders.",
+      retentionBenchmark: "World-class enterprise net retention (>150% NRR) driven by non-designers (PMs, engineers, marketers) creating view/comment seats."
+    },
+    personas: [
+      {
+        name: "Elena (30, San Francisco) — 'The Lead Product Designer'",
+        archetype: "Design Systems Champion",
+        goal: "Build scalable UI component libraries with Auto Layout variants that engineering can implement with zero pixel confusion.",
+        painPoint: "Sketch required local file saving and Abstract version control syncs that constantly suffered merge conflicts.",
+        jtbd: "Give me a single collaborative URL where PMs and engineers can comment directly on live prototypes without saving files.",
+        behavior: "Lives in Figma 7 hours a day, publishes weekly UI kits, manages component documentation in FigJam."
+      },
+      {
+        name: "Vikram (36, Seattle) — 'The Frontend Engineering Lead'",
+        archetype: "Production Implementation Gatekeeper",
+        goal: "Inspect spacing, padding tokens, and typography styles without asking designers for redline asset exports.",
+        painPoint: "Opening heavy design files on slow laptops just to see the hex code for a button hover state.",
+        jtbd: "Give me exact CSS flexbox padding, token variables, and SVG exports in 1 click so I can build frontend components quickly.",
+        behavior: "Switches exclusively to Dev Mode, copies code snippets directly into VS Code."
+      },
+      {
+        name: "Chloe (33, New York) — 'The Cross-Functional Product Manager'",
+        archetype: "Spec & Requirements Orchestrator",
+        goal: "Walk through end-to-end user flows with executive stakeholders and link user stories directly to design frames.",
+        painPoint: "Designers working in isolation for 3 weeks and presenting finished screens that miss fundamental business constraints.",
+        jtbd: "Let me drop comments directly on in-progress wireframes so product requirements and visual designs evolve together.",
+        behavior: "Pins comments on prototype frames, embeds Figma links in Linear and Notion PRDs."
+      }
+    ],
+    nuances: [
+      {
+        title: "The WebGL & WebAssembly Architecture Asymmetry",
+        insight: "In 2012, everyone believed serious graphics software had to be a native desktop C++ executable (Photoshop, Sketch). Dylan Field and Evan Wallace gambled on WebGL and compiled C++ to WebAssembly in the browser. When Sketch users were still saving .sketch files to Dropbox, Figma users were sharing a single URL. This technological breakthrough redefined creative software distribution."
+      },
+      {
+        title: "Expanding Beyond Designers: The 3:1 Non-Designer Seat Ratio",
+        insight: "Figma's secret growth engine is that for every 1 paid designer license, there are 3 non-designers (PMs, QA testers, copywriters, developers, executives) viewing and commenting on the canvas. Monetizing these stakeholders created an unstoppable expansion loop that traditional designer-only tools could never match."
+      },
+      {
+        title: "Design Systems as an Enterprise Lock-In Moat",
+        insight: "Once a 5,000-person tech company encodes its color tokens, typography, and interactive component libraries into Figma, the switching cost becomes virtually insurmountable. Migrating an enterprise design system to an alternative tool takes 12–18 months of engineering effort."
+      }
+    ],
+    critiqueAnd10x: {
+      proposal: "Automated Bi-Directional Production Code Sync: An AI agent that inspects real-world React/SwiftUI code repos and warns designers in Figma when their design deviates from existing production design tokens.",
+      tradeoffs: "High friction requiring git repository access and deep build pipeline integrations."
+    },
+    interviewCheatSheet: "Figma conquered the design industry by betting early on in-browser WebGL/Wasm performance and real-time multiplayer collaboration. Its moat is the organizational design system and the 3:1 ratio of non-designer seats that embed Figma into company-wide product development workflows."
+  },
+
+  // ========================================================
+  // DAY 5 (NOV 8): AIRBNB
+  // ========================================================
+  {
+    id: "airbnb",
+    week: 1,
+    day: 5,
+    releaseDate: "2026-11-08",
+    name: "Airbnb",
+    category: "Two-Sided Marketplace & Hospitality",
+    badgeColor: "bg-rose-50 text-rose-700 border-rose-200",
+    iconColor: "text-rose-600",
+    tagline: "The peer-to-peer trust engine that turned spare bedrooms into a global travel powerhouse",
+    heroMetric: "8M+ active listings, 450M+ guest arrivals/year across 100,000 cities, ~$10B annual revenue",
+    whatIsTheProduct: {
+      summary: "A global two-sided peer-to-peer travel accommodation platform connecting residential property hosts with travelers, underpinned by escrow payments, identity verification, and bilateral reputation loops.",
+      coreSurfaces: [
+        {
+          name: "Search & Algorithmic Category Discovery",
+          detail: "Spatial map search and intent-driven categories (OMG!, Design, Skiing, Cabins) that redistribute travel demand away from over-indexed tourist capitals to rural regions."
+        },
+        {
+          name: "Host Management Operating System",
+          detail: "Smart Pricing algorithms, multi-calendar synchronization, automated messaging playbooks, and instant payout rails for property owners."
+        },
+        {
+          name: "AirCover (Bilateral Trust Architecture)",
+          detail: "$3M damage protection, identity verification, and 24/7 rebooking protection that de-risks home sharing for conservative homeowners."
+        },
+        {
+          name: "Guest-Host Real-Time Communication Hub",
+          detail: "Integrated multilingual translation, keyless lock keypad codes, and dispute mediation workflows."
+        }
+      ]
+    },
+    demographics: {
+      geography: "Present in over 100,000 cities across 220 countries and regions worldwide.",
+      motivation: "Guests seek unique, spacious, cost-effective stays with kitchens; hosts seek passive rental income to pay mortgages.",
+      ageDistribution: "Core guests: 20-45 leisure travelers, digital nomads, and family vacationers; hosts average 35-65 property owners.",
+      retentionBenchmark: "Exceptional organic brand affinity (90%+ of traffic is direct or unpaid). High repeat booking frequency among family and long-term stay travelers."
+    },
+    personas: [
+      {
+        name: "Elena (31, Paris) — 'The Remote Working Digital Nomad'",
+        archetype: "Long-Term Extended Stay Traveler",
+        goal: "Book a comfortable, high-aesthetic apartment for 1 month with verified high-speed Wi-Fi and a dedicated workspace.",
+        painPoint: "Hotels lack kitchens and laundry facilities; hosts misrepresent Wi-Fi speeds in descriptions.",
+        jtbd: "Find a verified, fully equipped apartment in Lisbon for 4 weeks so I can live like a local while working my tech job remotely.",
+        behavior: "Filters strictly by 'Fast Wi-Fi', reads the last 10 host reviews thoroughly, books 28+ day monthly stays for discounts."
+      },
+      {
+        name: "Brian & Maria (48, Denver) — 'The Mountain Cabin Superhosts'",
+        archetype: "Professional Micro-Hospitality Operators",
+        goal: "Maximize occupancy and nightly RevPAR on their second property while avoiding difficult guests who party and damage amenities.",
+        painPoint: "Managing cleaning turnaround schedules and worrying about guest noise complaints from neighbors.",
+        jtbd: "Automate booking approvals and guest messaging while maintaining Superhost status and 4.9+ star ratings.",
+        behavior: "Uses Smart Pricing, syncs cleaning calendars with TurnoverBnB, messages guests 24 hours prior to check-in."
+      },
+      {
+        name: "Marcus (39, Chicago) — 'The Family Vacation Planner'",
+        archetype: "Group Leisure Coordinator",
+        goal: "Organize an annual reunion for 8 family members with enough bedrooms, a private pool, and child-safe amenities.",
+        painPoint: "Hidden cleaning and service fees appearing at final checkout screen that blow the family budget.",
+        jtbd: "Give me transparent total pricing for a 4-bedroom house with a fenced backyard so our family can relax without booking 3 cramped hotel rooms.",
+        behavior: "Shares Airbnb wishlists with family members via WhatsApp to vote on candidate listings."
+      }
+    ],
+    nuances: [
+      {
+        title: "Bilateral Trust as the Primary Barrier to Entry",
+        insight: "Anyone can build a real estate listing website. Airbnb's moat is solving the acute psychological fear of letting a stranger sleep in your master bedroom. By building dual-blind reviews (neither party sees the other's feedback until both submit), verified government IDs, and $3M AirCover insurance, Airbnb turned an unthinkable taboo into a global habit."
+      },
+      {
+        title: "Why 90% Direct Traffic Insulates Airbnb from Google's 'Travel Ad Tax'",
+        insight: "Traditional online travel aggregators (Booking.com, Expedia) spend 30–45% of total revenue bidding on Google search keywords ('hotels in Miami'). In 2020, Brian Chesky slashed performance marketing by 90% and focused on product PR and brand design. Today, >90% of Airbnb's traffic is direct or organic, unlocking 35%+ Free Cash Flow margins."
+      },
+      {
+        title: "The Category Pivot: Moving Demand from 'Where' to 'What'",
+        insight: "Traditional travel sites start with: 'Where are you going and on what dates?'. Airbnb realized travelers often don't care about the specific city—they want an experience. Categories (Treehouses, Design, Beach) allowed Airbnb to redistribute booking demand to rural hosts and lower customer acquisition costs."
+      }
+    ],
+    critiqueAnd10x: {
+      proposal: "Turnkey Co-Host Operating System & Standardized Housekeeping Protocol: Transform Airbnb into an automated distributed hotel network by algorithmically pairing passive property owners with vetted local Super-Co-Hosts for a 15-20% fee split.",
+      tradeoffs: "Elevates marketplace liability and operational overhead; risks alienating independent boutique hosts who value bespoke control."
+    },
+    interviewCheatSheet: "Airbnb is a two-sided marketplace whose foundational moat is institutional trust between strangers (double-blind review game theory, AirCover, and ID verification) reinforced by unprecedented 90%+ organic brand traffic that insulates it from Google's performance marketing ad tax."
+  },
+
+  // ========================================================
+  // DAY 4 (NOV 7): LINEAR
+  // ========================================================
+  {
+    id: "linear",
+    week: 1,
+    day: 4,
+    releaseDate: "2026-11-07",
+    name: "Linear",
+    category: "B2B SaaS / Project Management",
+    badgeColor: "bg-indigo-50 text-indigo-700 border-indigo-200",
+    iconColor: "text-indigo-600",
+    tagline: "The opinionated, keyboard-first issue tracker that proved software craft is a competitive moat",
+    heroMetric: ">$35M ARR, >10,000 paying tech startups (OpenAI, Vercel, Ramp, Cash App)",
+    whatIsTheProduct: {
+      summary: "A high-performance project management and issue-tracking tool built specifically for high-velocity software engineering teams, designed with sub-50ms latency, keyboard navigation, and opinionated sprint cycles.",
+      coreSurfaces: [
+        {
+          name: "Sub-50ms Issue Creation & Command Menu (`Cmd+K`)",
+          detail: "Pressing `C` instantly opens a lightweight issue composer. Pressing `Cmd+K` opens a global command palette allowing any status update, assignee change, or project transition in 2 keystrokes without touching a mouse."
+        },
+        {
+          name: "Opinionated Engineering Workflows (Cycles & Triage)",
+          detail: "Unlike Jira's infinite blank configurations, Linear enforces modern engineering disciplines: automatic 1-to-2 week 'Cycles', a mandatory 'Triage' inbox for customer bug intake, and an auto-archiving backlog that prevents stale tickets from lingering."
+        },
+        {
+          name: "Local-First Realtime Synchronization Engine",
+          detail: "Built on an offline-first architecture with in-browser SQLite/IndexedDB. Edits are recorded instantly against local state, and merged asynchronously in the background via operational transforms."
+        },
+        {
+          name: "Git & Pull Request Deep Integration",
+          detail: "Branches named `username/issue-123` link automatically. Opening a GitHub PR moves the ticket to 'In Review'; merging the PR automatically marks the issue 'Done' and posts the commit link."
+        }
+      ]
+    },
+    demographics: {
+      geography: "Global tech startup hubs (San Francisco, New York, London, Berlin, Bengaluru). Over 70% of venture-backed Y Combinator startups now default to Linear over Jira.",
+      customerSize: "Sweet spot is high-growth software teams from 5 to 500 engineers. Rapidly expanding into mid-market and enterprise tech orgs (OpenAI, Scale AI).",
+      userPersonas: "Software engineers, tech leads, engineering managers, and technical PMs who despise administrative bureaucratic overhead.",
+      retentionBenchmark: "Net Revenue Retention (NRR) exceeds 135%, driven by organic team expansion from engineering into design and product tiers."
+    },
+    personas: [
+      {
+        name: "Alex (31, San Francisco) — 'The Flow-State Staff Engineer'",
+        archetype: "Efficiency-Obsessed Builder",
+        goal: "Stay in code flow without getting blocked by heavy, bloated project management software.",
+        painPoint: "Jira takes 4 seconds to load a ticket, requires 8 mandatory fields, and interrupts deep work.",
+        jtbd: "Let me log bugs and link PRs in 2 seconds from my keyboard so I can get back to writing software.",
+        behavior: "Only interacts with Linear via hotkeys (`Cmd+K`, `C`) and git commit messages (`fix ENG-204`)."
+      },
+      {
+        name: "Maya (34, London) — 'The High-Tempo VP of Product'",
+        archetype: "Delivery & Velocity Champion",
+        goal: "Track cross-team project roadmaps and customer bug escalations across 6 distributed squads.",
+        painPoint: "Engineers refuse to update Jira tickets, meaning executive roadmaps are constantly out of date.",
+        jtbd: "Give my engineering team a tool they actually love using so ticket status updates happen automatically.",
+        behavior: "Reviews Linear Insights burn-up charts during Monday executive meetings; manages customer intake via Linear Asks."
+      },
+      {
+        name: "David (28, Berlin) — 'The Design-Engineering Hybrid'",
+        archetype: "Craft & Detail Advocate",
+        goal: "Bridge visual design specs in Figma with actionable engineering issues.",
+        painPoint: "Having to copy-paste screenshots and requirements into 3 disconnected tools.",
+        jtbd: "Embed interactive Figma previews directly in engineering issues with auto-syncing status.",
+        behavior: "Attaches Figma frames to Linear tickets; uses Triage to review incoming UI debt."
+      }
+    ],
+    nuances: [
+      {
+        title: "Optimistic Local Cache as an Moat: Sub-50ms Interaction",
+        insight: "Linear does not make a round-trip network request every time you change a ticket's status. It writes mutations to an in-memory IndexedDB client store instantly, updating the UI in <16ms, and syncs asynchronously in the background. This psychological speed difference creates an addictive user experience that makes web competitors feel broken."
+      },
+      {
+        title: "The Opinionated Workflow vs The Jira Customization Trap",
+        insight: "Jira's fatal flaw is allowing enterprise admins to add 50 mandatory custom fields to every issue. Linear intentionally restricts customization, enforcing streamlined states (Backlog, Todo, In Progress, Done). By defending engineering simplicity against corporate bureaucracy, Linear became the tool of choice for the world's most productive startups."
+      },
+      {
+        title: "The 'Linear Method' as a Brand & Growth Philosophy",
+        insight: "Linear did not just sell software; they published the 'Linear Method'—an opinionated manifesto arguing that sprints are theater, story points are waste, and high-trust autonomous teams ship faster without micromanagement. This intellectual alignment turned users into vocal product evangelists."
+      }
+    ],
+    critiqueAnd10x: {
+      proposal: "Automated PR Scope Decomposition Agent: When an engineer opens a massive 1,500-line Pull Request, an AI bot analyzes git diffs, automatically generates atomic sub-tickets, and flags regression test risks to reviewers.",
+      tradeoffs: "Risk of noise if AI over-segments small refactors; requires deep static code analysis and access to proprietary codebases."
+    },
+    interviewCheatSheet: "Linear won the developer tool market by weaponizing extreme client-side speed (local SQLite/IndexedDB sync) and opinionated minimalism against Jira's bloated configuration complexity. It expands bottom-up through engineering squads and defends itself via extreme user loyalty and superior software craft."
+  },
+
+  // ========================================================
+  // DAY 3 (NOV 6): TIKTOK
+  // ========================================================
   {
     id: "tiktok",
     week: 1,
     day: 3,
+    releaseDate: "2026-11-06",
     name: "TikTok",
     category: "Consumer Attention & Algorithmic Media",
     badgeColor: "bg-neutral-900 text-white border-neutral-700",
@@ -82,378 +364,109 @@ export const SEED_PRODUCTS = [
     },
     interviewCheatSheet: "TikTok replaced the Social Graph (who you follow) with the Interest Graph (what captures your attention in 2 seconds). Its defensibility is pure machine-learning feedback loops on full-screen consumption telemetry. In PM interviews, cite its audio-as-index innovation and frictionless cold-start creator incentives."
   },
+
+  // ========================================================
+  // DAY 2 (NOV 5): NOTION
+  // ========================================================
   {
-    "id": "notion",
-    "week": 2,
-    "day": 2,
-    "name": "Notion",
-    "category": "B2B SaaS / Productivity",
-    "badgeColor": "bg-stone-100 text-stone-800 border-stone-300",
-    "tagline": "The modular workspace that turned documents into relational databases and spawned an organic template economy",
-    "heroMetric": "100M+ users, >$350M ARR, $10B valuation, 90%+ organic template distribution",
-    "whatIsTheProduct": {
-      "summary": "A modular, all-in-one productivity workspace where pages are composed of typed, movable 'blocks' (text, media, embeds, relational database views) that can be linked, transformed, and shared collaboratively across personal and enterprise teams.",
-      "coreSurfaces": [
-        {
-          "name": "The Atomic Block Canvas & Slash Commands (`/`)",
-          "detail": "Every element on a page (paragraph, bullet, toggle list, callout, image) is an independent database object with a unique UUID. Typing '/' triggers instant insertion of over 50 block primitives without touching formatting toolbars."
-        },
-        {
-          "name": "Polymorphic Relational Database Views",
-          "detail": "The same underlying dataset can be toggled instantaneously between Table, Kanban Board, Timeline/Gantt, Calendar, Gallery, and List views. Supports multi-way relations and 'Rollup' calculations across tables."
-        },
-        {
-          "name": "Notion AI & Semantic Q&A Agent",
-          "detail": "Embedded generative AI and retrieval-augmented generation (RAG) that indexes team wikis, allowing employees to ask natural-language questions (e.g. 'What is our Q4 parental leave policy?') and receive cited answers in seconds."
-        },
-        {
-          "name": "Global Template Gallery & Creator Economy",
-          "detail": "A self-serve marketplace enabling any user to publish or monetize functional workspace layouts (Life OS, Startup PRD Stack, CRM), turning power users into viral distributed marketing hubs."
-        }
-      ]
-    },
-    "demographics": {
-      "geography": "Over 80% of active users are outside the United States. Massive grassroots adoption across Japan, South Korea, France, Germany, and the UK.",
-      "motivation": "Knowledge workers, founders, and students desperate to consolidate 5 disjointed tools (Google Docs, Trello, Evernote, Airtable, and Confluence) into a single cohesive operating system.",
-      "ageDistribution": "Core adoption is 18-35 (heavy university student and startup operator demographic driven by Reddit, Twitter, and TikTok aesthetic desk setups).",
-      "retentionBenchmark": "Net Revenue Retention (NRR) exceeds 120% among paying business workspaces, driven by bottom-up expansion from individual note-takers to full company wikis."
-    },
-    "personas": [
-      {
-        "name": "Kenji (27, Tokyo) — 'The Second-Brain Architect'",
-        "archetype": "Obsessive Personal Knowledge Organizer",
-        "goal": "Build an interconnected digital second brain connecting reading notes, habit trackers, and personal projects.",
-        "painPoint": "Apple Notes is too flat; traditional databases require SQL and look ugly.",
-        "jtbd": "Give me an aesthetic, infinitely malleable canvas so I can organize my entire life and thoughts in one place.",
-        "behavior": "Spends 6 hours on weekends fine-tuning database relation properties, buys $30 community templates on Gumroad."
-      },
-      {
-        "name": "Sarah (34, London) — 'The Async Scale-Up COO'",
-        "archetype": "Cross-Functional Documentation Leader",
-        "goal": "Standardize company-wide onboarding, meeting notes, and engineering RFCs without paying $20/seat for bloated legacy Atlassian Confluence.",
-        "painPoint": "Company documents rot in Google Drive folders where no one can find anything after 2 weeks.",
-        "jtbd": "Create a central, searchable company wiki where new hires can self-serve knowledge on day one without asking on Slack.",
-        "behavior": "Champions enterprise Team Plan upgrade, restricts edit permissions on core HR wikis, sets up weekly team sprint boards."
-      },
-      {
-        "name": "Marco (21, Milan) — 'The University Student Power-User'",
-        "archetype": "Free-Tier Academic Crusader",
-        "goal": "Organize university lecture notes, coursework deadlines, and exam revision guides with embedded flashcards and aesthetic icons.",
-        "painPoint": "Carrying 4 separate notebooks and losing track of exam syllabus deliverables across fragmented PDFs.",
-        "jtbd": "Help me ace my university exams with organized, color-coded study schedules accessible on laptop and phone.",
-        "behavior": "Uses free student plan, shares public page links with study groups, posts Notion desk setup aesthetic reels on TikTok."
-      }
-    ],
-    "nuances": [
-      {
-        "title": "The Near-Death Pivot: Rebuilding from Scratch in Kyoto (2015)",
-        "insight": "In 2015, Notion's initial prototype constantly crashed and ran out of cash. Instead of tweaking it, Ivan Zhao and Simon Last fired their staff, sublet their San Francisco office, and moved to Kyoto, Japan. They rewrote the entire architecture from scratch on a unified 'Block' paradigm. This radical willingness to scrap a flawed codebase and isolate themselves for deep craft created the rock-solid data model that powers 100M users today."
-      },
-      {
-        "title": "The Zero-CAC Template Flywheel: Monetizing User Obsession",
-        "insight": "Traditional B2B SaaS companies hire expensive SDRs to outbound enterprise accounts. Notion realized their users enjoyed showing off their complex productivity setups. By making templates 1-click shareable, thousands of creators built lucrative businesses selling Notion templates ($10K-$100K/mo). These creators effectively became Notion's unpaid, incentivized global marketing army."
-      },
-      {
-        "title": "The Performance Bottleneck & The SQLite SQLite Migration",
-        "insight": "Notion's greatest strength (everything is an interconnected block object) became its greatest engineering liability. Loading a page with 1,000 blocks required hundreds of React DOM renders and client-side memory overhead, leading to widespread complaints of sluggish mobile performance. Notion had to re-architect its client data layer using an embedded local SQLite engine to achieve instant local cache reads."
-      }
-    ],
-    "critiqueAnd10x": {
-      "proposal": "Automated 'Doc Freshness & Stale Wiki Janitor': AI continuously monitors workspace document view frequency, edits, and Slack discussions, automatically flagging deprecated policies and prompting document owners to verify or archive obsolete pages.",
-      "tradeoffs": "Risk of false-positive archive warnings annoying team leads; requires deep background scanning compute across millions of enterprise blocks."
-    },
-    "interviewCheatSheet": "Notion democratized relational databases by wrapping them in an aesthetic, modular block canvas. Its growth engine is an unprecedented community template ecosystem that drives zero-CAC bottom-up adoption. Its strategic challenge is balancing infinite consumer flexibility with the permissions, speed, and governance demanded by Fortune 500 enterprises."
-  },
-  // ==========================================
-  // WEEK 1: Consumer Retention & Habit Formation
-  // ==========================================
-  {
-    id: "duolingo",
-    week: 1,
-    day: 1,
-    name: "Duolingo",
-    category: "Consumer EdTech",
-    badgeColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
-    tagline: "Gamified micro-learning built on behavioral psychology & streak loss-aversion",
-    heroMetric: "500M+ total users, 100M+ MAU, 30M+ DAU (>60% DAU/MAU)",
-    
-    // 1. WHAT ACTUALLY IS THE PRODUCT?
-    whatIsTheProduct: {
-      summary: "A mobile-first language and learning platform that turns 300+ hours of academic language curricula into 3-minute bite-sized multiple-choice puzzles, backed by an in-app game economy.",
-      coreSurfaces: [
-        {
-          name: "The Linear Learning Path (The 'Snake' UI)",
-          detail: "A single, unbranching vertical path of colorful circular stepping stones. Every lesson mixes speaking, listening, translation, and matching. Users cannot skip ahead unless they pass a checkpoint test."
-        },
-        {
-          name: "The Game Economy (Hearts, Gems, Streak Society)",
-          detail: "Free users have 5 'Hearts' that deplete with wrong answers, refilling slowly over hours or instantly by watching ads. Gems are spent on 'Streak Freezes' ($2.99 equivalent). Passing 365 days unlocks exclusive 'Streak Society' app icons and VIP perks."
-        },
-        {
-          name: "Duolingo English Test (DET) — The B2B Disrupter",
-          detail: "A \$59 computer-adaptive test taken at home via webcam with AI-driven proctoring, certified by over 4,500 universities (including Yale and Columbia) as a full replacement for the \$250 TOEFL/IELTS exam."
-        },
-        {
-          name: "Duolingo Max (Generative AI Tier)",
-          detail: "A premium \$30/month tier powered by OpenAI GPT-4 providing 'Explain My Answer' (instant grammar diagnosis) and 'Roleplay' (conversational voice simulations with characters like Lily and Oscar)."
-        }
-      ]
-    },
-
-    // 2. REAL DEMOGRAPHICS & USER SCALE
-    demographics: {
-      geography: "74% of users are outside North America. Fastest growing regions: Latin America, India, and Southeast Asia. However, the US, UK, and Western Europe generate >65% of paid subscription revenue.",
-      motivation: "Over 50% of global users are learning English (for university admission, visas, or career promotion). Only in wealthy Western markets is language learning a hobby for vacation tourism.",
-      ageDistribution: "45%+ under 25 years old (heavy Gen Z & student skew, accelerated by Duo's unhinged 12M-follower TikTok presence).",
-      retentionBenchmark: "DAU/MAU ratio exceeds 60% among users with >7-day streaks (rivaling Instagram and WhatsApp in daily open habits)."
-    },
-
-    // 3. NAMED, MEMORABLE USER PERSONAS
-    personas: [
-      {
-        name: "Rajesh (23, Mumbai) — 'The Visa Aspirant'",
-        archetype: "High-Stakes Economic Mobility",
-        goal: "Wants to pass the Duolingo English Test (DET) to qualify for a Canadian graduate visa.",
-        painPoint: "Traditional TOEFL classes cost \$300+ and test centers are a 4-hour train ride away.",
-        jtbd: "Help me certify my English proficiency at home for \$59 so I can unlock a foreign university degree.",
-        behavior: "High completion, practices 45 mins/day, zero interest in fun cartoon animations—values test simulation rigor."
-      },
-      {
-        name: "Emma (28, London) — 'The Guilt-Free Scroller'",
-        archetype: "Casual Dopamine Replacement",
-        goal: "Wants to learn conversational Italian before a 4-day Amalfi holiday, but mostly wants to stop doomscrolling TikTok on the Tube.",
-        painPoint: "Language textbooks are boring and grammar charts cause immediate cognitive exhaustion after a 9-hour workday.",
-        jtbd: "Give me a 3-minute feeling of virtuous productivity while commuting so I don't feel guilty about screen time.",
-        behavior: "Strictly opens app at 8:30 AM on the train, panics if streak is at risk, relies on Streak Freezes on weekends."
-      },
-      {
-        name: "Mateo (34, Chicago) — 'The Heritage Reconnector'",
-        archetype: "Identity & Emotional Belonging",
-        goal: "Second-generation immigrant who wants to speak conversational Spanish with his grandmother without feeling embarrassed.",
-        painPoint: "Shame and imposter syndrome when speaking with native family members.",
-        jtbd: "Build my confidence and basic vocabulary in private without fear of judgment before family gatherings.",
-        behavior: "Uses voice-listening exercises, sensitive to pronunciation corrections, highly loyal long-term subscriber."
-      }
-    ],
-
-    // 4. CRITICAL PM NUANCES (What top interviewers look for)
-    nuances: [
-      {
-        title: "The 'Snake UI' Redesign (2022): Why Killing User Choice Boosted Retention",
-        insight: "In 2022, Duolingo killed its iconic branching 'Tree' (where users picked what to study next) and forced everyone into a single linear path. Users revolted online with petitions. Why did Duolingo do it? Data showed that choice-paralysis was the #1 cause of silent churn: users spent 4 minutes wondering whether to do 'Food' or 'Travel', felt decision fatigue, and closed the app. The linear snake removed decision fatigue completely, lifting D30 retention by 14%."
-      },
-      {
-        title: "The 23.5-Hour Notification Timing Secret",
-        insight: "Duolingo does NOT send daily reminders at 24.0 hours. They time push alerts at exactly 23.5 hours after your previous session. Why? If you practiced yesterday at 8:00 AM on the bus, a reminder at 7:30 AM catches you right as you sit down for your commute, catching you in the exact same psychological context before your day gets busy."
-      },
-      {
-        title: "The B2B Trojan Horse: Disrupting TOEFL with Webcams",
-        insight: "While consumer competitors (Babbel, Rosetta Stone) fought over \$10/mo hobbyists, Duolingo attacked the \$2B standardized testing monopoly. By building computer vision algorithms that track eye-movements and typing rhythms through a laptop webcam, they created the Duolingo English Test (DET). It generates pure 90%+ gross margin revenue and locks in universities."
-      },
-      {
-        title: "The Mascot Shift: Abandoning EdTech for Unhinged TikTok Culture",
-        insight: "Duolingo's marketing team stopped posting tips on verb conjugations. Instead, they bought a 7-foot green owl suit and turned Duo into an unhinged, aggressive corporate menace on TikTok, obsessing over pop stars like Dua Lipa. CAC dropped to near-zero as Gen Z organically downloaded the app to join the cultural meme."
-      }
-    ],
-
-    // 5. CRITIQUE & "HOW TO 10X IT"
-    critiqueAnd10x: {
-      proposal: "Dynamic AI Voice Phone-Call Simulation: Instead of multiple-choice tapping, users receive simulated 2-minute phone calls from realistic characters (e.g., ordering a taxi in Madrid or checking into a hotel in Paris) with dynamic latency and emotional feedback.",
-      tradeoffs: "High inference cost of real-time voice-to-voice LLMs vs freemium margins; introduces conversational performance anxiety for shy casual users who prefer low-stress tapping."
-    },
-
-    // 6. INTERVIEW CHEAT SHEET (Memorize for PM loops)
-    interviewCheatSheet: "Duolingo is a retention engine disguised as an education company. It trades academic rigor for dopamine loops (loss-aversion streaks, 23.5h notification windows, and the forced-linear Snake UI to eliminate choice paralysis). It monetizes via high-margin streak preservation (Super) and its B2B testing disruption (DET)."
-  },
-
-  {
-    id: "strava",
+    id: "notion",
     week: 1,
     day: 2,
-    name: "Strava",
-    category: "Social Fitness",
-    badgeColor: "bg-orange-50 text-orange-700 border-orange-200",
-    tagline: "The athlete's social network turning solitary telemetry into high-status social proof",
-    heroMetric: "120M+ athletes, 40B+ activities uploaded, 10M+ weekly activities",
-
+    releaseDate: "2026-11-05",
+    name: "Notion",
+    category: "B2B SaaS / Productivity",
+    badgeColor: "bg-stone-100 text-stone-800 border-stone-300",
+    iconColor: "text-stone-800",
+    tagline: "The modular workspace that turned documents into relational databases and spawned an organic template economy",
+    heroMetric: "100M+ users, >$350M ARR, $10B valuation, 90%+ organic template distribution",
     whatIsTheProduct: {
-      summary: "A mobile and smartwatch fitness tracker combined with an asynchronous social network, where athletes record GPS activities, compete on crowdsourced route stretches ('Segments'), and exchange social validation ('Kudos').",
+      summary: "A modular, all-in-one productivity workspace where pages are composed of typed, movable 'blocks' (text, media, embeds, relational database views) that can be linked, transformed, and shared collaboratively across personal and enterprise teams.",
       coreSurfaces: [
         {
-          name: "Crowdsourced 'Segments' & Digital Leaderboards",
-          detail: "Any user can designate a stretch of road (e.g. a 0.5-mile hill climb) as a 'Segment'. Every runner or cyclist who ever passes through that GPS box is automatically ranked on an all-time and annual leaderboard. The #1 man earns King of the Mountain (KOM), #1 woman earns Queen of the Mountain (QOM)."
+          name: "The Atomic Block Canvas & Slash Commands (`/`)",
+          detail: "Every element on a page (paragraph, bullet, toggle list, callout, image) is an independent database object with a unique UUID. Typing '/' triggers instant insertion of over 50 block primitives without touching formatting toolbars."
         },
         {
-          name: "The Kudos Social Feed & Activity Detail",
-          detail: "An Instagram-style feed displaying route GPS maps, elevation profiles, pace splits, heart-rate zones, and photos. Users interact via 'Kudos' (likes) and comments."
+          name: "Polymorphic Relational Database Views",
+          detail: "The same underlying dataset can be toggled instantaneously between Table, Kanban Board, Timeline/Gantt, Calendar, Gallery, and List views. Supports multi-way relations and 'Rollup' calculations across tables."
         },
         {
-          name: "Hardware-Agnostic Bluetooth & Sensor Aggregation",
-          detail: "Syncs seamlessly with Garmin, Apple Watch, Wahoo, Polar, Suunto, and Peloton. Strava acts as the universal social layer on top of fragmented hardware devices."
+          name: "Notion AI & Semantic Q&A Agent",
+          detail: "Embedded generative AI and retrieval-augmented generation (RAG) that indexes team wikis, allowing employees to ask natural-language questions (e.g. 'What is our Q4 parental leave policy?') and receive cited answers in seconds."
         },
         {
-          name: "Strava Metro (Urban Planning Data Engine)",
-          detail: "Aggregates and de-identifies billions of bike and pedestrian GPS traces, selling analytics to city departments of transportation to design safer bike lanes and pedestrian zones."
+          name: "Global Template Gallery & Creator Economy",
+          detail: "A self-serve marketplace enabling any user to publish or monetize functional workspace layouts (Life OS, Startup PRD Stack, CRM), turning power users into viral distributed marketing hubs."
         }
       ]
     },
-
     demographics: {
-      geography: "Strongest in Europe (UK, France, Spain, Germany) and the US, with massive growth in Latin America and Australia. Cycling skew historically, now evenly split between running, trail running, and cycling.",
-      motivation: "Affluent, performance-driven fitness enthusiasts with high disposable income. Average Strava subscriber income exceeds \$90,000/year (spending on \$1,500+ bikes, running shoes, and GPS gear).",
-      ageDistribution: "Core demographic is 25-45 years old (working professionals balancing fitness with social validation).",
-      retentionBenchmark: "Weekly active retention exceeds 70% during peak outdoor training seasons (spring to autumn)."
+      geography: "Over 80% of active users are outside the United States. Massive grassroots adoption across Japan, South Korea, France, Germany, and the UK.",
+      motivation: "Knowledge workers, founders, and students desperate to consolidate 5 disjointed tools (Google Docs, Trello, Evernote, Airtable, and Confluence) into a single cohesive operating system.",
+      ageDistribution: "Core adoption is 18-35 (heavy university student and startup operator demographic driven by Reddit, Twitter, and TikTok aesthetic desk setups).",
+      retentionBenchmark: "Net Revenue Retention (NRR) exceeds 120% among paying business workspaces, driven by bottom-up expansion from individual note-takers to full company wikis."
     },
-
     personas: [
       {
-        name: "Julian (36, Munich) — 'The Amateur Racer'",
-        archetype: "Status-Driven Competitive Athlete",
-        goal: "Wants to claim the local KOM crown on the steepest hill climb in his district and track training load.",
-        painPoint: "Garmin Connect provides deep telemetry but has zero social clout; none of his friends look at it.",
-        jtbd: "Give me public recognition and proof that I am the fastest cyclist in my local neighborhood.",
-        behavior: "Subscribed to paid Strava Summit, obsessively checks segment split seconds, tracks bike component mileage."
+        name: "Kenji (27, Tokyo) — 'The Second-Brain Architect'",
+        archetype: "Obsessive Personal Knowledge Organizer",
+        goal: "Build an interconnected digital second brain connecting reading notes, habit trackers, and personal projects.",
+        painPoint: "Apple Notes is too flat; traditional databases require SQL and look ugly.",
+        jtbd: "Give me an aesthetic, infinitely malleable canvas so I can organize my entire life and thoughts in one place.",
+        behavior: "Spends 6 hours on weekends fine-tuning database relation properties, buys $30 community templates on Gumroad."
       },
       {
-        name: "Chloe (29, San Francisco) — 'The Weekend Run-Clubber'",
-        archetype: "Community & Identity Builder",
-        goal: "Wants to train for a half-marathon with her local running club and feel connected to peers.",
-        painPoint: "Running alone at 6:00 AM in the fog feels painful and lonely without accountability.",
-        jtbd: "Validate the effort of my morning workout with instant Kudos from friends so I feel part of an athletic tribe.",
-        behavior: "Takes photos of sunrise runs, posts weekly summaries on Instagram Stories, gives Kudos generously."
+        name: "Sarah (34, London) — 'The Async Scale-Up COO'",
+        archetype: "Cross-Functional Documentation Leader",
+        goal: "Standardize company-wide onboarding, meeting notes, and engineering RFCs without paying $20/seat for bloated legacy Atlassian Confluence.",
+        painPoint: "Company documents rot in Google Drive folders where no one can find anything after 2 weeks.",
+        jtbd: "Create a central, searchable company wiki where new hires can self-serve knowledge on day one without asking on Slack.",
+        behavior: "Champions enterprise Team Plan upgrade, restricts edit permissions on core HR wikis, sets up weekly team sprint boards."
       },
       {
-        name: "David (45, Austin) — 'The Urban Commuter'",
-        archetype: "Utility & Health Habit",
-        goal: "Logs his daily 8-mile bike commute to work to monitor calorie expenditure and heart health.",
-        painPoint: "Forgets to record rides manually or loses data when switching between Apple Watch and bike sensors.",
-        jtbd: "Silently log my physical activity across devices and show me my annual mileage totals without hassle.",
-        behavior: "Set-it-and-forget-it user; rarely comments, but values the end-of-year 'Year in Sport' graphic."
+        name: "Marco (21, Milan) — 'The University Student Power-User'",
+        archetype: "Free-Tier Academic Crusader",
+        goal: "Organize university lecture notes, coursework deadlines, and exam revision guides with embedded flashcards and aesthetic icons.",
+        painPoint: "Carrying 4 separate notebooks and losing track of exam syllabus deliverables across fragmented PDFs.",
+        jtbd: "Help me ace my university exams with organized, color-coded study schedules accessible on laptop and phone.",
+        behavior: "Uses free student plan, shares public page links with study groups, posts Notion desk setup aesthetic reels on TikTok."
       }
     ],
-
     nuances: [
       {
-        title: "The 'Segment' Genius: Micro-Territorial Warfare",
-        insight: "Strava didn't just build a social network; they created asynchronous digital real estate. A hill 2 blocks from your house is a competitive arena. You can race your neighbor without ever coordinating schedules or running at the same hour. This crowdsourced game loop generates endless free content and competitive tension."
+        title: "The Near-Death Pivot: Rebuilding from Scratch in Kyoto (2015)",
+        insight: "In 2015, Notion's initial prototype constantly crashed and ran out of cash. Instead of tweaking it, Ivan Zhao and Simon Last fired their staff, sublet their San Francisco office, and moved to Kyoto, Japan. They rewrote the entire architecture from scratch on a unified 'Block' paradigm. This radical willingness to scrap a flawed codebase and isolate themselves for deep craft created the rock-solid data model that powers 100M users today."
       },
       {
-        title: "Hardware Independence as a Defensive Moat",
-        insight: "Garmin, Apple, and Wahoo have billion-dollar hardware budgets. If Strava tried to make a smartwatch, they would have died. Instead, Strava positioned itself as the open Switzerland of fitness: no matter what watch, heart-rate strap, or power meter you buy, Strava is where the data lives. Hardware companies are commoditized; Strava owns the social layer."
+        title: "The Zero-CAC Template Flywheel: Monetizing User Obsession",
+        insight: "Traditional B2B SaaS companies hire expensive SDRs to outbound enterprise accounts. Notion realized their users enjoyed showing off their complex productivity setups. By making templates 1-click shareable, thousands of creators built lucrative businesses selling Notion templates ($10K-$100K/mo). These creators effectively became Notion's unpaid, incentivized global marketing army."
       },
       {
-        title: "The Paywall Gamble: Moving Leaderboards Behind Subscription (2020)",
-        insight: "In 2020, Strava was burning venture capital. In a daring PM move, they took full Segment leaderboards (previously free for 10 years) and locked them behind an \$11.99/mo paywall. Reddit exploded with outrage. The result? Subscriptions surged by 400%, turning Strava cash-flow positive and proving that athletes will pay real money for competitive status."
+        title: "The Performance Bottleneck & The SQLite Migration",
+        insight: "Notion's greatest strength (everything is an interconnected block object) became its greatest engineering liability. Loading a page with 1,000 blocks required hundreds of React DOM renders and client-side memory overhead, leading to widespread complaints of sluggish mobile performance. Notion had to re-architect its client data layer using an embedded local SQLite engine to achieve instant local cache reads."
       }
     ],
-
     critiqueAnd10x: {
-      proposal: "Safety & Air-Quality Dynamic Route Orchestrator: Real-time rerouting around high-traffic roads, wildfire smoke, or unsafe unlit trails based on aggregate Strava community telemetry.",
-      tradeoffs: "High liability risks if an athlete gets injured on a recommended route; background route computation accelerates smartphone battery drain."
+      proposal: "Automated 'Doc Freshness & Stale Wiki Janitor': AI continuously monitors workspace document view frequency, edits, and Slack discussions, automatically flagging deprecated policies and prompting document owners to verify or archive obsolete pages.",
+      tradeoffs: "Risk of false-positive archive warnings annoying team leads; requires deep background scanning compute across millions of enterprise blocks."
     },
-
-    interviewCheatSheet: "Strava is the digital locker room for athletes. Its moat is crowdsourced 'Segments' (asynchronous local competition) and hardware-agnostic data aggregation (Garmin/Apple Watch). It monetizes via high-status peer recognition, leaderboard subscriptions, and B2B urban planning telemetry (Strava Metro)."
+    interviewCheatSheet: "Notion democratized relational databases by wrapping them in an aesthetic, modular block canvas. Its growth engine is an unprecedented community template ecosystem that drives zero-CAC bottom-up adoption. Its strategic challenge is balancing infinite consumer flexibility with the permissions, speed, and governance demanded by Fortune 500 enterprises."
   },
 
-  {
-    id: "linear",
-    week: 2,
-    day: 1,
-    name: "Linear",
-    category: "B2B SaaS / Project Management",
-    badgeColor: "bg-indigo-50 text-indigo-700 border-indigo-200",
-    tagline: "The opinionated, keyboard-first issue tracker that proved software craft is a competitive moat",
-    heroMetric: ">$35M ARR, >10,000 paying tech startups (OpenAI, Vercel, Ramp, Cash App)",
-
-    whatIsTheProduct: {
-      summary: "A high-performance project management and issue-tracking tool built specifically for high-velocity software engineering teams, designed with sub-50ms latency, keyboard navigation, and opinionated sprint cycles.",
-      coreSurfaces: [
-        {
-          name: "Sub-50ms Issue Creation & Command Menu (`Cmd+K`)",
-          detail: "Pressing `C` instantly opens a lightweight issue composer. Pressing `Cmd+K` opens a global command palette allowing any status update, assignee change, or project transition in 2 keystrokes without touching a mouse."
-        },
-        {
-          name: "Opinionated Engineering Workflows (Cycles & Triage)",
-          detail: "Unlike Jira's infinite blank configurations, Linear enforces modern engineering disciplines: automatic 1-to-2 week 'Cycles', a mandatory 'Triage' inbox for customer bug intake, and an auto-archiving backlog that prevents stale tickets from lingering."
-        },
-        {
-          name: "Local-First Realtime Synchronization Engine",
-          detail: "Built on an offline-first architecture with in-browser SQLite/IndexedDB. Edits are recorded instantly against local state, and merged asynchronously in the background via operational transforms."
-        },
-        {
-          name: "Git & Pull Request Deep Integration",
-          detail: "Branches named `username/issue-123` link automatically. Opening a GitHub PR moves the ticket to 'In Review'; merging the PR automatically marks the issue 'Done' and posts the commit link."
-        }
-      ]
-    },
-
-    demographics: {
-      geography: "Global tech startup hubs (San Francisco, New York, London, Berlin, Bengaluru). Over 70% of venture-backed Y Combinator startups now default to Linear over Jira.",
-      customerSize: "Sweet spot is high-growth software teams from 5 to 500 engineers. Rapidly expanding into mid-market and enterprise tech orgs (OpenAI, Scale AI).",
-      userPersonas: "Software engineers, tech leads, engineering managers, and technical PMs who despise administrative bureaucratic overhead.",
-      retentionBenchmark: "Net Revenue Retention (NRR) exceeds 135%, driven by organic team expansion from engineering into design and product tiers."
-    },
-
-    personas: [
-      {
-        name: "Alex (31, San Francisco) — 'The Flow-State Staff Engineer'",
-        archetype: "Efficiency-Obsessed Builder",
-        goal: "Wants to track sprint deliverables and link pull requests without breaking his coding flow state.",
-        painPoint: "Hates Jira because opening a ticket takes 4 seconds of loading spinners and requires 8 mandatory dropdown clicks.",
-        jtbd: "Let me log bugs and close tickets using only keyboard shortcuts in under 3 seconds so I can get back to writing code.",
-        behavior: "Never touches the mouse, advocates fiercely for Linear during startup tooling migrations."
-      },
-      {
-        name: "Maya (34, New York) — 'The High-Velocity Product Manager'",
-        archetype: "Roadmap & Cross-Functional Orchestrator",
-        goal: "Needs clear visibility into engineering progress, sprint velocity, and customer bug triage without running micromanaged daily standups.",
-        painPoint: "Tickets in legacy tools get stale; backlogs turn into 800-ticket graveyards where nothing ever gets deleted.",
-        jtbd: "Give me an automated view of sprint progress and auto-archive dead issues so my roadmap stays honest and fresh.",
-        behavior: "Lives in the Project Roadmap view, relies on Linear's Slack bot for automated release notifications."
-      },
-      {
-        name: "Siddharth (40, Austin) — 'The VP of Engineering'",
-        archetype: "Enterprise Scaling & Velocity Leader",
-        goal: "Wants to accelerate engineering cycle time and attract top talent who refuse to work in bloated corporate software.",
-        painPoint: "Company-wide velocity slows down as Jira consultants add 40 custom fields and complicated approval stages.",
-        jtbd: "Standardize our 120-person engineering organization on a modern, opinionated workflow that eliminates sprint planning arguments.",
-        behavior: "Authorizes the company-wide credit card upgrade; values SOC2 compliance, SAML SSO, and GitHub integrations."
-      }
-    ],
-
-    nuances: [
-      {
-        title: "The Anti-Jira Moat: Opinionated Defaults Over Customization",
-        insight: "Jira's sales pitch was: 'You can configure anything!' This led to corporate bureaucracy where every department added mandatory form fields, making tickets take 5 minutes to submit. Linear's radical insight was that constraints liberate: by offering ONLY Backlog, Todo, In Progress, Done, and Canceled, they eliminated tooling debates and restored engineering velocity."
-      },
-      {
-        title: "The Architecture Secret: Local-First Synchronization",
-        insight: "Linear does not wait for a cloud HTTP response before rendering state on your screen. Everything writes to an in-browser SQLite database in 5ms. A background web-worker syncs mutations to the cloud. This 'Local-First' architecture makes the app feel like native desktop software, completely eliminating click-latency."
-      },
-      {
-        title: "Bottom-Up Developer Adoration as a Sales Force",
-        insight: "Linear doesn't employ a traditional army of aggressive outbound enterprise SDRs. Instead, engineers use it at home or in hackathons, fall in love with the speed, and demand it when they join their next company. It is the purest example of Product-Led Growth (PLG) in enterprise devtools."
-      }
-    ],
-
-    critiqueAnd10x: {
-      proposal: "Automated PR-to-Spec Bidirectional Sync: AI analyzes merged code diffs and automatically updates the high-level PRD and documentation in Linear without PMs writing manual release notes.",
-      tradeoffs: "Risk of inaccurate automated summaries misleading QA testers or non-technical business stakeholders."
-    },
-
-    interviewCheatSheet: "Linear proved that software craft, sub-50ms speed, and opinionated constraints beat infinite enterprise customization (Jira). Built on a local-first client database with keyboard-driven ergonomics, it wins bottoms-up with engineers before expanding across product, design, and executive tiers."
-  },
-
+  // ========================================================
+  // DAY 1 (NOV 4): SPOTIFY
+  // ========================================================
   {
     id: "spotify",
     week: 1,
-    day: 3,
+    day: 1,
+    releaseDate: "2026-11-04",
     name: "Spotify",
     category: "Consumer Media & Streaming",
     badgeColor: "bg-green-50 text-green-700 border-green-200",
+    iconColor: "text-emerald-600",
     tagline: "Algorithmic serendipity that transitioned music from an ownership commodity into a personalized utility",
     heroMetric: "600M+ MAU, 230M+ Premium Subscribers across 180+ markets",
-
     whatIsTheProduct: {
       summary: "A global audio streaming platform that converted a pirated music industry into a frictionless freemium streaming utility, powered by vector recommendation algorithms and ubiquitous hardware handoff.",
       coreSurfaces: [
@@ -475,14 +488,12 @@ export const SEED_PRODUCTS = [
         }
       ]
     },
-
     demographics: {
       geography: "Global footprint across 180+ countries. Europe and North America drive ~60% of subscribers; Latin America and Southeast Asia are fastest growing volume markets.",
-      userSplit: "Broad cross-generational appeal: 65% under 35 (heavy Millennial & Gen Z music fans), but expanding into older demographics via podcasts and audiobooks.",
-      businessMarginCeiling: "Gross margins are structurally squeezed at ~26-28% because ~70% of every streaming dollar is paid out directly in royalties to major record labels (Universal, Sony, Warner).",
+      motivation: "Users seek instant, unlimited access to global audio without piracy friction, supported by personalized discovery algorithms.",
+      ageDistribution: "65% under 35 (heavy Millennial & Gen Z music fans), expanding into older demographics via podcasts and audiobooks.",
       retentionBenchmark: "Monthly subscriber churn is remarkably low at ~3.5-3.8%, driven by irreplaceable personal playlist libraries."
     },
-
     personas: [
       {
         name: "Liam (22, Toronto) — 'The Genre-Fluid Music Explorer'",
@@ -509,11 +520,10 @@ export const SEED_PRODUCTS = [
         behavior: "Listens at 1.5x speed, downloads episodes offline, represents high-margin ad inventory for Spotify."
       }
     ],
-
     nuances: [
       {
         title: "The 26% Gross Margin Trap & The Podcast Pivot",
-        insight: "Unlike traditional software companies with 85% gross margins, Spotify is economically hamstrung by the 'Big Three' music labels (Universal, Sony, Warner), who extract ~70% of music royalties. Every time Spotify signs up 10M more music listeners, labels get richer. To survive, Spotify spent \$1B+ acquiring podcast studios (Joe Rogan, Gimlet, Bill Simmons) because podcasts have fixed costs: once produced, streaming them to 50M users carries zero music royalty costs, unlocking lucrative dynamic audio advertising."
+        insight: "Unlike traditional software companies with 85% gross margins, Spotify is economically hamstrung by the 'Big Three' music labels (Universal, Sony, Warner), who extract ~70% of music royalties. Every time Spotify signs up 10M more music listeners, labels get richer. To survive, Spotify spent $1B+ acquiring podcast studios because podcasts carry zero label royalty costs, unlocking dynamic audio advertising."
       },
       {
         title: "The Sub-200ms Rule: Why Speed Beat Piracy",
@@ -524,134 +534,490 @@ export const SEED_PRODUCTS = [
         insight: "In December, Spotify doesn't buy expensive Super Bowl ads. Instead, they package your own personal data into beautiful, colorful story slides ('You listened to 48,000 minutes; you are in the top 1% of Drake fans'). Users proudly screenshot and post it to Instagram, Facebook, and Twitter, turning 200M+ users into unpaid brand ambassadors for 2 weeks straight."
       }
     ],
-
     critiqueAnd10x: {
       proposal: "Superfan Direct-to-Artist Monetization: Enable artists to sell exclusive pre-release demos, VIP concert tickets, and virtual backstage Q&As directly inside the 'Now Playing' screen.",
       tradeoffs: "Record labels demand contractual cuts of all ancillary artist monetization; risks cluttering the minimalist listening UI."
     },
-
     interviewCheatSheet: "Spotify conquered music piracy by making streaming sub-200ms fast. Its competitive moats are Spotify Connect (seamless cross-device hardware handoff) and viral cultural loops like Spotify Wrapped. Its existential challenge is label royalties (~70% payout), forcing its high-margin diversification into podcasts and audiobooks."
   },
 
+  // ========================================================
+  // UPCOMING QUEUED DROPS (UNLOCKED AUTOMATICALLY BY DATE)
+  // ========================================================
   {
-    id: "airbnb",
-    week: 1,
-    day: 4,
-    name: "Airbnb",
-    category: "Two-Sided Marketplaces",
-    badgeColor: "bg-rose-50 text-rose-700 border-rose-200",
-    tagline: "The bilateral trust architecture and category engine that turned residential real estate into liquid global hospitality",
-    heroMetric: ">8M active listings, >1.5B guest arrivals, 90%+ organic/direct traffic, ~$11B revenue",
-
-    // 1. WHAT ACTUALLY IS THE PRODUCT?
+    id: "uber",
+    week: 2,
+    day: 7,
+    releaseDate: "2026-11-10",
+    name: "Uber",
+    category: "Two-Sided Mobility & Logistics Marketplace",
+    badgeColor: "bg-slate-900 text-white border-slate-700",
+    iconColor: "text-slate-900",
+    tagline: "The real-time geospatial marketplace coordinating physical mobility and delivery supply with dynamic algorithmic pricing",
+    heroMetric: "150M+ monthly active platform consumers, >$130B Gross Bookings, 30M+ daily trips",
     whatIsTheProduct: {
-      summary: "A global two-sided accommodation and experience marketplace connecting property hosts with travelers across 220+ countries, transforming private residential real estate into a liquid, searchable hospitality network underpinned by bilateral identity verification, dynamic geospatial discovery, institutional damage insurance, and algorithmic pricing.",
+      summary: "A global on-demand mobility and logistics network that matches rider transportation demand with flexible driver vehicle capacity using predictive ETAs, geospatial hexagonal grids (H3), and dynamic pricing algorithms.",
       coreSurfaces: [
         {
-          name: "Dynamic Map & Airbnb Category Search",
-          detail: "Replaced the traditional destination/date search box with 60+ algorithmic categories (e.g. 'OMG!', 'Cabins', 'Design', 'Mansions') powered by computer vision curation. Coupled with a sub-second bounding-box map rendering engine that clusters millions of listings dynamically as users pan across geographic regions."
+          name: "Geospatial Matching & ETA Prediction Engine",
+          detail: "Hexagonal spatial indexing (Uber H3) partitioning cities into localized supply-demand cells to dispatch the optimal driver within sub-second thresholds."
         },
         {
-          name: "The Bilateral Trust & Identity System",
-          detail: "Multi-factor identity verification pairing government ID scans with real-time biometric facial recognition and automated risk scoring (evaluating reservation lead time, distance from home, and guest age to proactively block unauthorized house parties before booking)."
+          name: "Dynamic Surge Pricing & Marketplace Balance Loop",
+          detail: "Real-time pricing multiplier that throttles excessive demand during rain or concerts while incentivizing idle drivers to reposition toward high-demand zones."
         },
         {
-          name: "AirCover for Hosts (Embedded Insurance Architecture)",
-          detail: "Comprehensive protection embedded into every listing at zero marginal cost: $3M in property damage protection (including art, valuables, and pet damage), $1M in host liability insurance, income loss coverage during repairs, and a 24-hour safety line, effectively removing the #1 objection preventing residential homeowners from listing."
+          name: "Driver Partner Super-App & Earnings Telemetry",
+          detail: "Turn-by-turn routing, heatmaps, upfront fare transparency, and instant payout rails (Uber Pro Card) to minimize driver churn."
         },
         {
-          name: "Smart Pricing & Dynamic Revenue Management Engine",
-          detail: "An automated algorithmic pricing model that adjusts nightly rates in real time based on 70+ signals including local market search spikes, airport flight arrivals, seasonal demand patterns, competitor occupancy, lead-time elasticity, and host-configured minimum/maximum price boundaries."
+          name: "Uber One Cross-Platform Subscription",
+          detail: "Multi-product loyalty bundle unlocking $0 delivery fees on Uber Eats and 5% discounts on rides, driving cross-surface frequency."
         }
       ]
     },
-
-    // 2. REAL DEMOGRAPHICS & USER SCALE
     demographics: {
-      geography: ">8M active listings across 100,000+ cities in 220+ countries and regions. While North America and Western Europe account for ~65% of Gross Booking Value (GBV), Latin America (Brazil, Mexico) and Asia-Pacific represent the fastest-growing supply and demand corridors.",
-      motivation: "Guests seek authentic local neighborhood immersion, multi-bedroom spaces with full kitchens for group/family economics, or 30-90 day remote-work flexibility. Hosts (>85% individual homeowners) list spare rooms or primary residences to offset rising mortgages and combat inflation.",
-      ageDistribution: "Over 60% of guests are Millennials and Gen Z (ages 18-40), driving high mobile app adoption and flexible non-urban booking patterns. Senior hosts (60+) represent the fastest-growing and highest-rated host demographic.",
-      retentionBenchmark: "Over 90% of global web and app traffic is direct or unpaid organic—an unmatched brand moat in travel. Repeat guest booking rate exceeds 65% within 24 months, with an implied platform take-rate of ~13.5-14% on ~$73B+ in annual Gross Booking Value (GBV)."
+      geography: "Present in over 10,000 cities across 70 countries worldwide. Ubiquitous across urban metro corridors.",
+      motivation: "Riders want reliable point-to-point transportation with guaranteed pickup times; drivers seek flexible, immediate cash earnings.",
+      ageDistribution: "Riders: 18-55 across all urban income brackets; drivers average 25-60.",
+      retentionBenchmark: "Uber One members spend 3.4x more annually and have 50% lower churn than non-member riders."
     },
-
-    // 3. NAMED, MEMORABLE USER PERSONAS
     personas: [
       {
-        name: "Elena (29, Lisbon) — 'The Digital Nomad Remote Worker'",
-        archetype: "Extended-Stay Global Remote Worker",
-        goal: "Book verified 30-to-90 day work-ready sanctuaries with certified 100+ Mbps WiFi, dedicated ergonomic desks, and full kitchen facilities.",
-        painPoint: "Deceptive listing photos, unstable internet cutting out during client presentations, surprise utility bills, and astronomical cleaning fees.",
-        jtbd: "Give me a certified, work-ready home anywhere in the world for 1–3 months with verified internet speeds and transparent monthly discounts so I can live friction-free without a long-term lease.",
-        behavior: "Filters strictly by 'Dedicated Workspace' and 'Fast WiFi' (checking the in-app M-Lab speed test badge), books 28+ night increments to trigger 20-30% monthly discounts, and messages hosts to inspect chair ergonomics."
+        name: "Daniel (32, Manhattan) — 'The Time-Starved Business Commuter'",
+        archetype: "High-Willingness-to-Pay Professional",
+        goal: "Arrive at client meetings and airport terminals reliably without waiting in rain for street taxis.",
+        painPoint: "Public subway delays and uncertain street taxi availability when rushing to JFK airport.",
+        jtbd: "Get a car outside my apartment within 4 minutes with guaranteed arrival time so I never miss a flight.",
+        behavior: "Uber Reserve power user, expenses rides to corporate card, indifferent to surge pricing."
       },
       {
-        name: "Marcus (42, Denver) — 'The Mortgage-Offset Host'",
-        archetype: "Suburban Side-Income Micro-Entrepreneur",
-        goal: "Monetize a renovated basement suite or second home to reliably cover a $3,200 monthly mortgage while retaining property control.",
-        painPoint: "Anxiety over rowdy party guests trashing his property, complex municipal short-term rental licensing, and the operational headache of coordinating turnover cleanings between 11 AM checkout and 3 PM check-in.",
-        jtbd: "Turn my extra real estate into passive, insured income without risking property destruction or consuming 20 hours a week in hotelier operations.",
-        behavior: "Mandates verified government IDs and prior 5-star guest reviews before approving reservations; activates AirCover damage protection; sets strict Smart Pricing floors; uses automated smart locks synced to the Airbnb API."
-      },
-      {
-        name: "Priya (38, London) — 'The Family Reunion Organizer'",
-        archetype: "High-Stakes Group Logistics Planner",
-        goal: "Coordinate a memorable week-long retreat for 10 people (grandparents, siblings, toddlers) in a countryside villa with communal cooking and a child-safe fenced yard.",
-        painPoint: "Hotel room blocks isolate the family across impersonal corridors and cost 3x more; surprise checkout chore lists ('wash linens, vacuum rugs, take trash to dumpster') despite paying a $300 cleaning fee.",
-        jtbd: "Bring my multi-generational family together under a single welcoming roof with shared living spaces so grandparents and grandchildren can bond comfortably.",
-        behavior: "Curates Collaborative Wishlists with voting pins for relatives, inspects crib/highchair amenities, scrutinizes 1-star reviews for safety warnings or cleanliness red flags, and books 6–9 months in advance."
+        name: "Rashid (44, Chicago) — 'The Full-Time Flexibility Driver'",
+        archetype: "Micro-Entrepreneur Driver Partner",
+        goal: "Earn $1,500/week after gas and vehicle depreciation while having flexibility to pick his kids up from school.",
+        painPoint: "High vehicle maintenance costs and sitting unpaid in traffic without knowing trip destinations.",
+        jtbd: "Maximize earnings per active hour by directing me to surge zones and showing trip earnings before accepting rides.",
+        behavior: "Drives 35 hours a week, analyzes weekly promotions, withdraws earnings daily."
       }
     ],
-
-    // 4. CRITICAL PM NUANCES (What top interviewers look for)
     nuances: [
       {
-        title: "The Craigslist Cold-Start Hack (2009–2010): The Reverse-Engineered Growth Loop",
-        insight: "When Airbnb had zero brand awareness and negligible marketing capital, they engineered a dual-sided technical exploit against Craigslist. First, they built a seamless reverse-engineered form automation: when a host listed on Airbnb, a one-click prompt cross-posted to Craigslist with professional photos and HTML formatting, with inbound links pointing back to Airbnb. Second, automated scripts messaged Craigslist vacation rental posters alerting them to Airbnb. This piggybacked on Craigslist's massive supply-demand liquidity without spending a single dollar on performance marketing, solving the cold-start problem in key gateway cities (NYC, SF)."
+        title: "The Local Liquidity Network Effect: City-by-City Cold Start",
+        insight: "Unlike Airbnb or Facebook, Uber's network effects are strictly hyperlocal. Having 100,000 drivers in London provides zero utility to a rider in Boston. Uber has to reconstruct two-sided marketplace liquidity city by city. The primary retention metric is ETAs: if pickup time drops from 10 minutes to 3 minutes, rider conversion jumps dramatically."
       },
       {
-        title: "The Double-Blind Simultaneous Review System: Eliminating Stranger-Danger & Retaliation Bias",
-        insight: "In a standard sequential review architecture (like legacy eBay), guests who experienced a subpar or dirty stay hesitated to leave an honest review because hosts could retaliate with a 1-star guest review ('guest was loud and broke house rules'), destroying the guest's reputation. This resulted in artificial review inflation where everything was rated 5 stars. Airbnb solved this with a strict 14-day double-blind reveal mechanism: neither guest nor host can view the other's review until both parties have submitted their text or the 14-day post-checkout window expires. This structural game-theoretic fix unlocked authentic feedback, restored mutual trust, and kept review credibility high."
-      },
-      {
-        title: "Why 90% Direct Traffic Insulates Airbnb from Google's 'Travel Ad Tax'",
-        insight: "Online travel aggregators (OTAs) like Booking Holdings and Expedia are structurally subservient to Google, funneling $5B+ annually (often 30-45% of total revenue) into Google Travel / AdWords to bid on commoditized hotel keywords ('hotels in Miami'). In March 2020, facing pandemic collapse, Brian Chesky made the bold product gamble to slash performance marketing by nearly 90% and re-center the company around product innovation, PR, and brand design. Today, over 90% of Airbnb's traffic is direct or organic. Because guests think 'I want to Airbnb a cabin' rather than 'search accommodation on Google', Airbnb maintains a 35%+ Free Cash Flow margin and pricing power that traditional OTAs cannot match."
-      },
-      {
-        title: "The 'Airbnb Rooms' Pivot (2023): Defusing Consumer Price Fatigue with the 'Host Passport'",
-        insight: "By 2022, guest backlash against hidden cleaning fees, exorbitant cleaning chore lists, and soaring nightly rates threatened Airbnb's core brand promise ('Airbnb is more expensive than a Marriott'). Chesky responded with 'Airbnb Rooms'—re-anchoring the platform to its affordable couch-surfing origins with private rooms averaging $67/night. The critical product challenge wasn't pricing; it was the psychological dread of sharing a bathroom with an unknown host. Airbnb engineered the 'Host Passport': an intimate profile card displaying the host's employer, alma mater, musical preferences, fun facts, and guest interaction style, lowering social friction and humanizing strangers through relatable affinity data."
+        title: "Surge Pricing as Supply Allocator, Not Revenue Gouger",
+        insight: "Public riders hate surge pricing, viewing it as corporate greed. But senior marketplace PMs know surge pricing is primarily an allocation mechanism: it rations scarce seats to riders who value the trip most urgently while incentivizing sleeping drivers to get into their cars and restore marketplace equilibrium."
       }
     ],
-
-    // 5. CRITIQUE & 'HOW TO 10X IT'
     critiqueAnd10x: {
-      proposal: "Turnkey Co-Host Operating System & Standardized Housekeeping Protocol: Transform Airbnb from an asset listing board into an automated distributed hotel network by algorithmically pairing passive property owners with vetted local Super-Co-Hosts (for a 15-20% fee split) and offering an in-app standardized housekeeping certification with photo-verified turnover checklists, guaranteeing zero checkout chore lists for guests.",
-      tradeoffs: "Elevates marketplace liability and operational overhead; risks alienating independent boutique hosts who value bespoke control; introduces potential municipal regulatory scrutiny and labor classification risks for dispatched turnover service workers."
+      proposal: "Intermodal City Transit Orchestrator: Dynamic routing that combines an Uber scooter to the express train station, followed by an Uber car at the destination, booking all legs seamlessly in 1 ticket for 40% less cost.",
+      tradeoffs: "Requires complex public municipal transit API integrations and high customer support liability for third-party train delays."
     },
-
-    // 6. INTERVIEW CHEAT SHEET (Memorize for PM loops)
-    interviewCheatSheet: "Airbnb is a two-sided marketplace whose foundational moat is institutional trust between strangers (double-blind review game theory, AirCover, and ID verification) reinforced by unprecedented 90%+ organic brand traffic that insulates it from Google's performance marketing ad tax. Unlike OTAs competing on commoditized hotel room pricing, Airbnb dominates via unique, proprietary supply liquidity (>8M listings across 100,000 cities). In PM loops, highlight how brand-led category curation and bilateral risk mitigation beat performance-marketing dependency."
+    interviewCheatSheet: "Uber is a two-sided geospatial marketplace that monetizes via take rates (~20-28% net revenue). Its competitive moat is local driver liquidity density (which yields lower ETAs and higher driver utilization) and cross-selling synergies between Rides and Eats via the Uber One subscription flywheel."
+  },
+  {
+    id: "stripe",
+    week: 2,
+    day: 8,
+    releaseDate: "2026-11-11",
+    name: "Stripe",
+    category: "Fintech & Developer Infrastructure",
+    badgeColor: "bg-blue-50 text-blue-700 border-blue-200",
+    iconColor: "text-blue-600",
+    tagline: "The 7 lines of code that abstracted global banking infrastructure and built the internet economy",
+    heroMetric: ">$1 Trillion in annual payment volume (1% of global GDP), >$14B revenue",
+    whatIsTheProduct: {
+      summary: "A global programmatic financial infrastructure suite enabling businesses of all sizes from startups to Amazon to accept online payments, manage subscription billing, prevent fraud, and issue physical/virtual cards via developer-first REST APIs.",
+      coreSurfaces: [
+        {
+          name: "Stripe Elements & Checkout (Optimized Payment UX)",
+          detail: "Pre-built, localized checkout interfaces supporting Apple Pay, Google Pay, and 100+ local payment methods (Klarna, iDEAL, Pix) with 1-click Link autofill."
+        },
+        {
+          name: "Stripe Billing & Revenue Recognition",
+          detail: "Recurring subscription engine supporting complex usage-based pricing, seat tiers, automated dunning, and GAAP-compliant accounting ledgers."
+        },
+        {
+          name: "Radar (Machine Learning Fraud Prevention)",
+          detail: "Algorithmic defense network trained on billions of global card transactions to block stolen cards in <100ms with zero checkout friction."
+        },
+        {
+          name: "Stripe Connect (Multi-Party Marketplace Payouts)",
+          detail: "API rails powering two-sided platforms (Shopify, DoorDash, Substack) to split transaction revenues and disburse compliant payouts to millions of sub-merchants."
+        }
+      ]
+    },
+    demographics: {
+      geography: "Supports payment processing across 46+ countries and 135+ currencies.",
+      motivation: "Developers and CFOs needing compliant, high-reliability payment processing without spending 6 months integrating legacy merchant banks.",
+      ageDistribution: "Core buyers: CTOs, CFOs, and full-stack software engineers.",
+      retentionBenchmark: "Ultra-low churn (<1% gross logo churn in enterprise tier) due to deep API architectural entanglement and risk of revenue disruption."
+    },
+    personas: [
+      {
+        name: "Devon (29, San Francisco) — 'The Solo SaaS Hacker'",
+        archetype: "Developer Velocity Champion",
+        goal: "Accept credit card subscriptions for his micro-SaaS with under 2 hours of coding.",
+        painPoint: "Traditional merchant processors require 3 weeks of underwriting paperwork and fax machines.",
+        jtbd: "Give me clean copy-paste API documentation and test mode keys so I can bill customers before launch.",
+        behavior: "Reads Stripe API docs, uses Stripe Checkout webhooks, lives in the Developer Dashboard."
+      },
+      {
+        name: "Helena (47, London) — 'The Marketplace VP of Finance'",
+        archetype: "Compliance & Risk Executive",
+        goal: "Route transactions to 10,000 independent sellers while complying with cross-border tax withholding and KYC regulations.",
+        painPoint: "Opening bank accounts in 20 European jurisdictions and handling VAT compliance manually.",
+        jtbd: "Automate identity verification, tax calculations, and 1099/DAC7 reporting across our international seller base.",
+        behavior: "Relies on Stripe Connect and Stripe Tax to reconcile multi-currency balances."
+      }
+    ],
+    nuances: [
+      {
+        title: "Developer Experience (DX) as a Customer Acquisition Channel",
+        insight: "In 2010, enterprise software was sold over steak dinners to CIOs. Patrick and John Collison realized that engineers were the real gatekeepers of software architecture. By building elegant documentation, instant API keys, and copy-paste code snippets, Stripe turned engineers into internal champions who demanded their CFOs sign with Stripe."
+      },
+      {
+        title: "The Radar Network Effect: Shared Global Fraud Telemetry",
+        insight: "A fraudster using a stolen credit card to buy sneakers on a small Shopify store is instantly detected by Stripe Radar because that same card was flagged 2 minutes earlier on a food delivery app in London. By pooling transaction signals across 1% of global GDP, Stripe delivers lower chargeback rates than any standalone merchant could ever achieve."
+      }
+    ],
+    critiqueAnd10x: {
+      proposal: "Universal Cross-Platform Merchant Vault: A portable, self-sovereign customer identity token allowing consumers to checkout across ANY Stripe-powered merchant globally in 1 tap without passwords or credit card entry.",
+      tradeoffs: "Anti-trust scrutiny if competitors allege Stripe is building an anti-competitive consumer checkout monopoly."
+    },
+    interviewCheatSheet: "Stripe abstracted legacy banking rails into 7 lines of code. Its competitive moat is developer love (pristine documentation and APIs), high switching costs (deep codebase and billing logic integration), and shared global fraud telemetry (Radar)."
+  },
+  {
+    id: "culture_amp",
+    week: 2,
+    day: 9,
+    releaseDate: "2026-11-12",
+    name: "Culture Amp",
+    category: "HR Tech & People Analytics",
+    badgeColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
+    iconColor: "text-emerald-700",
+    tagline: "The employee experience platform turning workforce sentiment into executive retention strategy",
+    heroMetric: "6,500+ global enterprises, >$150M ARR, 25M+ survey responses, $1.5B+ valuation",
+    whatIsTheProduct: {
+      summary: "A unified employee experience and people intelligence platform that replaces annual paper HR reviews with continuous pulse surveys, 360-degree performance evaluations, and machine-learning turnover prediction models.",
+      coreSurfaces: [
+        {
+          name: "Engagement Pulse Engine & Benchmark Comparisons",
+          detail: "Surveys measuring psychological safety, eNPS, and inclusion with normalized scores benchmarked against 1,000+ industry peers."
+        },
+        {
+          name: "Continuous Performance & 360° Multi-Rater Reviews",
+          detail: "Replaces annual reviews with continuous 1-on-1 agendas, OKR tracking, and structured peer feedback loops to eliminate evaluation bias."
+        },
+        {
+          name: "Predictive Flight-Risk & Retention Analytics",
+          detail: "NLP algorithms scanning thousands of employee comments to identify department turnover risks months before resignations."
+        },
+        {
+          name: "Manager Action Frameworks & In-App Playbooks",
+          detail: "Translates macro engagement survey data into personalized micro-actions for first-time engineering and product managers."
+        }
+      ]
+    },
+    demographics: {
+      geography: "Global enterprise customer base with headquarters in Melbourne, San Francisco, London, and New York.",
+      motivation: "Chief People Officers needing objective data to prove to CEOs that company culture correlates with retention and EBITDA.",
+      ageDistribution: "Buyers: 35-55 (VPs of HR); end users: 22-50 across client companies.",
+      retentionBenchmark: "Net Revenue Retention ~115-120% with high multi-year contract renewals."
+    },
+    personas: [
+      {
+        name: "Claire (44, London) — 'The Board-Reporting CPO'",
+        archetype: "Enterprise Executive Buyer",
+        goal: "Present defensible workforce retention metrics at quarterly Board meetings.",
+        painPoint: "CEOs view HR as a cost center; Google Forms lack statistical credibility.",
+        jtbd: "Give me board-ready benchmark data comparing our engineering turnover against top-tier tech competitors.",
+        behavior: "Logs in quarterly for executive summaries, exports heatmaps to PowerPoint."
+      },
+      {
+        name: "Devon (32, Austin) — 'The First-Time Engineering Manager'",
+        archetype: "Operational People Manager",
+        goal: "Understand why senior engineers in his squad seem disengaged without awkward confrontation.",
+        painPoint: "Traditional performance reviews are tedious paperwork exercises taking 20 hours.",
+        jtbd: "Tell me the 2 specific management habits I need to adjust this quarter so my developers don't quit.",
+        behavior: "Relies on automated 1-on-1 agenda templates in Slack."
+      }
+    ],
+    nuances: [
+      {
+        title: "The 'Minimum Reporting Group' Trust Architecture",
+        insight: "Culture Amp's foundational moat is trust game theory. If a manager has 3 direct reports, Culture Amp strictly suppresses individual scores to protect anonymity. Scores only unlock if at least 5 people respond. Without this constraint, employees give fake polite answers, destroying data integrity."
+      },
+      {
+        title: "Industry Benchmark Normalization as a Switching Moat",
+        insight: "A raw score of 72% on 'Manager Feedback' means nothing in isolation. Culture Amp's secret sauce is its proprietary database of 25M+ survey responses across 6,500 companies, showing that 72% is in the 90th percentile for Seed-to-Series B fintech startups."
+      }
+    ],
+    critiqueAnd10x: {
+      proposal: "Automated Slack/Teams Micro-Pulse Agent: An AI bot asks 1 situational question per week directly in Slack, synthesizing real-time sentiment with zero survey fatigue.",
+      tradeoffs: "Employee paranoia regarding workplace surveillance; requires strict SOC2 data de-identification."
+    },
+    interviewCheatSheet: "Culture Amp is an enterprise people analytics platform whose moat is psychological trust architecture (minimum reporting thresholds) combined with unmatched global industry benchmark datasets (25M+ responses)."
+  },
+  {
+    id: "google_workspace",
+    week: 2,
+    day: 10,
+    releaseDate: "2026-11-13",
+    name: "Google Workspace",
+    category: "Enterprise Cloud Productivity",
+    badgeColor: "bg-amber-50 text-amber-800 border-amber-200",
+    iconColor: "text-amber-600",
+    tagline: "The cloud-native collaborative operating system that displaced desktop office software with real-time multiplayer editing",
+    heroMetric: "3B+ global users, 10M+ paying business organizations, ~$10B+ run-rate revenue",
+    whatIsTheProduct: {
+      summary: "A cloud-first suite of communication and collaboration tools (Docs, Sheets, Slides, Drive, Meet, Gmail) built on real-time operational transformation, eliminating file attachments and versioning chaos in favor of a universal browser URL.",
+      coreSurfaces: [
+        {
+          name: "Real-Time Operational Transformation (OT) Engine",
+          detail: "The algorithmic backbone powering Docs and Sheets, allowing dozens of users to edit the exact same document simultaneously with sub-100ms character sync."
+        },
+        {
+          name: "The 'Smart Canvas' (@ Mentions & Interactive Chips)",
+          detail: "Transforms static documents into interactive workspaces by typing '@' to embed calendar events, people chips, interactive dropdowns, and file previews."
+        },
+        {
+          name: "Centralized Google Drive & Universal Search",
+          detail: "Replaces local file directories with a cloud index powered by predictive 'Priority' file suggestions based on calendar meetings."
+        },
+        {
+          name: "Gemini Workspace Assistant (Enterprise AI)",
+          detail: "Integrated sidecar AI that drafts executive emails in Gmail, generates contextual formulas in Sheets, and synthesizes meeting notes in Meet."
+        }
+      ]
+    },
+    demographics: {
+      geography: "Ubiquitous global footprint across 190+ countries. Dominates consumer and startup sectors globally.",
+      motivation: "Enterprises wanting zero-maintenance cloud infrastructure, frictionless browser access, and real-time collaboration.",
+      ageDistribution: "Near 100% penetration among Gen Z and Millennials who grew up on Google Classroom.",
+      retentionBenchmark: "Ultra-low churn (<2% annually in core enterprise accounts) because email addresses serve as the company identity."
+    },
+    personas: [
+      {
+        name: "Arun (38, San Francisco) — 'The High-Velocity Founder'",
+        archetype: "Product-Led Startup Operator",
+        goal: "Scale his 40-person startup with zero IT overhead and ensure team members can brainstorm together in live documents.",
+        painPoint: "Microsoft Office requires desktop license keys, version conflicts (v1_final_final.docx), and email attachments.",
+        jtbd: "Give my distributed team instant collaborative workspaces where sharing a link grants immediate editing access.",
+        behavior: "Shares Google Doc links in Slack, relies heavily on inline comments and '@' action assignments."
+      },
+      {
+        name: "Patricia (52, Chicago) — 'The Enterprise CIO'",
+        archetype: "Enterprise IT & Governance Buyer",
+        goal: "Protect sensitive corporate data and ensure SOC2, HIPAA, and GDPR compliance while managing 15,000 corporate laptops.",
+        painPoint: "Employees using rogue third-party tools causing corporate data leaks and compliance audit failures.",
+        jtbd: "Provide an all-in-one suite with single sign-on (SSO), DLP, and centralized e-discovery.",
+        behavior: "Manages permissions via Google Admin Console, sets strict external file-sharing restrictions."
+      }
+    ],
+    nuances: [
+      {
+        title: "The URL as a Competitive Weapon vs Microsoft's Desktop Moat",
+        insight: "Microsoft's moat was the desktop `.docx` file format. Google didn't try to out-feature Word; they transformed files into URLs (`docs.google.com/document/d/...`). A URL can be dropped in a chat message, bookmarked, opened on an iPad without installing software, and edited simultaneously. By changing the unit of work to a web URL, Google redefined workplace collaboration."
+      },
+      {
+        title: "The 'K-12 Trojan Horse': Capturing the Next Generation for Free",
+        insight: "Google gave Google Classroom, Docs, and Chromebooks to public schools worldwide virtually for free. Millions of students spent 10 years writing every essay on Google Docs. When these students graduated and entered tech companies, they refused to use desktop Microsoft Word, forcing enterprise CTOs to adopt Google Workspace."
+      }
+    ],
+    critiqueAnd10x: {
+      proposal: "Universal Semantic Cross-App Context Engine: An AI that automatically links your 10:00 AM calendar meeting to the relevant Figma spec, previous Slack thread, and project Google Doc in a single pre-meeting brief chip on the Drive homepage.",
+      tradeoffs: "High privacy concerns regarding cross-application data synthesis; heavy indexing latency across petabytes of enterprise file repositories."
+    },
+    interviewCheatSheet: "Google Workspace's disruptive innovation was converting files into collaborative web URLs backed by real-time operational transformation. Its long-term moat is consumer habituation via educational dominance (Classroom) and centralized identity (Gmail)."
+  },
+  {
+    id: "canva",
+    week: 2,
+    day: 11,
+    releaseDate: "2026-11-14",
+    name: "Canva",
+    category: "Visual Economy & Creator Templates",
+    badgeColor: "bg-teal-50 text-teal-700 border-teal-200",
+    iconColor: "text-teal-600",
+    tagline: "The democratic visual communications suite empowering 170M+ non-designers with modular templates and brand autonomy",
+    heroMetric: "170M+ MAU, >$2B ARR, 85%+ Fortune 500 adoption, profitable for 7+ consecutive years",
+    whatIsTheProduct: {
+      summary: "A cloud-first drag-and-drop graphic design, video editing, and presentation platform that removes the high technical friction of Adobe Creative Suite through millions of curated, ready-to-use professional templates.",
+      coreSurfaces: [
+        {
+          name: "The Drag-and-Drop Canvas & Template Library",
+          detail: "A browser-based WYSIWYG canvas powered by HTML5/WebGL with over 100M stock photos, vectors, audio clips, and responsive templates tailored to exact social platform aspect ratios."
+        },
+        {
+          name: "Magic Studio (Generative Design AI)",
+          detail: "Suite of AI tools including Magic Switch (1-click conversion from a whiteboard brainstorm into a full pitch deck), Magic Expand, and instant background removal."
+        },
+        {
+          name: "Canva for Enterprise & Brand Kits",
+          detail: "Centralized brand governance locking corporate fonts, hex color codes, and logos so non-designer sales and marketing reps can generate collateral without breaking brand guidelines."
+        },
+        {
+          name: "Print-on-Demand & Physical Merchandise Fulfillment",
+          detail: "Integrated global printing and logistics network allowing users to design and receive physical business cards, posters, and apparel with 2-day delivery."
+        }
+      ]
+    },
+    demographics: {
+      geography: "Massive worldwide footprint across 190 countries in over 100 languages. Strongest in US, Brazil, India, UK, and Southeast Asia.",
+      motivation: "Small business owners, teachers, marketers, and students who need polished visual assets in 10 minutes without learning Photoshop.",
+      ageDistribution: "Broad cross-generational appeal: 16-55 (from high school presentation makers to real estate agents and corporate communications teams).",
+      retentionBenchmark: "Outstanding organic word-of-mouth with freemium conversion rate ~5-7%, driving over $2B in highly recurring subscription ARR."
+    },
+    personas: [
+      {
+        name: "Carlos (36, Miami) — 'The Local Real Estate Broker'",
+        archetype: "Small Business Entrepreneur",
+        goal: "Create eye-catching Instagram Reels, flyers, and Open House brochures for new luxury listings in under 15 minutes.",
+        painPoint: "Hiring a professional graphic designer costs $100/hour and takes 3 days; Adobe Photoshop has a 40-hour learning curve.",
+        jtbd: "Give me stunning, pre-formatted real estate templates so I can post professional property listings before my competitors do.",
+        behavior: "Canva Pro subscriber, uses Background Remover constantly, orders physical yard signs via Canva Print."
+      },
+      {
+        name: "Hannah (29, Sydney) — 'The Growth Marketing Manager'",
+        archetype: "Corporate Multi-Channel Marketer",
+        goal: "Produce 40 variations of LinkedIn and Meta ad creatives each week to A/B test campaign conversion rates.",
+        painPoint: "The internal design team has a 3-week backlog for simple social banner revisions.",
+        jtbd: "Enable my marketing squad to resize and iterate on ad creatives independently without waiting for agency designers.",
+        behavior: "Uses Brand Kits, Magic Resize, and Canva Teams collaboration to share review drafts with leadership."
+      }
+    ],
+    nuances: [
+      {
+        title: "The 'Template-First' Asymmetry vs Adobe's 'Blank Canvas'",
+        insight: "Adobe Photoshop opens to a terrifying blank white rectangle and 80 technical tools. Canva realized that 95% of people do not want to design from scratch; they want to edit an existing, beautiful layout. By indexing over 1M templates by exact intent ('Menu for Italian Restaurant', 'Tech Podcast Cover'), Canva eliminated creative paralysis and won the mass market."
+      },
+      {
+        title: "The Two-Sided Creator Marketplace as an Unfair Moat",
+        insight: "Canva doesn't pay an internal team to design 100M templates. They established the Canva Creator Program, paying royalties to thousands of independent designers worldwide whenever users use their assets. This crowdsourced flywheel generates localized, culturally relevant designs in 100+ languages faster than any centralized competitor."
+      }
+    ],
+    critiqueAnd10x: {
+      proposal: "Programmatic Live Ad Performance Sync: Connect Canva directly to Meta and Google Ads APIs, automatically generating variations of top-performing ad creatives based on real-time ROAS (Return on Ad Spend) data.",
+      tradeoffs: "Drives Canva into complex ad-tech analytics territory; requires maintaining complex third-party ad network API connections."
+    },
+    interviewCheatSheet: "Canva disrupted Adobe by replacing the blank canvas with intent-driven templates and in-browser drag-and-drop simplicity. Its moat is a decentralized creator marketplace producing millions of culturally tailored templates, combined with a bottoms-up enterprise expansion model powered by Brand Kits."
+  },
+  {
+    id: "ramp",
+    week: 2,
+    day: 12,
+    releaseDate: "2026-11-15",
+    name: "Ramp",
+    category: "Fintech & Spend Management",
+    badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-300",
+    iconColor: "text-emerald-700",
+    tagline: "The corporate card that wins by promising to save companies money rather than maximizing debt",
+    heroMetric: "25,000+ businesses, >$30B annualized transaction volume, $7.6B valuation",
+    whatIsTheProduct: {
+      summary: "A modern corporate charge card and automated spend management platform that unifies corporate cards, expense reimbursements, accounts payable (bill pay), vendor contract negotiations, and travel booking into a single software platform designed to cut corporate waste.",
+      coreSurfaces: [
+        {
+          name: "Zero-Touch Receipt Matching & SMS Submission",
+          detail: "Employees swipe their card and receive an instant SMS; texting back a photo of the receipt matches it to the transaction in <5 seconds using OCR, eliminating end-of-month expense reports."
+        },
+        {
+          name: "Algorithmic Price Intelligence & SaaS Negotiation",
+          detail: "Benchmarks corporate software contracts against thousands of anonymized company invoices, notifying CFOs when they are overpaying for tools like Datadog or Slack."
+        },
+        {
+          name: "Programmable Corporate Cards & Real-Time Spend Controls",
+          detail: "Dynamic category restrictions (e.g., $100/day strictly for rideshare while traveling in London), locking cards automatically if transactions deviate from company policy."
+        },
+        {
+          name: "Automated AP & Invoice Processing (Bill Pay)",
+          detail: "AI-extracted line-item invoices, automated two-way accounting sync to NetSuite/QuickBooks, and batch ACH/wire disbursements in 1 click."
+        }
+      ]
+    },
+    demographics: {
+      geography: "Dominates US tech startups, mid-market enterprises, and scaling scale-ups. Rapidly expanding into traditional brick-and-mortar sectors (retail, healthcare, construction).",
+      motivation: "CFOs and controllers seeking automated accounting reconciliation and strict spend governance without 40-hour monthly manual auditing.",
+      ageDistribution: "Core buyers: 30-55 CFOs, VPs of Finance, and operations leaders.",
+      retentionBenchmark: "Negative net churn (>130% NRR) as client headcounts grow and transaction volumes scale."
+    },
+    personas: [
+      {
+        name: "Hannah (39, New York) — 'The Ruthless Startup Controller'",
+        archetype: "Financial Hygiene & Compliance Champion",
+        goal: "Close company monthly accounting books in 2 days instead of 2 weeks without chasing employees for missing receipts.",
+        painPoint: "Employees submitting unreadable paper receipts 45 days late with zero explanation of business purpose.",
+        jtbd: "Automate receipt capture and NetSuite categorization at the moment of swipe so our finance team never audits lunch receipts.",
+        behavior: "Enforces zero-tolerance receipt rules via Ramp's auto-lock feature; reviews SaaS contract savings weekly."
+      },
+      {
+        name: "Tyler (26, Austin) — 'The Field Sales Representative'",
+        archetype: "Friction-Sensitive Frontline Employee",
+        goal: "Take prospective enterprise clients out to dinner without carrying \$3,000 of personal credit card debt.",
+        painPoint: "Traditional expense tools (Concur, Expensify) requiring 25 clicks, manual form filling, and waiting 3 weeks for reimbursement.",
+        jtbd: "Let me snap a receipt photo on my phone and have my expense approved instantly without filing paperwork.",
+        behavior: "Swipes physical Ramp card, replies to SMS notifications with photos, books flights via Ramp Travel."
+      }
+    ],
+    nuances: [
+      {
+        title: "The Counter-Intuitive Business Model: 'We Help You Spend Less'",
+        insight: "Traditional credit card companies (Amex) profit when companies spend more money or carry revolving debt. Ramp flipped this incentive on its head by positioning as the anti-spend card: 'Our mission is to help companies spend LESS money and save hours of time.' By building software that identifies redundant SaaS subscriptions and negotiates lower pricing, Ramp built unmatched trust with CFOs."
+      },
+      {
+        title: "The Interchange Arbitrage & Free Software Flywheel",
+        insight: "Ramp gives its spend management software away virtually for free because it monetizes on backend interchange fees (~1.5-2.0% paid by merchants on card swipes). By using high-margin card interchange to subsidize world-class accounting software, Ramp disarmed standalone expense competitors (Expensify, Bill.com) who relied on charging \$15/seat monthly software fees."
+      }
+    ],
+    critiqueAnd10x: {
+      proposal: "Autonomous Vendor Contract Renegotiator: Ambient AI agents that continuously monitor vendor contract expiration dates, draft negotiation emails based on industry benchmark pricing, and counter-propose optimized multi-year terms automatically.",
+      tradeoffs: "Risk of damaging sensitive vendor relationships if automated negotiations lack nuanced executive context."
+    },
+    interviewCheatSheet: "Ramp disrupted corporate finance by monetizing card interchange to subsidize free, automated spend management software. Its moat is deep ERP accounting integration (NetSuite/QuickBooks), proprietary price benchmark data across 25,000+ businesses, and an aligned business model that saves CFOs time and capital."
   }
 ];
 
+
+// Active products: Dynamically unlocked up to today's date, with today's drop at index 0!
+export function getAvailableCurriculumProducts() {
+  const todayStr = new Date().toISOString().slice(0, 10);
+  
+  // Products whose releaseDate <= todayStr are unlocked, with latest drop first
+  const unlocked = ALL_CURRICULUM_PRODUCTS
+    .filter(p => !p.releaseDate || p.releaseDate <= todayStr)
+    .sort((a, b) => b.day - a.day);
+
+  return unlocked.length > 0 ? unlocked : ALL_CURRICULUM_PRODUCTS.slice(0, 6);
+}
+
+export function getUpcomingCurriculumProducts() {
+  const todayStr = new Date().toISOString().slice(0, 10);
+  return ALL_CURRICULUM_PRODUCTS
+    .filter(p => p.releaseDate && p.releaseDate > todayStr)
+    .sort((a, b) => a.day - b.day);
+}
+
+export const SEED_PRODUCTS = getAvailableCurriculumProducts();
+
 export const WEEKLY_QUIZZES = [
-  // Keeping quizzes clean and validated
   {
     week: 1,
     title: "Week 1 Boss Quiz: Consumer Habits, Retention & Marketplace Trust",
-    productsCovered: ["Duolingo", "Strava", "Spotify", "Airbnb"],
+    productsCovered: ["Spotify", "Notion", "TikTok", "Linear", "Airbnb"],
     badgeName: "Consumer & Marketplace Master",
     questions: [
       {
         id: "w1_q1",
-        question: "Why did Duolingo kill its branching 'Tree' UI in 2022 and force a single linear 'Snake' path?",
+        question: "Why did Airbnb implement a 14-day 'Double-Blind' simultaneous review release system?",
         options: [
-          "To cut server costs on graphics rendering",
-          "Because choice-paralysis was the #1 cause of silent churn; removing decision fatigue lifted D30 retention by 14%",
-          "Apple App Store mandated all education apps have linear progression",
-          "They ran out of lesson material for branching paths"
+          "To comply with EU data retention regulations",
+          "To eliminate retaliation bias and fear of negative counter-reviews, restoring authentic ratings and trust between strangers",
+          "To give hosts extra time to dispute credit card chargebacks",
+          "To prevent guests from editing photos uploaded to their reviews"
         ],
         correctIndex: 1,
-        explanation: "Data proved that giving users choices caused decision fatigue. Removing choice and forcing a single linear path eliminated friction and lifted D30 retention."
+        explanation: "In single-sided review systems, guests feared leaving truthful reviews because hosts would retaliate with a 1-star guest review. Double-blind simultaneous release eliminated retaliation bias."
       },
       {
         id: "w1_q2",
@@ -667,27 +1033,27 @@ export const WEEKLY_QUIZZES = [
       },
       {
         id: "w1_q3",
-        question: "What strategic choice allows Strava to beat Apple and Garmin's proprietary software?",
+        question: "Why did Linear choose an offline-first architecture with in-memory IndexedDB over standard REST calls?",
         options: [
-          "Strava manufactures its own smartwatches",
-          "It acts as an open, hardware-agnostic social layer and introduced crowdsourced 'Segments' for asynchronous competition",
-          "It bans all runners from using Garmin sensors",
-          "It pays users cash rewards for every mile run"
+          "To avoid paying for AWS backend databases",
+          "To deliver sub-50ms optimistic UI updates that create a flow-state experience for engineers",
+          "Because web browsers no longer allow network connections",
+          "To prevent software developers from using GitHub"
         ],
         correctIndex: 1,
-        explanation: "Strava refuses to be tied to one hardware vendor, letting all athletes compete on crowdsourced Segments regardless of what watch they wear."
+        explanation: "Linear records mutations instantly in local memory (<16ms) and syncs asynchronously, eliminating server round-trip latency and making the app feel like a native desktop tool."
       },
       {
         id: "w1_q4",
-        question: "Why did Airbnb implement a 14-day 'Double-Blind' simultaneous review release system?",
+        question: "How did TikTok disrupt the incumbent Social Graph model used by Facebook and Instagram?",
         options: [
-          "To comply with EU data retention regulations",
-          "To eliminate retaliation bias and fear of negative counter-reviews, restoring authentic ratings and trust between strangers",
-          "To give hosts extra time to dispute credit card chargebacks",
-          "To prevent guests from editing photos uploaded to their reviews"
+          "By charging users a monthly membership subscription",
+          "By decoupling distribution from follower count and using an Interest Graph that ranks content purely on micro-retention telemetry",
+          "By banning influencers from earning advertising revenue",
+          "By only allowing 10-second black-and-white videos"
         ],
         correctIndex: 1,
-        explanation: "In single-sided review systems, guests feared leaving truthful reviews because hosts would retaliate with a 1-star guest review. Double-blind simultaneous release eliminated retaliation bias."
+        explanation: "TikTok replaced the Social Graph (who you follow) with the Interest Graph (what captures your attention in 2 seconds), allowing an account with 0 followers to get 5M views on day one."
       },
       {
         id: "w1_q5",
@@ -702,5 +1068,278 @@ export const WEEKLY_QUIZZES = [
         explanation: "While traditional OTAs spend 30-45% of revenue re-acquiring customers via Google AdWords, Airbnb's brand power drives >90% direct traffic, protecting high operating margins."
       }
     ]
+  },
+  {
+    week: 2,
+    title: "Week 2 Boss Quiz: Developer Craft, Product-Led Growth & B2B Moats",
+    productsCovered: ["Figma", "Uber", "Stripe", "Culture Amp"],
+    badgeName: "B2B SaaS & Platform Strategist",
+    questions: [
+      {
+        id: "w2_q1",
+        question: "What core architectural gamble enabled Figma to displace native desktop design software like Sketch?",
+        options: [
+          "Building on Adobe Flash Player",
+          "Compiling C++ to WebAssembly (Wasm) and rendering directly on WebGL in the browser to enable real-time URL multiplayer",
+          "Selling software on physical USB keys in Apple Stores",
+          "Restricting files to single-user offline editing"
+        ],
+        correctIndex: 1,
+        explanation: "Figma proved that heavy graphics applications could render at 60 FPS in a web browser using WebAssembly and WebGL, transforming design files into shared URLs."
+      },
+      {
+        id: "w2_q2",
+        question: "Why does Figma boast an extraordinary 3:1 non-designer to designer paid seat ratio?",
+        options: [
+          "Because non-designers are forced to pay double",
+          "Because PMs, developers, copywriters, and executives participate directly on the canvas for specs, copy, and dev inspection",
+          "Because designers share accounts illegally",
+          "Because Figma gives free accounts to executives"
+        ],
+        correctIndex: 1,
+        explanation: "Figma turned design into a cross-functional team sport. Non-designers (PMs, engineers) use Dev Mode and comments, creating massive viral seat expansion."
+      },
+      {
+        id: "w2_q3",
+        question: "What is the primary economic purpose of Uber's Surge Pricing algorithm?",
+        options: [
+          "To maximize executive quarterly bonuses during bad weather",
+          "To act as a marketplace supply allocator by rationing rides to high-intent users while incentivizing idle drivers to reposition toward high-demand zones",
+          "To punish riders for traveling at rush hour",
+          "To pay municipal city taxes"
+        ],
+        correctIndex: 1,
+        explanation: "Surge pricing is an economic balancing loop: it dampens excess demand while drawing driver supply into underserved areas to restore liquidity."
+      },
+      {
+        id: "w2_q4",
+        question: "Why is Culture Amp's 'Minimum Reporting Group' considered its foundational psychological moat?",
+        options: [
+          "It saves database storage costs by grouping responses",
+          "It suppresses individual team scores unless at least 5 people respond, guaranteeing anonymity so employees give authentic feedback rather than fake polite praise",
+          "It prevents employees from rating their managers",
+          "It is required by Australian labor laws"
+        ],
+        correctIndex: 1,
+        explanation: "Without strict group privacy thresholds, employees fear retaliation and provide misleading positive answers, destroying the data credibility that enterprise buyers pay for."
+      }
+    ]
+  },
+  {
+    id: "google_workspace",
+    week: 2,
+    day: 10,
+    releaseDate: "2026-11-13",
+    name: "Google Workspace",
+    category: "Enterprise Cloud Productivity",
+    badgeColor: "bg-amber-50 text-amber-800 border-amber-200",
+    iconColor: "text-amber-600",
+    tagline: "The cloud-native collaborative operating system that displaced desktop office software with real-time multiplayer editing",
+    heroMetric: "3B+ global users, 10M+ paying business organizations, ~$10B+ run-rate revenue",
+    whatIsTheProduct: {
+      summary: "A cloud-first suite of communication and collaboration tools (Docs, Sheets, Slides, Drive, Meet, Gmail) built on real-time operational transformation, eliminating file attachments and versioning chaos in favor of a universal browser URL.",
+      coreSurfaces: [
+        {
+          name: "Real-Time Operational Transformation (OT) Engine",
+          detail: "The algorithmic backbone powering Docs and Sheets, allowing dozens of users to edit the exact same document simultaneously with sub-100ms character sync."
+        },
+        {
+          name: "The 'Smart Canvas' (@ Mentions & Interactive Chips)",
+          detail: "Transforms static documents into interactive workspaces by typing '@' to embed calendar events, people chips, interactive dropdowns, and file previews."
+        },
+        {
+          name: "Centralized Google Drive & Universal Search",
+          detail: "Replaces local file directories with a cloud index powered by predictive 'Priority' file suggestions based on calendar meetings."
+        },
+        {
+          name: "Gemini Workspace Assistant (Enterprise AI)",
+          detail: "Integrated sidecar AI that drafts executive emails in Gmail, generates contextual formulas in Sheets, and synthesizes meeting notes in Meet."
+        }
+      ]
+    },
+    demographics: {
+      geography: "Ubiquitous global footprint across 190+ countries. Dominates consumer and startup sectors globally.",
+      motivation: "Enterprises wanting zero-maintenance cloud infrastructure, frictionless browser access, and real-time collaboration.",
+      ageDistribution: "Near 100% penetration among Gen Z and Millennials who grew up on Google Classroom.",
+      retentionBenchmark: "Ultra-low churn (<2% annually in core enterprise accounts) because email addresses serve as the company identity."
+    },
+    personas: [
+      {
+        name: "Arun (38, San Francisco) — 'The High-Velocity Founder'",
+        archetype: "Product-Led Startup Operator",
+        goal: "Scale his 40-person startup with zero IT overhead and ensure team members can brainstorm together in live documents.",
+        painPoint: "Microsoft Office requires desktop license keys, version conflicts (v1_final_final.docx), and email attachments.",
+        jtbd: "Give my distributed team instant collaborative workspaces where sharing a link grants immediate editing access.",
+        behavior: "Shares Google Doc links in Slack, relies heavily on inline comments and '@' action assignments."
+      },
+      {
+        name: "Patricia (52, Chicago) — 'The Enterprise CIO'",
+        archetype: "Enterprise IT & Governance Buyer",
+        goal: "Protect sensitive corporate data and ensure SOC2, HIPAA, and GDPR compliance while managing 15,000 corporate laptops.",
+        painPoint: "Employees using rogue third-party tools causing corporate data leaks and compliance audit failures.",
+        jtbd: "Provide an all-in-one suite with single sign-on (SSO), DLP, and centralized e-discovery.",
+        behavior: "Manages permissions via Google Admin Console, sets strict external file-sharing restrictions."
+      }
+    ],
+    nuances: [
+      {
+        title: "The URL as a Competitive Weapon vs Microsoft's Desktop Moat",
+        insight: "Microsoft's moat was the desktop `.docx` file format. Google didn't try to out-feature Word; they transformed files into URLs (`docs.google.com/document/d/...`). A URL can be dropped in a chat message, bookmarked, opened on an iPad without installing software, and edited simultaneously. By changing the unit of work to a web URL, Google redefined workplace collaboration."
+      },
+      {
+        title: "The 'K-12 Trojan Horse': Capturing the Next Generation for Free",
+        insight: "Google gave Google Classroom, Docs, and Chromebooks to public schools worldwide virtually for free. Millions of students spent 10 years writing every essay on Google Docs. When these students graduated and entered tech companies, they refused to use desktop Microsoft Word, forcing enterprise CTOs to adopt Google Workspace."
+      }
+    ],
+    critiqueAnd10x: {
+      proposal: "Universal Semantic Cross-App Context Engine: An AI that automatically links your 10:00 AM calendar meeting to the relevant Figma spec, previous Slack thread, and project Google Doc in a single pre-meeting brief chip on the Drive homepage.",
+      tradeoffs: "High privacy concerns regarding cross-application data synthesis; heavy indexing latency across petabytes of enterprise file repositories."
+    },
+    interviewCheatSheet: "Google Workspace's disruptive innovation was converting files into collaborative web URLs backed by real-time operational transformation. Its long-term moat is consumer habituation via educational dominance (Classroom) and centralized identity (Gmail)."
+  },
+  {
+    id: "canva",
+    week: 2,
+    day: 11,
+    releaseDate: "2026-11-14",
+    name: "Canva",
+    category: "Visual Economy & Creator Templates",
+    badgeColor: "bg-teal-50 text-teal-700 border-teal-200",
+    iconColor: "text-teal-600",
+    tagline: "The democratic visual communications suite empowering 170M+ non-designers with modular templates and brand autonomy",
+    heroMetric: "170M+ MAU, >$2B ARR, 85%+ Fortune 500 adoption, profitable for 7+ consecutive years",
+    whatIsTheProduct: {
+      summary: "A cloud-first drag-and-drop graphic design, video editing, and presentation platform that removes the high technical friction of Adobe Creative Suite through millions of curated, ready-to-use professional templates.",
+      coreSurfaces: [
+        {
+          name: "The Drag-and-Drop Canvas & Template Library",
+          detail: "A browser-based WYSIWYG canvas powered by HTML5/WebGL with over 100M stock photos, vectors, audio clips, and responsive templates tailored to exact social platform aspect ratios."
+        },
+        {
+          name: "Magic Studio (Generative Design AI)",
+          detail: "Suite of AI tools including Magic Switch (1-click conversion from a whiteboard brainstorm into a full pitch deck), Magic Expand, and instant background removal."
+        },
+        {
+          name: "Canva for Enterprise & Brand Kits",
+          detail: "Centralized brand governance locking corporate fonts, hex color codes, and logos so non-designer sales and marketing reps can generate collateral without breaking brand guidelines."
+        },
+        {
+          name: "Print-on-Demand & Physical Merchandise Fulfillment",
+          detail: "Integrated global printing and logistics network allowing users to design and receive physical business cards, posters, and apparel with 2-day delivery."
+        }
+      ]
+    },
+    demographics: {
+      geography: "Massive worldwide footprint across 190 countries in over 100 languages. Strongest in US, Brazil, India, UK, and Southeast Asia.",
+      motivation: "Small business owners, teachers, marketers, and students who need polished visual assets in 10 minutes without learning Photoshop.",
+      ageDistribution: "Broad cross-generational appeal: 16-55 (from high school presentation makers to real estate agents and corporate communications teams).",
+      retentionBenchmark: "Outstanding organic word-of-mouth with freemium conversion rate ~5-7%, driving over $2B in highly recurring subscription ARR."
+    },
+    personas: [
+      {
+        name: "Carlos (36, Miami) — 'The Local Real Estate Broker'",
+        archetype: "Small Business Entrepreneur",
+        goal: "Create eye-catching Instagram Reels, flyers, and Open House brochures for new luxury listings in under 15 minutes.",
+        painPoint: "Hiring a professional graphic designer costs $100/hour and takes 3 days; Adobe Photoshop has a 40-hour learning curve.",
+        jtbd: "Give me stunning, pre-formatted real estate templates so I can post professional property listings before my competitors do.",
+        behavior: "Canva Pro subscriber, uses Background Remover constantly, orders physical yard signs via Canva Print."
+      },
+      {
+        name: "Hannah (29, Sydney) — 'The Growth Marketing Manager'",
+        archetype: "Corporate Multi-Channel Marketer",
+        goal: "Produce 40 variations of LinkedIn and Meta ad creatives each week to A/B test campaign conversion rates.",
+        painPoint: "The internal design team has a 3-week backlog for simple social banner revisions.",
+        jtbd: "Enable my marketing squad to resize and iterate on ad creatives independently without waiting for agency designers.",
+        behavior: "Uses Brand Kits, Magic Resize, and Canva Teams collaboration to share review drafts with leadership."
+      }
+    ],
+    nuances: [
+      {
+        title: "The 'Template-First' Asymmetry vs Adobe's 'Blank Canvas'",
+        insight: "Adobe Photoshop opens to a terrifying blank white rectangle and 80 technical tools. Canva realized that 95% of people do not want to design from scratch; they want to edit an existing, beautiful layout. By indexing over 1M templates by exact intent ('Menu for Italian Restaurant', 'Tech Podcast Cover'), Canva eliminated creative paralysis and won the mass market."
+      },
+      {
+        title: "The Two-Sided Creator Marketplace as an Unfair Moat",
+        insight: "Canva doesn't pay an internal team to design 100M templates. They established the Canva Creator Program, paying royalties to thousands of independent designers worldwide whenever users use their assets. This crowdsourced flywheel generates localized, culturally relevant designs in 100+ languages faster than any centralized competitor."
+      }
+    ],
+    critiqueAnd10x: {
+      proposal: "Programmatic Live Ad Performance Sync: Connect Canva directly to Meta and Google Ads APIs, automatically generating variations of top-performing ad creatives based on real-time ROAS (Return on Ad Spend) data.",
+      tradeoffs: "Drives Canva into complex ad-tech analytics territory; requires maintaining complex third-party ad network API connections."
+    },
+    interviewCheatSheet: "Canva disrupted Adobe by replacing the blank canvas with intent-driven templates and in-browser drag-and-drop simplicity. Its moat is a decentralized creator marketplace producing millions of culturally tailored templates, combined with a bottoms-up enterprise expansion model powered by Brand Kits."
+  },
+  {
+    id: "ramp",
+    week: 2,
+    day: 12,
+    releaseDate: "2026-11-15",
+    name: "Ramp",
+    category: "Fintech & Spend Management",
+    badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-300",
+    iconColor: "text-emerald-700",
+    tagline: "The corporate card that wins by promising to save companies money rather than maximizing debt",
+    heroMetric: "25,000+ businesses, >$30B annualized transaction volume, $7.6B valuation",
+    whatIsTheProduct: {
+      summary: "A modern corporate charge card and automated spend management platform that unifies corporate cards, expense reimbursements, accounts payable (bill pay), vendor contract negotiations, and travel booking into a single software platform designed to cut corporate waste.",
+      coreSurfaces: [
+        {
+          name: "Zero-Touch Receipt Matching & SMS Submission",
+          detail: "Employees swipe their card and receive an instant SMS; texting back a photo of the receipt matches it to the transaction in <5 seconds using OCR, eliminating end-of-month expense reports."
+        },
+        {
+          name: "Algorithmic Price Intelligence & SaaS Negotiation",
+          detail: "Benchmarks corporate software contracts against thousands of anonymized company invoices, notifying CFOs when they are overpaying for tools like Datadog or Slack."
+        },
+        {
+          name: "Programmable Corporate Cards & Real-Time Spend Controls",
+          detail: "Dynamic category restrictions (e.g., $100/day strictly for rideshare while traveling in London), locking cards automatically if transactions deviate from company policy."
+        },
+        {
+          name: "Automated AP & Invoice Processing (Bill Pay)",
+          detail: "AI-extracted line-item invoices, automated two-way accounting sync to NetSuite/QuickBooks, and batch ACH/wire disbursements in 1 click."
+        }
+      ]
+    },
+    demographics: {
+      geography: "Dominates US tech startups, mid-market enterprises, and scaling scale-ups. Rapidly expanding into traditional brick-and-mortar sectors (retail, healthcare, construction).",
+      motivation: "CFOs and controllers seeking automated accounting reconciliation and strict spend governance without 40-hour monthly manual auditing.",
+      ageDistribution: "Core buyers: 30-55 CFOs, VPs of Finance, and operations leaders.",
+      retentionBenchmark: "Negative net churn (>130% NRR) as client headcounts grow and transaction volumes scale."
+    },
+    personas: [
+      {
+        name: "Hannah (39, New York) — 'The Ruthless Startup Controller'",
+        archetype: "Financial Hygiene & Compliance Champion",
+        goal: "Close company monthly accounting books in 2 days instead of 2 weeks without chasing employees for missing receipts.",
+        painPoint: "Employees submitting unreadable paper receipts 45 days late with zero explanation of business purpose.",
+        jtbd: "Automate receipt capture and NetSuite categorization at the moment of swipe so our finance team never audits lunch receipts.",
+        behavior: "Enforces zero-tolerance receipt rules via Ramp's auto-lock feature; reviews SaaS contract savings weekly."
+      },
+      {
+        name: "Tyler (26, Austin) — 'The Field Sales Representative'",
+        archetype: "Friction-Sensitive Frontline Employee",
+        goal: "Take prospective enterprise clients out to dinner without carrying \$3,000 of personal credit card debt.",
+        painPoint: "Traditional expense tools (Concur, Expensify) requiring 25 clicks, manual form filling, and waiting 3 weeks for reimbursement.",
+        jtbd: "Let me snap a receipt photo on my phone and have my expense approved instantly without filing paperwork.",
+        behavior: "Swipes physical Ramp card, replies to SMS notifications with photos, books flights via Ramp Travel."
+      }
+    ],
+    nuances: [
+      {
+        title: "The Counter-Intuitive Business Model: 'We Help You Spend Less'",
+        insight: "Traditional credit card companies (Amex) profit when companies spend more money or carry revolving debt. Ramp flipped this incentive on its head by positioning as the anti-spend card: 'Our mission is to help companies spend LESS money and save hours of time.' By building software that identifies redundant SaaS subscriptions and negotiates lower pricing, Ramp built unmatched trust with CFOs."
+      },
+      {
+        title: "The Interchange Arbitrage & Free Software Flywheel",
+        insight: "Ramp gives its spend management software away virtually for free because it monetizes on backend interchange fees (~1.5-2.0% paid by merchants on card swipes). By using high-margin card interchange to subsidize world-class accounting software, Ramp disarmed standalone expense competitors (Expensify, Bill.com) who relied on charging \$15/seat monthly software fees."
+      }
+    ],
+    critiqueAnd10x: {
+      proposal: "Autonomous Vendor Contract Renegotiator: Ambient AI agents that continuously monitor vendor contract expiration dates, draft negotiation emails based on industry benchmark pricing, and counter-propose optimized multi-year terms automatically.",
+      tradeoffs: "Risk of damaging sensitive vendor relationships if automated negotiations lack nuanced executive context."
+    },
+    interviewCheatSheet: "Ramp disrupted corporate finance by monetizing card interchange to subsidize free, automated spend management software. Its moat is deep ERP accounting integration (NetSuite/QuickBooks), proprietary price benchmark data across 25,000+ businesses, and an aligned business model that saves CFOs time and capital."
   }
 ];
+

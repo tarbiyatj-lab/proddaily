@@ -6,15 +6,16 @@ import ProductVault from './components/ProductVault';
 import CustomTeardownModal from './components/CustomTeardownModal';
 import ReminderModal from './components/ReminderModal';
 import PRDViewer from './components/PRDViewer';
-import { SEED_PRODUCTS, WEEKLY_QUIZZES } from './data/products';
+import { SEED_PRODUCTS, WEEKLY_QUIZZES, getAvailableCurriculumProducts } from './data/products';
 import { generateDeepTeardown } from './data/productIntelligence';
 import { sendTestNotification } from './utils/notifications';
 
 export default function App() {
   const [currentTab, setCurrentTab] = useState('daily');
   const [products, setProducts] = useState(() => {
+    const available = getAvailableCurriculumProducts();
     const saved = localStorage.getItem('proddaily_products');
-    if (!saved) return SEED_PRODUCTS;
+    if (!saved) return available;
     try {
       const parsed = JSON.parse(saved);
       const customOnes = parsed
@@ -33,9 +34,10 @@ export default function App() {
           }
           return p;
         });
-      return [...SEED_PRODUCTS, ...customOnes];
+      const customFiltered = customOnes.filter(c => !available.some(a => a.id === c.id));
+      return [...available, ...customFiltered];
     } catch (e) {
-      return SEED_PRODUCTS;
+      return available;
     }
   });
 

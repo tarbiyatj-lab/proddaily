@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Search, CheckCircle, Clock, Download, ArrowRight, Layers } from 'lucide-react';
+import { Search, CheckCircle, Clock, Download, ArrowRight, Layers, Lock } from 'lucide-react';
+import { getUpcomingCurriculumProducts } from '../data/products';
 
 export default function ProductVault({ 
   products, 
@@ -8,6 +9,8 @@ export default function ProductVault({
 }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
+
+  const upcomingProducts = getUpcomingCurriculumProducts();
 
   const categories = ['All', ...Array.from(new Set(products.map(p => p.category).filter(Boolean)))];
 
@@ -154,6 +157,45 @@ ${progress ? progress.pitch || "[Voice pitch submitted]" : "_Not yet completed_"
           );
         })}
       </div>
+
+      {/* Upcoming Scheduled Drops */}
+      {upcomingProducts.length > 0 && (
+        <div className="space-y-3 pt-6 border-t border-slate-200">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <div className="flex items-center gap-2">
+              <Clock className="w-4 h-4 text-indigo-600" />
+              <h2 className="font-display text-base sm:text-lg font-bold text-slate-900">
+                Upcoming Daily Drops
+              </h2>
+            </div>
+            <span className="text-[10px] font-mono-tag px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-700 font-bold border border-indigo-200">
+              Unlocks Automatically Every Day
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+            {upcomingProducts.map((u) => (
+              <div 
+                key={u.id} 
+                className="p-3.5 rounded-xl border border-dashed border-slate-300 bg-slate-50/70 space-y-1.5 transition-all hover:border-slate-400"
+              >
+                <div className="flex items-center justify-between text-[10px] font-mono-tag">
+                  <span className="font-bold text-slate-500">DAY {u.day}</span>
+                  <span className="flex items-center gap-1 text-indigo-700 font-semibold bg-indigo-50/80 px-2 py-0.5 rounded border border-indigo-200/60">
+                    <Lock className="w-2.5 h-2.5" /> Drops {u.releaseDate}
+                  </span>
+                </div>
+                <div className="font-display font-bold text-sm text-slate-900">
+                  {u.name}
+                </div>
+                <p className="text-[11px] text-slate-500 line-clamp-1">
+                  {u.category}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
