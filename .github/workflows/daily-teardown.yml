@@ -1,0 +1,56 @@
+name: Daily PM Teardown Drop
+
+on:
+  schedule:
+    # Runs every day at 06:00 UTC (07:00 Paris CET / 08:00 CEST)
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    inputs:
+      force_add:
+        description: 'Force add a new teardown even if one already exists for today'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+
+permissions:
+  contents: write
+
+jobs:
+  generate-daily-drop:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate today's PM product teardown with Gemini
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          FORCE_ADD: ${{ inputs.force_add || 'false' }}
+        run: node scripts/generate_daily_teardown.mjs
+
+      - name: Verify Vite production build before pushing
+        run: npm run build
+
+      - name: Commit and push updated curriculum
+        run: |
+          if git diff --quiet src/data/products.js; then
+            echo "No new product added today. Nothing to commit."
+            exit 0
+          fi
+          git config user.name "ProdDaily Bot"
+          git config user.email "actions@github.com"
+          git add src/data/products.js
+          git commit -m "feat(daily): auto-publish today's PM product teardown"
+          git push
