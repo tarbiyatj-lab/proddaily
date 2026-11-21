@@ -25,8 +25,23 @@ function getTodayParis() {
   }).format(new Date());
 }
 
+async function discoverFlashModels(apiKey) {
+  try {
+    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`);
+    if (!res.ok) return [];
+    const data = await res.json();
+    return (data.models || [])
+      .filter(m => m.supportedGenerationMethods?.includes('generateContent') && /gemini.*flash/i.test(m.name))
+      .map(m => m.name.replace(/^models\//, ''))
+      .reverse();
+  } catch {
+    return [];
+  }
+}
+
 async function callGemini(apiKey, prompt) {
-  const models = ['gemini-2.5-flash', 'gemini-2.0-flash'];
+  const discovered = await discoverFlashModels(apiKey);
+  const models = [...new Set(['gemini-3.8-flash', 'gemini-flash-latest', ...discovered])];
   let lastError = null;
 
   for (const model of models) {
