@@ -22,6 +22,81 @@ export const ALL_CURRICULUM_PRODUCTS = [
     "day": 13,
     "releaseDate": "2026-11-21",
     "name": "Cursor",
+    "category": "AI-First Developer Tools",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-300",
+    "iconColor": "text-blue-600",
+    "tagline": "An AI-first code editor fork of VS Code that compounds developer velocity through codebase-wide semantic understanding and autonomous multi-file editing.",
+    "heroMetric": "Surpassed $100M+ ARR in under two years with over 50% adoption among top-tier engineering organizations and high-velocity YC startups.",
+    "whatIsTheProduct": {
+      "summary": "Cursor is a standalone code editor forked from VS Code that deeply integrates large language models directly into the compilation and editing loop. By indexing entire codebases into local and remote vector embeddings, it moves beyond simple tab-autocomplete into codebase-wide context generation and proactive multi-file refactoring.",
+      "coreSurfaces": [
+        {
+          "name": "Composer (Multi-File Editing)",
+          "detail": "An agentic interface accessible via Cmd+I that plans, writes, and verifies edits across multiple distinct files simultaneously."
+        },
+        {
+          "name": "Codebase Indexing & Vector Embeddings",
+          "detail": "Local and cloud-based parsing of repository code structures to feed precise semantic context into every LLM prompt."
+        },
+        {
+          "name": "Tab-Autocomplete with Predictive Diffing",
+          "detail": "High-speed speculative decoding and multi-line completion that predicts not just the next line, but the next several blocks of code."
+        },
+        {
+          "name": "Chat & Terminal Integration",
+          "detail": "Contextual sidebars capable of inspecting local terminal errors, running shell commands, and referencing specific git diffs."
+        }
+      ]
+    },
+    "demographics": {
+      "geography": "Global developer hubs (San Francisco, New York, London, Bengaluru, Tokyo)",
+      "motivation": "Compressing the feedback loop between conceptual design and production-ready code implementation",
+      "ageDistribution": "Software engineers and technical founders aged 22-48",
+      "retentionBenchmark": "Exceptional organic word-of-mouth adoption with high daily active usage and rapid Team/Enterprise plan conversion"
+    },
+    "personas": [
+      {
+        "name": "Alex (28, San Francisco) — 'The Velocity-Obsessed Startup CTO'",
+        "archetype": "Technical Founder",
+        "goal": "Ship core product features and iterate on MVPs with a skeleton engineering team",
+        "painPoint": "Spending hours writing boilerplate code, configuring complex infrastructure, and hunting down obscure library APIs",
+        "jtbd": "When I am architecting a new microservice, I want to delegate repetitive setup and boilerplate generation to an AI so that I can focus entirely on core business logic.",
+        "behavior": "Uses Composer constantly to spin up full feature modules across frontend and backend in a single prompt session"
+      },
+      {
+        "name": "Marcus (35, London) — 'The Enterprise Staff Engineer'",
+        "archetype": "Principal Developer",
+        "goal": "Refactor legacy microservices and onboard junior developers into complex, undocumented codebases",
+        "painPoint": "Wasting weeks mapping out legacy system dependencies and answering recurring questions about undocumented architecture",
+        "jtbd": "When I need to deprecate an old authentication library, I want an AI to safely find and replace every dependency across 50 repositories without introducing regressions.",
+        "behavior": "Relies on codebase indexing and deep chat prompts to query architecture patterns and generate precise migration scripts"
+      }
+    ],
+    "nuances": [
+      {
+        "title": "The VS Code Fork Strategy",
+        "insight": "By forking VS Code rather than building an extension, Cursor inherits the entire existing ecosystem of extensions and themes while retaining absolute control over the UI rendering pipeline to inject native AI widgets."
+      },
+      {
+        "title": "Model Agnosticism vs. Vertical Integration",
+        "insight": "Cursor avoids lock-in to a single foundation model by allowing users to plug in their own API keys or leverage fine-tuned custom routing across Claude 3.5 Sonnet, GPT-4o, and proprietary fast models."
+      }
+    ],
+    "critiqueAnd10x": {
+      "proposal": "Introduce an autonomous continuous integration (CI) test loop where Cursor automatically catches failing unit tests after an AI refactor and iteratively fixes its own code before presenting a diff to the developer.",
+      "tradeoffs": "Massive compute overhead per user session, increased API costs eating into gross margins, and potential developer loss of deep codebase mental models if over-relying on black-box edits."
+    },
+    "interviewCheatSheet": "Cursor monetizes developer velocity by transforming the code editor from a passive text canvas into an active autonomous pair programmer, leveraging a VS Code fork for zero-friction distribution and codebase vector indexing as its primary data moat."
+  },
+  // ========================================================
+  // DAY 13 (2026-11-21): CURSOR
+  // ========================================================
+  {
+    "id": "cursor",
+    "week": 3,
+    "day": 13,
+    "releaseDate": "2026-11-21",
+    "name": "Cursor",
     "category": "AI Developer Platform",
     "badgeColor": "bg-blue-100 text-blue-800 border-blue-300",
     "iconColor": "text-blue-600",
