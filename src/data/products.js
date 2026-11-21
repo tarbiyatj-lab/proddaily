@@ -14,6 +14,81 @@ export function getCurriculumDay() {
 
 export const ALL_CURRICULUM_PRODUCTS = [
   // ========================================================
+  // DAY 13 (2026-11-21): CURSOR
+  // ========================================================
+  {
+    "id": "cursor",
+    "week": 3,
+    "day": 13,
+    "releaseDate": "2026-11-21",
+    "name": "Cursor",
+    "category": "AI Developer Platform",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-300",
+    "iconColor": "text-blue-600",
+    "tagline": "The AI-native code editor designed to turn natural language intent into multi-file codebase execution.",
+    "heroMetric": "Surpassed $100M ARR within ~24 months of founding; >40% daily active developer code completion acceptance rate.",
+    "whatIsTheProduct": {
+      "summary": "Cursor is an AI-first IDE forked from VS Code that deeply integrates frontier LLMs directly into developer workflows. By indexing entire codebases via local and remote vector embeddings, it moves beyond single-line autocomplete into multi-file architectural refactoring, terminal command synthesis, and natural language diff generation.",
+      "coreSurfaces": [
+        {
+          "name": "Composer (`Cmd+I`)",
+          "detail": "A multi-file generative canvas that parses full workspace ASTs and dependency graphs to plan, draft, and apply concurrent diffs across dozens of files simultaneously."
+        },
+        {
+          "name": "Context Indexing Engine (`@Codebase`)",
+          "detail": "A hybrid semantic and lexical retrieval layer running locally and in the cloud that dynamically builds token-efficient context windows via Merkle trees, symbol graphs, and git history."
+        },
+        {
+          "name": "Cursor Tab (Speculative Autocomplete)",
+          "detail": "A custom fine-tuned model operating at sub-50ms latency using speculative decoding to predict not just the next token, but the developer's next multi-line edit and cursor position across the active buffer."
+        },
+        {
+          "name": "Inline Chat & Terminal Copilot (`Cmd+K`)",
+          "detail": "In-situ prompt interface operating on localized code selections and shell execution contexts, generating executable commands and inline unified diffs with instantaneous accept/reject shortcuts."
+        }
+      ]
+    },
+    "demographics": {
+      "geography": "Global; dominant in North America (45%), Western Europe (30%), and high-density tech hubs across APAC (20%).",
+      "motivation": "Compressing engineering delivery cycles, eliminating boilerplate, and lowering cognitive overhead when navigating unfamiliar codebases.",
+      "ageDistribution": "22–45 software engineers, engineering managers, and technical founders across startups and scale-ups.",
+      "retentionBenchmark": "Industry-leading developer stickiness with >70% D30 retention and >140% net revenue retention (NRR) driven by team seat expansions."
+    },
+    "personas": [
+      {
+        "name": "Siddharth (27, San Francisco) — 'The 10x Solo Founder'",
+        "archetype": "Full-Stack Startup Builder",
+        "goal": "Ship production-ready SaaS features and integrations within hours without hiring an auxiliary engineering team.",
+        "painPoint": "Context-switching between IDE and external browser-based LLMs while manually copy-pasting code fragments and reconciling breaking types.",
+        "jtbd": "When I draft a new end-to-end user auth flow, help me scaffold the backend migrations, API contracts, and UI components in one transaction so I can launch before midnight.",
+        "behavior": "Spends 6+ hours daily inside Composer, delegating boilerplate generation and lint-error remediation entirely to background model calls."
+      },
+      {
+        "name": "Ananya (34, London) — 'The Platform Lead'",
+        "archetype": "Staff Infrastructure Engineer",
+        "goal": "Modernize legacy distributed microservices and enforce consistent enterprise coding patterns safely across teams.",
+        "painPoint": "Standard AI plugins lack deep context of private internal libraries, yielding hallucinated APIs and high PR review overhead.",
+        "jtbd": "When my engineers refactor internal gRPC interfaces, give them workspace-aware completions so we maintain zero schema drift and minimize regressions.",
+        "behavior": "Audits team usage telemetry, configures workspace `.cursorrules`, and monitors repo index health across 50+ enterprise repositories."
+      }
+    ],
+    "nuances": [
+      {
+        "title": "The VS Code Fork Wedge & Zero-Switching Cost Moat",
+        "insight": "By hard-forking VS Code rather than building an extension, Cursor bypassed the extension API limits on intercepting core text-buffer state and custom UI layouts. This enabled low-latency speculative edits and seamless migration of existing keybindings, themes, and extensions, creating an instant onboarding ramp with zero switching friction."
+      },
+      {
+        "title": "Model-Agnostic Context Engineering as the True Moat",
+        "insight": "Cursor does not rely on proprietary foundation models; its defensibility lies in proprietary context curation (RAG, AST parsing, symbol indexing, and active window heuristic management). As frontier labs race to zero on token costs, Cursor's margins expand while its proprietary retrieval layer continues to make raw model outputs significantly more accurate than native chat interfaces."
+      }
+    ],
+    "critiqueAnd10x": {
+      "proposal": "Autonomous Background PR Verification & Shadow CI: Transform Cursor from an active editor into an asynchronous agent that monitors CI failures, spins up ephemeral sandbox branches, reproduces failing tests, and submits complete fix PRs with zero active human steering.",
+      "tradeoffs": "Massive increase in background inference compute cost, enterprise security friction around granting write-access and execution tokens to unmonitored sandboxes, and developer mistrust from potential hallucinated regressions in core business logic."
+    },
+    "interviewCheatSheet": "Cursor proves that owning the presentation layer and system telemetry beats building standalone foundation models. Its moat is rooted in low-latency context ingestion and proprietary speculative decoding UX that extensions cannot technically replicate. Long-term defensibility requires moving from editor-assist into end-to-end asynchronous developer operations before hyperscalers replicate the workspace-native orchestration layer."
+  },
+  // ========================================================
   // DAY 6 (TODAY - NOV 9): FIGMA
   // ========================================================
   {
