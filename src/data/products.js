@@ -14,6 +14,81 @@ export function getCurriculumDay() {
 
 export const ALL_CURRICULUM_PRODUCTS = [
   // ========================================================
+  // DAY 13 (2026-11-22): CURSOR
+  // ========================================================
+  {
+    "id": "cursor",
+    "week": 3,
+    "day": 13,
+    "releaseDate": "2026-11-22",
+    "name": "Cursor",
+    "category": "AI-Native Developer Environment",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-300",
+    "iconColor": "text-blue-600",
+    "tagline": "An AI-native fork of VS Code built from the ground up for deep codebase indexing, speculative editing, and multi-file code generation.",
+    "heroMetric": "Over $100M ARR within 12 months of launch with 140%+ enterprise Net Revenue Retention (NRR).",
+    "whatIsTheProduct": {
+      "summary": "Cursor is an AI-first integrated development environment (IDE) constructed as a hard fork of Microsoft VS Code. It combines local codebase context indexing, custom shadow workspace execution, and multi-file speculative edit engines to transform software engineering from manual syntax writing to high-level architectural steering.",
+      "coreSurfaces": [
+        {
+          "name": "Cmd+K Inline Generation & Edit",
+          "detail": "Enables developers to highlight code blocks and prompt inline modifications with instant side-by-side diff previews and hotkey acceptance."
+        },
+        {
+          "name": "Composer (Multi-File Speculative Generation)",
+          "detail": "An agentic workspace controller capable of creating, modifying, and refactoring code across dozens of files simultaneously."
+        },
+        {
+          "name": "Symbol & Codebase Indexing Engine (@Codebase / @Files)",
+          "detail": "Local vector indexing and structural AST parsing that automatically retrieves project context and dependency graphs for model prompts."
+        },
+        {
+          "name": "Cursor Chat & Terminal Diagnostics",
+          "detail": "Sidebar chat interface integrated with shell execution logs, automated stack-trace debugging, and real-time web search."
+        }
+      ]
+    },
+    "demographics": {
+      "geography": "Global engineering centers across the US, Europe, Japan, and India, with high density in AI startups and fast-growing tech scale-ups.",
+      "motivation": "Eliminating boilerplate code generation, bypassing manual multi-file refactoring overhead, and accelerating codebase comprehension.",
+      "ageDistribution": "Software engineers, technical leads, and founders aged 21–45.",
+      "retentionBenchmark": ">65% 30-day developer active retention; 140%+ enterprise seat expansion."
+    },
+    "personas": [
+      {
+        "name": "Leo (27, San Francisco) — 'The Speed-Demon Full-Stack Engineer'",
+        "archetype": "Startup Senior Engineer",
+        "goal": "Ship multi-surface features and complex refactors in half the time.",
+        "painPoint": "Constantly copy-pasting code back and forth between browser AI chats and VS Code while manually repairing broken import statements.",
+        "jtbd": "'When I describe a cross-stack feature, I want the editor to generate and link code across API routes, database schemas, and UI components automatically.'",
+        "behavior": "Spends 6+ hours daily inside Cursor, relying on Cmd+K and Composer for over 80% of routine code generation."
+      },
+      {
+        "name": "Priya (38, London) — 'The System Architect & Tech Lead'",
+        "archetype": "Enterprise Lead Architect",
+        "goal": "Maintain strict architectural guidelines and onboard new engineers rapidly without code quality degradation.",
+        "painPoint": "Code reviews are bogged down by inconsistent formatting, duplicate logic, and unoptimized boilerplate across microservices.",
+        "jtbd": "'When my team writes new microservices, I want the IDE to automatically enforce repository design patterns and lint rules in real time.'",
+        "behavior": "Configures repo-level `.cursorrules` files and uses @Codebase search to inspect architectural compliance across large pull requests."
+      }
+    ],
+    "nuances": [
+      {
+        "title": "The VS Code Fork Strategy as a UI and Distribution Primitive",
+        "insight": "By hard-forking VS Code rather than building an extension, Cursor achieved 100% extension compatibility while overriding native editor rendering to offer custom UX primitives like speculative shadow diffs and multi-line ghost text."
+      },
+      {
+        "title": "Latency Minimization and Compute Arbitrage Moat",
+        "insight": "Cursor delivers sub-200ms inline edit suggestions using speculative decoding models and low-latency infrastructure, creating a feel of local compute that makes standard web-based AI tools feel sluggish by comparison."
+      }
+    ],
+    "critiqueAnd10x": {
+      "proposal": "Autonomous CI/CD Verification & Live Sandbox Execution: Transform Composer into an autonomous agent that runs generated edits inside isolated cloud micro-sandboxes, executing test suites and auto-fixing runtime errors before opening a pull request.",
+      "tradeoffs": "Incurs massive cloud compute expenditure per user session, introduces security risks around executing untrusted generated code, and risks developer fatigue if automated iterations yield noisy false positives."
+    },
+    "interviewCheatSheet": "Cursor captured market share by hard-forking VS Code to break past extension API limits, delivering ultra-fast speculative diffs and deep codebase context indexing. Its long-term enterprise moat relies on developer workflow reliance, proprietary fast inference pipelines, and team-wide alignment via shared `.cursorrules`."
+  },
+  // ========================================================
   // DAY 13 (2026-11-21): CURSOR
   // ========================================================
   {
