@@ -14,6 +14,81 @@ export function getCurriculumDay() {
 
 export const ALL_CURRICULUM_PRODUCTS = [
   // ========================================================
+  // DAY 13 (2026-11-23): CURSOR
+  // ========================================================
+  {
+    "id": "cursor",
+    "week": 3,
+    "day": 13,
+    "releaseDate": "2026-11-23",
+    "name": "Cursor",
+    "category": "Developer Tools & AI IDE",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-300",
+    "iconColor": "text-blue-600",
+    "tagline": "An AI-native fork of VS Code engineered for high-throughput, agentic software development.",
+    "heroMetric": "$50M+ ARR scaling velocity, 40%+ AI code acceptance rate, sub-50ms autocomplete latency.",
+    "whatIsTheProduct": {
+      "summary": "Cursor is an AI-first Integrated Development Environment (IDE) built as a hard fork of Microsoft VS Code. By directly controlling the editor rendering engine, language server protocol (LSP) integrations, and keypress event loops, Cursor delivers deep AI experiences including speculative multi-token autocomplete, repository-wide context retrieval, and multi-file edit execution.",
+      "coreSurfaces": [
+        {
+          "name": "Cursor Tab (Speculative Autocomplete)",
+          "detail": "Custom predictive autocomplete model anticipating multi-line and multi-file cursor movements and code changes in real-time."
+        },
+        {
+          "name": "Composer (Multi-File Agent Canvas)",
+          "detail": "Architectural prompt interface that plans, creates, and refactors logic concurrently across multiple codebase files with unified diff visualizers."
+        },
+        {
+          "name": "@ Codebase Context Engine",
+          "detail": "Hybrid retrieval system combining AST parsing, local vector embeddings, and BM25 search to pull exact repository context into model prompts."
+        },
+        {
+          "name": ".cursorrules & System Governance",
+          "detail": "Repository-level instruction files that enforce team conventions, architectural patterns, and framework rules across all agentic outputs."
+        }
+      ]
+    },
+    "demographics": {
+      "geography": "Global reach centered in US technology hubs, Europe, and fast-growing software developer markets across Asia-Pacific.",
+      "motivation": "Eliminate repetitive boilerplate coding, accelerate complex refactoring, and reduce context-switching across external documentation.",
+      "ageDistribution": "Software engineers and product builders aged 20–45 (ranging from indie hackers to enterprise staff engineers).",
+      "retentionBenchmark": "D30 active developer retention >65% with top-tier product-led growth (PLG) expansion resulting in Net Revenue Retention (NRR) >140%."
+    },
+    "personas": [
+      {
+        "name": "Julian (29, San Francisco) — 'The Speed-Demon Fullstack Lead'",
+        "archetype": "Senior Product Engineer",
+        "goal": "Ship end-to-end full-stack features 3x faster without compromising code quality or introducing type errors.",
+        "painPoint": "Manual boilerplate wiring, context switching to read API docs, and tedious multi-file copy-pasting from web LLM interfaces.",
+        "jtbd": "'When I am building complex full-stack features, I want the IDE to generate precise multi-file diffs automatically so I can focus on high-level system logic.'",
+        "behavior": "Uses Cursor 6+ hours daily; heavily relies on Cmd+K inline edits and Composer multi-file generations."
+      },
+      {
+        "name": "Siddharth (38, Bangalore) — 'The Infrastructure & Platform Architect'",
+        "archetype": "Staff Platform Engineer",
+        "goal": "Modernize legacy microservices and enforce enterprise security and architectural standards across team repositories.",
+        "painPoint": "AI tools producing hallucinated or non-compliant code patterns that violate internal architectural guidelines.",
+        "jtbd": "'When refactoring enterprise services, I want AI context retrieval to adhere strictly to our internal code patterns so pull requests pass CI validation on the first attempt.'",
+        "behavior": "Configures `.cursorrules`, uses `@codebase` retrieval tags, and conducts line-by-line diff inspections before merging."
+      }
+    ],
+    "nuances": [
+      {
+        "title": "The Fork Advantage vs. Extension Sandbox Constraints",
+        "insight": "By forking VS Code rather than operating as an extension (like GitHub Copilot), Cursor gains complete control over keypress handlers and the text buffer rendering loop. This architectural decision enables sub-50ms speculative autocomplete ('Cursor Tab') and inline multi-file diff rendering that standard VS Code extension APIs explicitly block."
+      },
+      {
+        "title": "Context Retrieval Efficiency as the Core Moat",
+        "insight": "Cursor's real moat is not the underlying frontier model (e.g., Claude or OpenAI), but its retrieval architecture. By combining tree-sitter AST parsing with lightweight local embeddings and re-ranking models, Cursor maximizes context relevance while minimizing prompt token costs and latency."
+      }
+    ],
+    "critiqueAnd10x": {
+      "proposal": "Autonomous Background Sandbox & CI Repair Agent: Expand Cursor from an inline editor assistant into an asynchronous background workspace agent. When a developer triggers a build or CI failure, Cursor automatically spins up a headless container sandbox, runs tests, inspects failures, iteratively edits code until tests pass, and presents a fully verified PR for review.",
+      "tradeoffs": "Increased compute consumption and model inference costs per run, potential developer distrust if background agents make unvetted structural changes, and security sandboxing challenges in enterprise VPC environments."
+    },
+    "interviewCheatSheet": "Cursor captures high developer mindshare by hard-forking VS Code to bypass extension constraints, delivering lower-latency autocomplete and native multi-file edits. Its core PM thesis relies on winning the developer workflow UX while treating underlying LLMs as commoditized intelligence, making context retrieval and editor integration its primary defensibility."
+  },
+  // ========================================================
   // DAY 13 (2026-11-22): CURSOR
   // ========================================================
   {
