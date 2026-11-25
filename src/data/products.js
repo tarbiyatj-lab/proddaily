@@ -14,6 +14,81 @@ export function getCurriculumDay() {
 
 export const ALL_CURRICULUM_PRODUCTS = [
   // ========================================================
+  // DAY 13 (2026-11-25): CURSOR
+  // ========================================================
+  {
+    "id": "cursor",
+    "week": 3,
+    "day": 13,
+    "releaseDate": "2026-11-25",
+    "name": "Cursor",
+    "category": "AI-Native Developer Environment",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-300",
+    "iconColor": "text-blue-600",
+    "tagline": "The AI-first code editor engineered to transform software development through agentic codebase synthesis and low-latency speculative execution.",
+    "heroMetric": "$100M+ ARR run-rate within 12 months, 40%+ 90-day developer retention, over 1 billion monthly context-aware AI edits processed",
+    "whatIsTheProduct": {
+      "summary": "Cursor is a high-performance fork of VS Code built around native AI primitives that treat an entire repository as a queryable, actionable vector graph. It merges local language server protocol (LSP) intelligence with multi-file speculative code generation and direct terminal/git manipulation capabilities.",
+      "coreSurfaces": [
+        {
+          "name": "Cmd+K Inline Prompt Engine",
+          "detail": "In-place code mutation interface that consumes localized file context and LSP diagnostic hints to generate zero-diff edits directly inside active editor tabs."
+        },
+        {
+          "name": "Composer (Multi-File Agentic Workspace)",
+          "detail": "Autonomous agent environment capable of spanning dozens of files simultaneously to create PRs, execute multi-step refactors, and execute terminal commands."
+        },
+        {
+          "name": "Shadow Workspace & Local Vector Index",
+          "detail": "Background indexing engine that continuously builds semantic embeddings of the entire repository alongside real-time LSP AST nodes for zero-latency retrieval."
+        },
+        {
+          "name": "Tab Autocomplete Engine (Speculative Decoding)",
+          "detail": "Custom high-throughput auto-fill engine predicting multi-line edits using light frontier models optimized for sub-50ms latency response times."
+        }
+      ]
+    },
+    "demographics": {
+      "geography": "Global developer adoption concentrated in North America, Western Europe, Japan, and India tech hubs",
+      "motivation": "Maximum engineering velocity, elimination of tedious boilerplate, and instant navigation of legacy or unfamiliar codebases",
+      "ageDistribution": "22–45 years old (spanning junior engineers to staff architects and technical founders)",
+      "retentionBenchmark": "65%+ 30-day user retention with 130%+ net revenue retention (NRR) driven by seat expansion within engineering teams"
+    },
+    "personas": [
+      {
+        "name": "Julian (29, San Francisco) — 'The Speed-Demon Founder'",
+        "archetype": "Full-Stack Startup Founder",
+        "goal": "Ship full features and product iterations daily without getting bogged down in boilerplate setup or syntax friction.",
+        "painPoint": "Context-switching between ChatGPT web windows, terminal windows, and IDE tabs degraded focus and slowed release velocity.",
+        "jtbd": "When I build new product flows across frontend and backend files, I want the editor to automatically write and link files across the codebase so I can ship in hours instead of days.",
+        "behavior": "Uses Composer multi-file generation continuously 6+ hours per day across TypeScript and Python repos."
+      },
+      {
+        "name": "Priya (37, Seattle) — 'The Enterprise Systems Architect'",
+        "archetype": "Staff Software Engineer",
+        "goal": "Safely refactor legacy microservices and onboard junior engineers across a 500k-line monolithic repo.",
+        "painPoint": "Unfamiliar microservice boundaries and missing inline documentation made architectural changes risky and time-consuming.",
+        "jtbd": "When I refactor legacy services, I need semantic workspace awareness that respects LSP types and company styling so that changes don't break downstream dependencies.",
+        "behavior": "Runs codebase-wide semantic search queries and inline code reviews using custom LLM context prompts daily."
+      }
+    ],
+    "nuances": [
+      {
+        "title": "Forking VS Code as a Distribution & UX Trojan Horse",
+        "insight": "By maintaining 1:1 compatibility with VS Code extensions and keybindings, Cursor bypassed the steep adoption barrier of new IDEs like Fleet, reducing switching costs to zero while embedding native UI affordances impossible via standard extensions."
+      },
+      {
+        "title": "Model-Agnostic Arbitrage & Proprietary Fine-Tuning",
+        "insight": "Cursor decouples user value from underlying LLM vendors by routing between Anthropic, OpenAI, and custom internal models while capturing high-intent telemetry to continuously optimize fast speculative autocomplete."
+      }
+    ],
+    "critiqueAnd10x": {
+      "proposal": "Autonomous CI/CD Self-Healing Sandbox: Introduce a background cloud engine that intercepts failing GitHub PR checks, runs headless Cursor agents in isolated micro-vms, and automatically pushes verified unit-tested fix commits directly to active branches.",
+      "tradeoffs": "Requires storing and executing arbitrary code in secure sandboxes, introduces potential API cost inflation for failing test loops, and risks developer pushback over automated unvetted commits."
+    },
+    "interviewCheatSheet": "Cursor captures market share by combining a zero-friction VS Code fork strategy with proprietary codebase indexing and multi-file agentic UX. Its strategic moat relies on proprietary speculative decoding models, deep IDE-level context integration, and intense developer workflow lock-in that outpaces generic LLM wrappers."
+  },
+  // ========================================================
   // DAY 13 (2026-11-23): CURSOR
   // ========================================================
   {
