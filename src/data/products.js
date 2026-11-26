@@ -14,6 +14,81 @@ export function getCurriculumDay() {
 
 export const ALL_CURRICULUM_PRODUCTS = [
   // ========================================================
+  // DAY 13 (2026-11-26): CURSOR
+  // ========================================================
+  {
+    "id": "cursor",
+    "week": 3,
+    "day": 13,
+    "releaseDate": "2026-11-26",
+    "name": "Cursor",
+    "category": "AI Developer Tools",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-300",
+    "iconColor": "text-blue-600",
+    "tagline": "A fork of VS Code engineered from the ground up to make software engineering frictionless through deep contextual AI.",
+    "heroMetric": "Surpassed $100M+ ARR within two years of commercialization, capturing significant mindshare among elite engineering teams.",
+    "whatIsTheProduct": {
+      "summary": "Cursor is a standalone code editor built as a fork of VS Code, tightly integrating large language models directly into the file-editing loop. Unlike extensions that require manual context copying, Cursor indexes entire codebases to power multi-file edits, codebase-wide chat, and deterministic terminal execution.",
+      "coreSurfaces": [
+        {
+          "name": "Composer (`Ctrl/Cmd + I`)",
+          "detail": "A multi-file editing interface that allows developers to orchestrate complex refactors and write code across several files simultaneously using natural language."
+        },
+        {
+          "name": "Codebase Indexing & Vector Search",
+          "detail": "Background embedding of local repositories enabling the AI to retrieve exact function signatures, imports, and architecture patterns instantly."
+        },
+        {
+          "name": "Predictive Tab-Autocomplete",
+          "detail": "A speculative decoding model that predicts multi-line edits and repetitive boilerplate, allowing developers to tab-complete entire code blocks."
+        },
+        {
+          "name": "Terminal Error Auto-Debugging",
+          "detail": "One-click analysis of failed build outputs or CLI tracebacks directly linked to the AI agent for rapid remediation."
+        }
+      ]
+    },
+    "demographics": {
+      "geography": "Global developer hubs (San Francisco, New York, London, Bengaluru, Tokyo)",
+      "motivation": "Multiply individual engineering velocity by eliminating boilerplate, syntax lookups, and manual multi-file refactoring.",
+      "ageDistribution": "Software engineers and technical founders aged 22-45",
+      "retentionBenchmark": "Extremely high daily active usage (DAU/MAU > 70%) with viral bottoms-up adoption spreading across entire engineering orgs."
+    },
+    "personas": [
+      {
+        "name": "Alex (28, San Francisco) — 'The 10x Velocity Seeker'",
+        "archetype": "Senior Full-Stack Engineer",
+        "goal": "Ship complex features and infrastructure changes in hours instead of days without sacrificing code quality.",
+        "painPoint": "Context switching between documentation, terminal errors, and writing repetitive boilerplate code across multiple microservices.",
+        "jtbd": "When I am refactoring an API schema across the backend and frontend, I want the AI to handle the cascading changes across all affected files so I can focus on architectural logic.",
+        "behavior": "Uses Composer constantly for multi-file CRUD implementation and relies on predictive tab-complete for 60%+ of daily keystrokes."
+      },
+      {
+        "name": "Elena (35, Berlin) — 'The Engineering Director'",
+        "archetype": "VP of Engineering / Tech Lead",
+        "goal": "Onboard new engineers rapidly and increase team-wide deployment frequency while maintaining security compliance.",
+        "painPoint": "New hires spend weeks ramping up on legacy, undocumented codebases and struggle to navigate intricate internal architecture.",
+        "jtbd": "When a junior developer joins the team, I want them to query our codebase contextually so they can become autonomous within days rather than months.",
+        "behavior": "Mandates enterprise privacy settings, audits team usage analytics, and evaluates ROI through increased weekly pull request velocity."
+      }
+    ],
+    "nuances": [
+      {
+        "title": "The Fork Advantage & Extension Trap",
+        "insight": "By forking VS Code rather than building an extension, Cursor controls the entire rendering pipeline, enabling native inline UI overlays, custom keybindings, and instantaneous diff applications that extensions can never match due to API sandboxing."
+      },
+      {
+        "title": "Bottoms-Up Viral Developer Motion",
+        "insight": "Cursor monetizes through individual pro subscriptions ($20/month) that developers expense or pay out of pocket. This creates a shadow-IT adoption motion where entire enterprise engineering teams standardize on Cursor organically before enterprise procurement steps in."
+      }
+    ],
+    "critiqueAnd10x": {
+      "proposal": "Introduce an autonomous 'Pull Request Reviewer & Test Agent' that runs locally and on CI, proactively writing comprehensive end-to-end tests and security patches before human review.",
+      "tradeoffs": "Increased model inference costs, potential hallucinations mutating production code without review, and enterprise resistance to autonomous code execution."
+    },
+    "interviewCheatSheet": "Cursor proves that in AI developer tools, workflow integration beats model intelligence. By forking the IDE rather than building a plugin, they eliminated friction, captured developer habit loops, and built a massive enterprise moat from a simple bottoms-up consumer motion."
+  },
+  // ========================================================
   // DAY 13 (2026-11-25): CURSOR
   // ========================================================
   {
