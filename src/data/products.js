@@ -14,6 +14,81 @@ export function getCurriculumDay() {
 
 export const ALL_CURRICULUM_PRODUCTS = [
   // ========================================================
+  // DAY 13 (2026-11-27): DUOLINGO
+  // ========================================================
+  {
+    "id": "duolingo",
+    "week": 3,
+    "day": 13,
+    "releaseDate": "2026-11-27",
+    "name": "Duolingo",
+    "category": "Consumer EdTech & Gamification",
+    "badgeColor": "bg-blue-100 text-blue-800 border-blue-300",
+    "iconColor": "text-blue-600",
+    "tagline": "Making language learning stick through bite-sized, gamified daily habits driven by aggressive behavioral loops.",
+    "heroMetric": "100M+ Monthly Active Users (MAU) and over $500M annual run-rate revenue, fueled by industry-leading freemium conversion and Duolingo Max AI adoption.",
+    "whatIsTheProduct": {
+      "summary": "Duolingo is a mobile-first, freemium educational platform that uses short, gamified interactive lessons to teach languages, math, and music. By combining behavioral psychology (streaks, push notifications, loss aversion) with adaptive learning algorithms, it turns a historically tedious chore into an addictive daily habit.",
+      "coreSurfaces": [
+        {
+          "name": "The Gamified Lesson Path",
+          "detail": "Linear, node-based curriculum tree mixing multiple-choice, matching, speaking, and listening exercises designed for sub-5-minute completion."
+        },
+        {
+          "name": "Streak Society & Push Notifications",
+          "detail": "Aggressive, emotionally manipulative notification engine paired with streak counters that create high psychological switching costs and daily retention hooks."
+        },
+        {
+          "name": "Leagues & Leaderboards",
+          "detail": "Weekly competitive multiplayer tiers (from Bronze to Diamond) that pit users against peers to drive engagement through social validation and status."
+        },
+        {
+          "name": "Duolingo Max (AI Integration)",
+          "detail": "OpenAI-powered conversational partner surfaces ('Roleplay' and 'Explain My Mistake') offering personalized, context-aware language tutoring."
+        }
+      ]
+    },
+    "demographics": {
+      "geography": "Global footprint with massive penetration in North America, Latin America, Europe, and rapidly growing Asian markets.",
+      "motivation": "Personal enrichment, career advancement, travel preparation, and the psychological satisfaction of daily self-improvement.",
+      "ageDistribution": "Skewed heavily toward Gen Z and Millennials (ages 16–35), though broad appeal spans school-age children to retirees.",
+      "retentionBenchmark": "Best-in-class consumer app D30 retention rates exceeding 15-20%, with exceptional multi-year streak retention among core cohorts."
+    },
+    "personas": [
+      {
+        "name": "Lucas (24, São Paulo) — 'The Career Climber'",
+        "archetype": "Ambitious Professional",
+        "goal": "Master conversational English to unlock remote multinational tech roles and higher salaries.",
+        "painPoint": "Traditional language schools are rigid, expensive, and require commuting after long work hours.",
+        "jtbd": "When I have downtime on my morning commute, I want a frictionless way to practice English so I can steadily improve my career prospects without altering my schedule.",
+        "behavior": "Completes two 5-minute lessons daily on the subway, maintaining a 300+ day streak."
+      },
+      {
+        "name": "Emma (32, London) — 'The Casual Tourist'",
+        "archetype": "Lifestyle Learner",
+        "goal": "Learn basic Italian vocabulary and phrases ahead of a two-week vacation in Tuscany.",
+        "painPoint": "Textbooks are dry and overwhelming, and previous apps felt like boring digital flashcards.",
+        "jtbd": "When I am winding down before bed, I want to feel productive while playing a fun game so I can pick up practical travel phrases effortlessly.",
+        "behavior": "Engages in rapid 10-minute bursts in the evening, occasionally using gems to freeze her streak during busy weekends."
+      }
+    ],
+    "nuances": [
+      {
+        "title": "The Emotional Blackmail Growth Loop",
+        "insight": "Duolingo's product moat isn't its pedagogical superiority; it's its world-class retention architecture. By weaponizing push notifications featuring a guilt-tripping green owl (Duo), they have engineered the highest organic habit formation in consumer software outside of major social networks."
+      },
+      {
+        "title": "Monetization via Feature Gating vs. Ad-Supported Scale",
+        "insight": "While Super Duolingo gates convenience (unlimited hearts, ad-free experience), the introduction of Duolingo Max successfully bifurcates the freemium funnel by capturing high-intent power users willing to pay SaaS-tier prices for generative AI conversation partners."
+      }
+    ],
+    "critiqueAnd10x": {
+      "proposal": "Transform Duolingo into an immersive, context-driven 'Life Simulator' where users navigate complex, branching real-world scenarios entirely in their target language, moving beyond fragmented sentences to fluid cultural and professional immersion.",
+      "tradeoffs": "Massively increases content creation costs, risks alienating casual users who prefer low-effort multiple-choice drills, and complicates the simple UI architecture that drives high mobile conversion."
+    },
+    "interviewCheatSheet": "Duolingo is the undisputed king of consumer edtech because it treats language learning not as an academic subject, but as a mobile game driven by retention mechanics, viral loops, and aggressive behavioral triggers. Its moat lies in proprietary engagement data and brand equity, allowing it to successfully upsell premium AI features without breaking its massive top-of-funnel freemium scale."
+  },
+  // ========================================================
   // DAY 13 (2026-11-26): CURSOR
   // ========================================================
   {
